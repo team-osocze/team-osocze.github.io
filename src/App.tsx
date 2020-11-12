@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AppBar from "./components/AppBar";
+import BottomNavigation from "./components/BottomNavigation";
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        app: {
+          textAlign: "center",
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column"
+        },
+        content: {
+          flex: 1
+        }
+    }),
+);
 
 function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello osocze-team
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.app}>
+      <AppBar />
+      <div className={classes.content}>
+        Content here
+      </div>
+      <BottomNavigation />
     </div>
   );
 }
