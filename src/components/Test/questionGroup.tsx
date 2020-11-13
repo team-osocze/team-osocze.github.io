@@ -13,11 +13,6 @@ import { IQuestion, IQuestionGroup, YesNoQuestion } from "../../questions/questi
 import YesNoQuestionComponent from "./yesNoQuestionComponent";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "90%",
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
   heading: {
     flexBasis: "33.33%",
     flexShrink: 0,
@@ -27,19 +22,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(15),
     color: theme.palette.text.secondary,
   },
-  header: {
-    marginTop: "30px",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
   groupDetails: {
     flexDirection: "column",
   },
-  groupsList: {
-    marginTop: "10px",
-  },
+  footer:{
+    display: "flex",
+    flexDirection: "column",
+    alignItems:"center"
+  }
 }));
 
 interface QuestionGroupProps {
@@ -84,7 +74,7 @@ const QuestionGroupComponent: React.FC<QuestionGroupProps> = (
         </AccordionSummary>
         <AccordionDetails className={classes.groupDetails}>
           {props.group.questions.map((q) => renderQuestion(q))}
-          <div>
+          <div className={classes.footer}>
             {!props.isLastGroup ? (
               <Button variant="contained" onClick={() => props.onNext()}>
                 DALEJ
