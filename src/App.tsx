@@ -3,7 +3,7 @@ import AppBar from "./components/AppBar";
 import Result from "./components/Result/Result";
 import BottomNavigation from "./components/BottomNavigation";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link
