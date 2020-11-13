@@ -3,7 +3,7 @@ import AppBar from "./components/AppBar";
 import Result from "./components/Result/Result";
 import BottomNavigation from "./components/BottomNavigation";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import Test from "./components/Test";
+import TestComponent from "./components/Test";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -25,7 +25,7 @@ function App() {
     <div className={classes.app}>
       <AppBar />
       <div className={classes.content}>
-        <Test/>
+        <TestComponent/>
         <Result />
       </div>
       <BottomNavigation />

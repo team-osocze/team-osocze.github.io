@@ -1,20 +1,11 @@
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Button,
-  Typography,
-} from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import IQuestionGroup from "./IQuestionGroup";
-import CovidGroup from "./covid";
-import DiseasesGroup from "./diseases";
-import MedicinesGroup from "./medicines";
-import DoneIcon from "@material-ui/icons/Done";
 import ReplayIcon from "@material-ui/icons/Replay";
 import Alert from "@material-ui/lab/Alert";
+import QuestionGroupComponent from "./questionGroup";
+import { Test } from "../../questions/test";
+import { IQuestionGroup } from "../../questions/questionGroup";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   heading: {
     flexBasis: "33.33%",
     flexShrink: 0,
-    color: "green"
+    color: "green",
   },
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(15),
@@ -41,19 +32,14 @@ const useStyles = makeStyles((theme) => ({
   groupDetails: {
     flexDirection: "column",
   },
-  groupsList:{
-    boxShadow: "2px",
-    marginTop: "10px"
-  }
+  groupsList: {
+    marginTop: "10px",
+  },
 }));
 
-const groups: IQuestionGroup[] = [
-  new CovidGroup(),
-  new DiseasesGroup(),
-  new MedicinesGroup(),
-];
+const test = new Test();
 
-const Test: React.FC = () => {
+const TestComponent: React.FC = () => {
   const classes = useStyles();
   const [
     expandedGroup,
@@ -69,17 +55,19 @@ const Test: React.FC = () => {
   function openNextGroup() {
     setExpandedGroup((previouslyExpandedGroup) => {
       if (previouslyExpandedGroup === null) {
-        return groups[0];
+        return test.questionGroups[0];
       } else {
-        const nextGroupIndex = groups.indexOf(previouslyExpandedGroup, 0) + 1;
-        if (nextGroupIndex < groups.length) return groups[nextGroupIndex];
+        const nextGroupIndex =
+          test.questionGroups.indexOf(previouslyExpandedGroup, 0) + 1;
+        if (nextGroupIndex < test.questionGroups.length)
+          return test.questionGroups[nextGroupIndex];
         else return null;
       }
     });
   }
 
   function restart() {
-    setExpandedGroup(groups[0]);
+    setExpandedGroup(test.questionGroups[0]);
   }
 
   return (
@@ -97,37 +85,15 @@ const Test: React.FC = () => {
           masz do nich dostęp.
         </Alert>
         <div className={classes.groupsList}>
-          {groups.map((group, index) => (
-            <Accordion
+          {test.questionGroups.map((group: IQuestionGroup, index: number) => (
+            <QuestionGroupComponent
               expanded={expandedGroup === group}
-              onChange={() => toggleGroup(group)}
-              key={group.secondaryHeading}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls={group.secondaryHeading + "-content"}
-                id={group.secondaryHeading + "-header"}
-              >
-                <DoneIcon className={classes.heading}/>
-                <Typography className={classes.secondaryHeading}>
-                  {group.secondaryHeading}
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails className={classes.groupDetails}>
-                {group.details}
-                <div>
-                  {index < groups.length - 1 ? (
-                    <Button variant="contained" onClick={() => openNextGroup()}>
-                      DALEJ
-                    </Button>
-                  ) : (
-                    <Button variant="contained" onClick={() => {}}>
-                      REZULTAT
-                    </Button>
-                  )}
-                </div>
-              </AccordionDetails>
-            </Accordion>
+              isLastGroup={index === test.questionGroups.length - 1}
+              onToggleGroup={() => toggleGroup(group)}
+              onNext={() => openNextGroup()}
+              group={group}
+              key={group.header}
+            />
           ))}
         </div>
       </div>
@@ -135,4 +101,4 @@ const Test: React.FC = () => {
   );
 };
 
-export default Test;
+export default TestComponent;
