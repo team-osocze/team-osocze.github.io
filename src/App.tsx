@@ -8,8 +8,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import TestComponent from "./components/Test";
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,42 +26,78 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+const theme = createMuiTheme({
+  palette: {
+    primary: { 
+      main: '#BE131F',
+      contrastText: '#FFFFFF'
+    },
+    secondary: {
+      main: '#B2D4DC',
+      contrastText: '#000000'
+    },
+    error:{
+      main: '#59252F'
+    },
+    warning:{
+      main: '#D99E2F'
+    },
+    info:{
+      main: '#F2D2B6'
+    },
+    success:{
+      main: '#1C8C8C'
+    },    
+    contrastThreshold: 3,
+    tonalOffset: 0.2,
+  },
+  typography: {
+    fontFamily: [
+      'Roboto',
+      'Noto Serif',
+      'serif'
+    ].join(','),
+  },
+});
+
 function App() {
   const classes = useStyles();
   return (
     <Router>
-      <div className={classes.app}>
-        <Switch>
-          <Route exact path="/">
-            <>
-            Nothing yet here, check paths:
-            /test
-            /result
-            </>
-          </Route>
-          <Route path="/test">
-            <>
-              <AppBar />
-              <div className={classes.content}>
-                <TestComponent />
-              </div>
-              <BottomNavigation />
-            </>
+      <Container maxWidth="sm">
+      <ThemeProvider theme={theme}>
+        <div className={classes.app}>
+          <Switch>
+            <Route exact path="/">
+              <>                   
+                    {/* <Result /> */}
+                    <TestComponent />            
+              </>
+            </Route>
+            <Route path="/test">
+              <>
+                <AppBar />
+                <div className={classes.content}>
+                  <TestComponent />
+                </div>
+                <BottomNavigation />
+              </>
 
-          </Route>
-          <Route path="/result">
-            <>
-              <AppBar />
-              <div className={classes.content}>
-                <Result />
-              </div>
-              <BottomNavigation />
-            </>
+            </Route>
+            <Route path="/result">
+              <>
+                <AppBar />
+                <div className={classes.content}>
+                  <Result />
+                </div>
+                <BottomNavigation />
+              </>
 
-          </Route>
-        </Switch>
-
-      </div>
+            </Route>
+          </Switch>
+        </div>
+      </ThemeProvider>
+      </Container>
     </Router>
 
   );

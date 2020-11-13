@@ -3,17 +3,12 @@ import SuccessResult from "./SuccessResult";
 import ErrorResult from "./ErrorResult";
 import WarningResult from "./WarningResult";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 
 const useStyles = makeStyles((theme: Theme) =>
-createStyles({ 
-    root: {
-        width: "90%",
-        marginLeft: "auto",
-        marginRight: "auto",
-      },
+createStyles({     
       header: {
         marginTop: "30px",
         display: "flex",
@@ -27,15 +22,15 @@ createStyles({
 export default function Result() {
     const classes = useStyles();
     
-    const showSuccessResult = true;
-    const showErrorResult = true;
+    const showSuccessResult = false;
+    const showErrorResult = false;
     const showWarningResult = true;
 
     return (
-        <div className={classes.root}> 
+        <div> 
             <header className={classes.header}>
-                <Typography variant="h4">Rezultat</Typography>
-                <Button size="large" variant="contained" color="primary">Test </Button>
+                <Typography variant="h4" gutterBottom>Rezultat</Typography>
+                <Button size="large" variant="contained" color="primary">Test</Button>
             </header>
             <div>     
                 { showSuccessResult ? <SuccessResult /> : null }     

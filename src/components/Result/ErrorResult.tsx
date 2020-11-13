@@ -2,6 +2,7 @@ import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import ShareCard from './ShareCard';
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,10 +22,14 @@ export default function SuccessResult() {
         <div className={classes.successResult}>            
             <Alert severity="error">
                 <AlertTitle>Przykro nam.</AlertTitle>
-                Dziękujemy za wypełnienie kwestionariusza. Niestety, wygląda na to, że w tym momencie nie możesz zostać dawcą osocza. Ciągle jednak możesz zrobić coś, co pomoże innym.
+                <Typography variant="body1" gutterBottom>
+                Dziękujemy za wypełnienie kwestionariusza. Niestety, wygląda na to, że w tym momencie nie możesz zostać dawcą osocza. 
+                </Typography>
                 </Alert>
-                <p>Udostępnij link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.</p>
-                <p> Razem uratujemy więcej ludzkich żyć! <strong> Nie poddawaj się!</strong></p> 
+                <Typography variant="body1" gutterBottom>
+                Ciągle jednak możesz zrobić coś, co pomoże innym. Udostępnij link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.<br/>
+                <strong> Razem uratujemy więcej ludzkich żyć!</strong>
+                </Typography>
                 <ShareCard />
         </div>
     );

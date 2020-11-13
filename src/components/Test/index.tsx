@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import ReplayIcon from "@material-ui/icons/Replay";
@@ -7,12 +7,7 @@ import QuestionGroupComponent from "./questionGroup";
 import { Test } from "../../questions/test";
 import { IQuestionGroup } from "../../questions/questionGroup";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "90%",
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
+const useStyles = makeStyles((theme) => ({  
   heading: {
     flexBasis: "33.33%",
     flexShrink: 0,
@@ -72,17 +67,19 @@ const TestComponent: React.FC = () => {
 
   return (
     <>
-      <div className={classes.root}>
+      <div>
         <header className={classes.header}>
-          <h1>Test</h1>
-          <Button variant="contained" onClick={(e) => restart()}>
+        <Typography variant="h4" gutterBottom>Test</Typography>
+          <Button variant="contained" color="secondary" onClick={(e) => restart()}>
             <ReplayIcon />
             POWTÓRZ
           </Button>
         </header>
         <Alert severity="info">
+          <Typography variant="body2">
           Informacje nie są zbierane ani przekazywane. Tylko Ty je widzisz i
           masz do nich dostęp.
+          </Typography>
         </Alert>
         <div className={classes.groupsList}>
           {test.questionGroups.map((group: IQuestionGroup, index: number) => (

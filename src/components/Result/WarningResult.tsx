@@ -2,6 +2,7 @@ import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import CenterCard from './CenterCard';
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,13 +22,20 @@ export default function SuccessResult() {
         <div className={classes.successResult}>            
             <Alert severity="warning">
                 <AlertTitle>Może się udać.</AlertTitle>
-                Jest duża szansa, że Twoje osocze może uratować komuś życie! Kilka odpowiedzi na pytania wymaga jednak konsultacji ze specjalistą.                
+                <Typography variant="body1" gutterBottom>
+                Jest duża szansa, że Twoje osocze może uratować komuś życie! Kilka odpowiedzi na pytania wymaga jednak konsultacji ze specjalistą.
+                </Typography>                
                 </Alert>
-                <p>Zadzwoń, by przejść przez kwestionariusz z osobą, która będzie mogła rozwiać wszelkie wątpliwości.</p>
-                <p>Pamiętaj! Linie mogą być obciążone i być może trzeba będzie czekać na połączenie. <strong> Nie poddawaj się!</strong></p> 
+                <Typography variant="body1" gutterBottom>
+                  Zadzwoń, by przejść przez kwestionariusz z osobą, która będzie mogła rozwiać wszelkie wątpliwości.<br/>
+                  Pamiętaj! Linie mogą być obciążone i być może trzeba będzie czekać na połączenie.<br/>
+                  <strong>Nie poddawaj się!</strong> 
+                </Typography>
                 <CenterCard />
-                <p> Udostęnij link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.</p>
-                <p> Razem uratujemy więcej ludzkich żyć!</p>
+                <Typography variant="body1" gutterBottom>
+                  Udostęnij link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.<br/>
+                  Razem uratujemy więcej ludzkich żyć!
+                </Typography>
         </div>
     );
 }

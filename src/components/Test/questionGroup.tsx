@@ -68,7 +68,7 @@ const QuestionGroupComponent: React.FC<QuestionGroupProps> = (
           id={props.group.header + "-header"}
         >
           <DoneIcon className={classes.heading} />
-          <Typography className={classes.secondaryHeading}>
+          <Typography variant="h6" className={classes.secondaryHeading}>
             {props.group.header}
           </Typography>
         </AccordionSummary>
@@ -76,11 +76,11 @@ const QuestionGroupComponent: React.FC<QuestionGroupProps> = (
           {props.group.questions.map((q) => renderQuestion(q))}
           <div className={classes.footer}>
             {!props.isLastGroup ? (
-              <Button variant="contained" onClick={() => props.onNext()}>
+              <Button variant="contained" color="secondary" onClick={() => props.onNext()}>
                 DALEJ
               </Button>
             ) : (
-              <Button variant="contained" onClick={() => {}}>
+              <Button variant="contained" color="secondary" onClick={() => {}}>
                 REZULTAT
               </Button>
             )}
