@@ -1,6 +1,6 @@
 import React from 'react';
 import AppBar from "./components/AppBar";
-import Result from "./components/Result";
+import Result from "./components/Result/Result";
 import BottomNavigation from "./components/BottomNavigation";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Test from "./components/Test";

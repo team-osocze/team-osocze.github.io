@@ -9,9 +9,18 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme: Theme) =>
 createStyles({ 
-        sideButton: {
-            marginLeft: 32
-        }
+    root: {
+        width: "90%",
+        marginLeft: "auto",
+        marginRight: "auto",
+      },
+      header: {
+        marginTop: "30px",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }     
     }),
 );
 
@@ -23,13 +32,11 @@ export default function Result() {
     const showWarningResult = true;
 
     return (
-        <div> 
-            <div>         
-                <Typography variant="h3">Rezultat 
-                    <Button size="large" variant="contained" color="primary" className={classes.sideButton}>Test
-                    </Button>
-                </Typography>  
-            </div> 
+        <div className={classes.root}> 
+            <header className={classes.header}>
+                <Typography variant="h4">Rezultat</Typography>
+                <Button size="large" variant="contained" color="primary">Test </Button>
+            </header>
             <div>     
                 { showSuccessResult ? <SuccessResult /> : null }     
                 { showErrorResult ? <ErrorResult /> : null } 

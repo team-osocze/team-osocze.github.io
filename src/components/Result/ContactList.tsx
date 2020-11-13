@@ -4,8 +4,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import { Room, Email} from '@material-ui/icons';
-import Phone from '@material-ui/icons/Phone';
+import { Room, Email, Language, Phone} from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -47,6 +46,12 @@ export default function ContactList() {
           <Email />
         </ListItemIcon>  
       <ListItemText primary="osocze@rckik.pl" secondary="w emailu podaj nr telefonu do kontaktu" />
+      </ListItem>
+      <ListItem button className={classes.constactListElement}>         
+        <ListItemIcon>
+          <Language />
+        </ListItemIcon>  
+      <ListItemText primary="www.rckik.pl" secondary="" />
       </ListItem>
     </List>
   );
