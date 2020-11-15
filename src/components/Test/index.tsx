@@ -45,7 +45,7 @@ const TestComponent: React.FC<TestComponentProps> = (
     setExpandedGroup,
   ] = React.useState<IQuestionGroup | null>(null);
 
-  const [test, _] = React.useState<Test>(props.test ?? new Test());
+  const [test] = React.useState<Test>(props.test ?? new Test());
 
   useEffect(() => {
     setExpandedGroup(test.questionGroups[0]);

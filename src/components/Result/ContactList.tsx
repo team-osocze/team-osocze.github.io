@@ -23,35 +23,35 @@ export default function ContactList() {
 
   return (
     <List className={classes.constactList}>     
-     <ListItem button className={classes.constactListElement}>         
+     <ListItem button component="a" href="https://www.google.com/maps/search/?api=1&query=Regionalne+Centrum+Krwiodawstwa+i+Krwiolecznictwa+w+Krakowie" target="_blank" className={classes.constactListElement}>         
         <ListItemIcon>
           <Room />
         </ListItemIcon>  
       <ListItemText primary="ul. Rzeźnicza 11" secondary="31-540 Kraków" />
       </ListItem>
-      <ListItem button className={classes.constactListElement}>         
+      <ListItem button component="a" href="tel:+48122618803" className={classes.constactListElement}>         
         <ListItemIcon>
           <Phone />
         </ListItemIcon>  
-      <ListItemText primary="999 999 999" secondary="w godz. 8:00-16:00" />
+      <ListItemText primary="+48 663 560 300" secondary="w godz. 8:00-16:00" />
       </ListItem>
-      <ListItem button className={classes.constactListElement}>         
+      <ListItem button component="a" href="tel:+48 661 926 116" className={classes.constactListElement}>         
         <ListItemIcon>
           <Phone />
         </ListItemIcon>  
-      <ListItemText primary="333 333 333" secondary="w godz. 7:00-15:00" />
+      <ListItemText primary="+48 661 926 116" secondary="w godz. 7:00-15:00" />
       </ListItem>
-      <ListItem button className={classes.constactListElement}>         
+      <ListItem button component="a" href="mailto:osocze@rckik.pl" className={classes.constactListElement}>         
         <ListItemIcon>
           <Email />
         </ListItemIcon>  
-      <ListItemText primary="osocze@rckik.pl" secondary="w emailu podaj nr telefonu do kontaktu" />
+      <ListItemText primary="dzial.dawcow@rckik.krakow.pl" secondary="w emailu podaj nr telefonu do kontaktu" />
       </ListItem>
-      <ListItem button className={classes.constactListElement}>         
+      <ListItem button component="a" href="https://rckik.krakow.pl" target="_blank" className={classes.constactListElement}>         
         <ListItemIcon>
           <Language />
         </ListItemIcon>  
-      <ListItemText primary="www.rckik.pl" secondary="" />
+      <ListItemText primary="rckik.krakow.pl" secondary="" />
       </ListItem>
     </List>
   );
