@@ -69,7 +69,11 @@ function App() {
         <div className={classes.app}>
           <Switch>
             <Route exact path="/">
-              <LandingPage />
+              <>
+                <AppBar />
+                <LandingPage />
+                <BottomNavigation />
+              </>
             </Route>
             <Route path="/test">
               <>

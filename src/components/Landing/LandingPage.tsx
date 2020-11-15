@@ -34,7 +34,6 @@ export function LandingPage() {
 
     return (
         <>
-            <AppBar />
             <div className={classes.content}>
                 <header className={classes.header}>
                     <Button component={Link} to="test" size="large" variant="contained" color="primary">Test</Button>
@@ -65,7 +64,6 @@ export function LandingPage() {
                     <Button component={Link} to="test" size="large" variant="contained" color="primary">Rozpocznij test</Button>
                 </section>
             </div>
-            <BottomNavigation />
         </>
     )
 }
