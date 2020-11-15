@@ -6,11 +6,11 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import { createStyles, makeStyles, Theme, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import TestComponent from "./components/Test";
 import Container from '@material-ui/core/Container';
+import {LandingPage} from "./components/Landing/LandingPage";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -64,15 +64,12 @@ function App() {
   const classes = useStyles();
   return (
     <Router>
-      <Container maxWidth="sm">
+      <Container maxWidth="sm" style={{padding: 0}}>
       <ThemeProvider theme={theme}>
         <div className={classes.app}>
           <Switch>
             <Route exact path="/">
-              <>                   
-                    {/* <Result /> */}
-                    <TestComponent />            
-              </>
+              <LandingPage />
             </Route>
             <Route path="/test">
               <>
