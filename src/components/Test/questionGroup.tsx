@@ -9,14 +9,24 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DoneIcon from "@material-ui/icons/Done";
-import { IQuestion, IQuestionGroup, YesNoQuestion } from "../../questions/questionGroup";
+import ErrorIcon from "@material-ui/icons/Error";
+import {
+  IQuestion,
+  IQuestionGroup,
+  YesNoQuestion,
+} from "../../questions/questionGroup";
 import YesNoQuestionComponent from "./yesNoQuestionComponent";
 
 const useStyles = makeStyles((theme) => ({
   heading: {
     flexBasis: "33.33%",
     flexShrink: 0,
+  },
+  green: {
     color: "green",
+  },
+  red: {
+    color: "red",
   },
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(15),
@@ -25,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
   groupDetails: {
     flexDirection: "column",
   },
-  footer:{
+  footer: {
     display: "flex",
     flexDirection: "column",
-    alignItems:"center"
-  }
+    alignItems: "center",
+  },
 }));
 
 interface QuestionGroupProps {
@@ -38,6 +48,7 @@ interface QuestionGroupProps {
   onToggleGroup: () => void;
   onNext: () => void;
   group: IQuestionGroup;
+  onShowResult: () => void;
 }
 
 const QuestionGroupComponent: React.FC<QuestionGroupProps> = (
@@ -45,15 +56,35 @@ const QuestionGroupComponent: React.FC<QuestionGroupProps> = (
 ) => {
   const classes = useStyles();
 
+  const [results, setResults] = React.useState<Map<IQuestion, boolean | null>>(
+    new Map<IQuestion, boolean | null>(props.group.getAnswers())
+  );
+
+  function setQuestionResult(q: IQuestion, isCorrect: boolean | null) {
+    setResults((prev) => {
+      return new Map(prev.set(q, isCorrect));
+    });
+
+    if(!isCorrect){
+      props.onShowResult();
+    }
+  }
+
   function renderQuestion(q: IQuestion) {
     if (q instanceof YesNoQuestion) {
       return (
-        <YesNoQuestionComponent
-          text={q.text}
-          onAnswer={(e) => alert(e)}
-        />
+        <YesNoQuestionComponent question={q} onAnswer={setQuestionResult} />
       );
     }
+  }
+
+  function groupStatus() {
+    const answersArray = Array.from(results.values());
+    if (answersArray.some((a) => a === null)) return <></>;
+
+    if (answersArray.some((a) => a === false))
+      return <ErrorIcon className={classes.red} />;
+    else return <DoneIcon className={classes.green} />;
   }
 
   return (
@@ -67,7 +98,7 @@ const QuestionGroupComponent: React.FC<QuestionGroupProps> = (
           aria-controls={props.group.header + "-content"}
           id={props.group.header + "-header"}
         >
-          <DoneIcon className={classes.heading} />
+          <div className={classes.heading}>{groupStatus()}</div>
           <Typography variant="h6" className={classes.secondaryHeading}>
             {props.group.header}
           </Typography>
@@ -76,11 +107,15 @@ const QuestionGroupComponent: React.FC<QuestionGroupProps> = (
           {props.group.questions.map((q) => renderQuestion(q))}
           <div className={classes.footer}>
             {!props.isLastGroup ? (
-              <Button variant="contained" color="secondary" onClick={() => props.onNext()}>
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={() => props.onNext()}
+              >
                 DALEJ
               </Button>
             ) : (
-              <Button variant="contained" color="secondary" onClick={() => {}}>
+              <Button variant="contained" color="secondary" onClick={()=> props.onShowResult()}>
                 REZULTAT
               </Button>
             )}

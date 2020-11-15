@@ -1,13 +1,13 @@
 import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React from "react";
+import React, { useEffect } from "react";
 import ReplayIcon from "@material-ui/icons/Replay";
 import Alert from "@material-ui/lab/Alert";
 import QuestionGroupComponent from "./questionGroup";
 import { Test } from "../../questions/test";
 import { IQuestionGroup } from "../../questions/questionGroup";
 
-const useStyles = makeStyles((theme) => ({  
+const useStyles = makeStyles((theme) => ({
   heading: {
     flexBasis: "33.33%",
     flexShrink: 0,
@@ -32,14 +32,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const test = new Test();
+interface TestComponentProps {
+  test?: Test;
+}
 
-const TestComponent: React.FC = () => {
+const TestComponent: React.FC<TestComponentProps> = (
+  props: TestComponentProps
+) => {
   const classes = useStyles();
   const [
     expandedGroup,
     setExpandedGroup,
   ] = React.useState<IQuestionGroup | null>(null);
+
+  const [test, _] = React.useState<Test>(props.test ?? new Test());
+
+  useEffect(() => {
+    setExpandedGroup(test.questionGroups[0]);
+  }, [test]);
 
   function toggleGroup(group: IQuestionGroup) {
     setExpandedGroup((previouslyExpandedGroup) =>
@@ -69,16 +79,22 @@ const TestComponent: React.FC = () => {
     <>
       <div>
         <header className={classes.header}>
-        <Typography variant="h4" gutterBottom>Test</Typography>
-          <Button variant="contained" color="secondary" onClick={(e) => restart()}>
+          <Typography variant="h4" gutterBottom>
+            Test
+          </Typography>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={(e) => restart()}
+          >
             <ReplayIcon />
             POWTÓRZ
           </Button>
         </header>
         <Alert severity="info">
           <Typography variant="body2">
-          Informacje nie są zbierane ani przekazywane. Tylko Ty je widzisz i
-          masz do nich dostęp.
+            Informacje nie są zbierane ani przekazywane. Tylko Ty je widzisz i
+            masz do nich dostęp.
           </Typography>
         </Alert>
         <div className={classes.groupsList}>
@@ -88,6 +104,7 @@ const TestComponent: React.FC = () => {
               isLastGroup={index === test.questionGroups.length - 1}
               onToggleGroup={() => toggleGroup(group)}
               onNext={() => openNextGroup()}
+              onShowResult={() => alert("navigate to result. Test passed:" + test.getResult())}
               group={group}
               key={group.header}
             />

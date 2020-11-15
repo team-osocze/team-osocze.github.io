@@ -1,7 +1,7 @@
-import { IQuestion , IQuestionGroup} from "./questionGroup";
+import { IQuestion , QuestionGroup} from "./questionGroup";
 
 
-export default class Diseases implements IQuestionGroup {
+export default class Diseases extends QuestionGroup {
   public header = "Choroby";
   public questions: IQuestion[] = [];
 }

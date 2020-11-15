@@ -13,4 +13,11 @@ export class Test {
       new MedicinesGroup(),
     ];
   }
+
+  public getResult(){
+    const allQuestions = this.questionGroups.flatMap(g=>g.questions);
+
+    return allQuestions.every(q=>q.getResult()===true);
+  }
+
 }
