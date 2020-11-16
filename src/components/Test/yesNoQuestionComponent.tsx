@@ -88,6 +88,15 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
             >
               NIE
             </Button>
+            {props.question.getCanBeNotApplicable() && (
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => onAnswer(YesNoAnswer.NotApplicable)}
+              >
+                NIE DOTYCZY
+              </Button>
+            )}
           </div>
           <div className={classes.result}>{questionResult()}</div>
         </div>

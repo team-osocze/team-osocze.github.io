@@ -7,6 +7,8 @@ import QuestionGroupComponent from "./questionGroup";
 import { Test } from "../../questions/test";
 import { IQuestionGroup } from "../../questions/questionGroup";
 import { useHistory } from "react-router-dom";
+import ProgressBar from "../progressBar";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -56,6 +58,8 @@ const TestComponent: React.FC<TestComponentProps> = (
   const history = useHistory();
   const [test] = React.useState<Test>(props.test ?? new Test());
 
+  const [progress, setProgress] = React.useState<number>(0);
+
   useEffect(() => {
     setExpandedGroup(test.questionGroups[0]);
   }, [test]);
@@ -91,6 +95,7 @@ const TestComponent: React.FC<TestComponentProps> = (
           <Typography variant="h4">
             Test
           </Typography>
+          <ProgressBar value={progress} />
           <Button
             variant="contained"
             color="secondary"
@@ -117,6 +122,7 @@ const TestComponent: React.FC<TestComponentProps> = (
                 props.onResultChange(test.getResult() ? "Success" : "Error");
                 history.push("result");
               }}
+              onAnswer={()=>setProgress(test.getProgress())}
               group={group}
               key={group.header}
             />

@@ -49,6 +49,7 @@ interface QuestionGroupProps {
   onNext: () => void;
   group: IQuestionGroup;
   onShowResult: () => void;
+  onAnswer: ()=>void;
 }
 
 const QuestionGroupComponent: React.FC<QuestionGroupProps> = (
@@ -65,7 +66,8 @@ const QuestionGroupComponent: React.FC<QuestionGroupProps> = (
       return new Map(prev.set(q, isCorrect));
     });
 
-    if(!isCorrect){
+    props.onAnswer();
+    if (!isCorrect) {
       props.onShowResult();
     }
   }
@@ -115,7 +117,11 @@ const QuestionGroupComponent: React.FC<QuestionGroupProps> = (
                 DALEJ
               </Button>
             ) : (
-              <Button variant="contained" color="secondary" onClick={()=> props.onShowResult()}>
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={() => props.onShowResult()}
+              >
                 REZULTAT
               </Button>
             )}
