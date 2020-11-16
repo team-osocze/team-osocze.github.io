@@ -29,24 +29,24 @@ const useStyles = makeStyles((theme: Theme) =>
 const theme = createMuiTheme({
   palette: {
     primary: { 
-      main: '#BE131F',
+      main: '#393070', //granatowy
       contrastText: '#FFFFFF'
     },
     secondary: {
-      main: '#B2D4DC',
+      main: '#B2D4DC', //szary
       contrastText: '#000000'
     },
     error:{
-      main: '#59252F'
+      main: '#EB5F5E'
     },
     warning:{
-      main: '#D99E2F'
+      main: '#DEC97A'
     },
     info:{
-      main: '#F2D2B6'
+      main: '#59A9DE'
     },
     success:{
-      main: '#1C8C8C'
+      main: '#4EDEC9'
     },    
     contrastThreshold: 3,
     tonalOffset: 0.2,

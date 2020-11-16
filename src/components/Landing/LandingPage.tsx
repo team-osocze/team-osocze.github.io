@@ -6,10 +6,13 @@ import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
     header: {
-        padding: "5px",
+        marginTop: "16px",
+        marginBottom: "8px",
         display: "flex",
-        justifyContent: "flex-end"
-    },
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+      },
     content: {
         padding: "0 16px",
         flex: 1
@@ -24,6 +27,9 @@ const useStyles = makeStyles({
         padding: "5px",
         display: "flex",
         justifyContent: "center"
+    },
+    logoImg: {
+        width: "100%"
     }
 });
 
@@ -34,16 +40,18 @@ export function LandingPage() {
         <>
             <div className={classes.content}>
                 <header className={classes.header}>
+                    <Typography variant="h4">Ozdrowieńcu!</Typography>
                     <Button component={Link} to="test" size="large" variant="contained" color="primary">Test</Button>
                 </header>
-                <section>
-                    <Typography variant="h5">Ozdrowieńcu!</Typography>
+                <section>                    
                     <Typography>
                         Chorowałeś na COVID-19 i jesteś już zdrowy? Wspaniale! Teraz możesz uratować komyś życie!
                     </Typography>
                 </section>
                 <section className={classes.logoSection}>
-                    <img src="logo192.png" alt="logo" />
+                    <a href="https://rckik.krakow.pl" target="blank">
+                        <img src="logoRCKiK1.png" className={classes.logoImg} alt="RCKiK w Krakowie logo" />
+                    </a>
                     <Typography>
                         Ankieta pod patronatem <strong>RCKiK</strong> dane są w pełni anonimowe, pozostają tylko u Ciebie na komputerze, nikt ich nie zbiera i nie przetważa
                     </Typography>
@@ -55,7 +63,7 @@ export function LandingPage() {
                     </Typography>
                     <Typography component="article" variant="body2">
                         Pytania w ankiecie odpowiadają tym, które zadałaby Ci przez telefon osoba z punktu krwiodastwa. Odpowiedzi nie są zbierane na tym etapie
-                        i są całkowicie anonimowe. To narzędzie ma służyć wyłacznie sprawdzeniu czy jest sens próbować dodzwonić się do punktu odbiory osocza :)
+                        i są całkowicie anonimowe. To narzędzie ma służyć wyłacznie sprawdzeniu czy jest sens próbować dodzwonić się do punktu odbiory osocza.
                     </Typography>
                 </section>
                 <section className={classes.testStartSection}>

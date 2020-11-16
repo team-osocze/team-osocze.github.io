@@ -29,11 +29,14 @@ export default function SuccessResult() {
     const classes = useStyles();
     const preventDefault = (event: React.SyntheticEvent) => event.preventDefault(); //todo
 
+    const message = "Osocze możesz oddać po 28.12.2020" //todo: this should come from test outocome
+
     return (
         <div className={classes.successResult}>            
             <Alert severity="success">
                 <AlertTitle>Wspaniale!</AlertTitle>
-                Wygląda na to, że Twoje osocze może uratować komuś życie! Zadzwoń żeby by umówić się na oddanie osocza.
+                <p>Wygląda na to, że Twoje osocze może uratować komuś życie! Zadzwoń żeby by umówić się na oddanie osocza.</p>
+                <p><strong>{message}</strong></p>
                 </Alert>
                 <Typography variant="body1" gutterBottom>
                    Pamiętaj! Linie mogą być obciążone i być może trzeba będzie czekać na połączenie.<br/>
@@ -47,7 +50,7 @@ export default function SuccessResult() {
                 Narodowego Centrum Krwi
                 </Button>  
                 <Typography variant="body1" gutterBottom>
-                Udostęnij link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.<br/>
+                <strong>Udostęnij</strong> link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.<br/>
                 Razem uratujemy więcej ludzkich żyć!    
                 </Typography>          
         </div>

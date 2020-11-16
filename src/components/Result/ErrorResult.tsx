@@ -27,8 +27,8 @@ export default function SuccessResult() {
                 </Typography>
                 </Alert>
                 <Typography variant="body1" gutterBottom>
-                Ciągle jednak możesz zrobić coś, co pomoże innym. Udostępnij link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.<br/>
-                <strong> Razem uratujemy więcej ludzkich żyć!</strong>
+                Ciągle jednak możesz zrobić coś, co pomoże innym.<br/> <strong>Udostęnij</strong> link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.<br/>
+                Razem uratujemy więcej ludzkich żyć!
                 </Typography>
                 <ShareCard />
         </div>
