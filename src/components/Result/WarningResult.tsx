@@ -18,12 +18,15 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function SuccessResult() {
     const classes = useStyles();
     
+    const message = "Z powodu przebytej ciąży konieczne będą dodatkowe badania." //todo: this should come from test outocome
+
     return (
         <div className={classes.successResult}>            
             <Alert severity="warning">
                 <AlertTitle>Może się udać.</AlertTitle>
                 <Typography variant="body1" gutterBottom>
-                Jest duża szansa, że Twoje osocze może uratować komuś życie! Kilka odpowiedzi na pytania wymaga jednak konsultacji ze specjalistą.
+                <p>Jest duża szansa, że Twoje osocze może uratować komuś życie! Kilka odpowiedzi na pytania wymaga jednak konsultacji ze specjalistą.</p>
+                <p><strong>{message}</strong></p>
                 </Typography>                
                 </Alert>
                 <Typography variant="body1" gutterBottom>
@@ -33,8 +36,8 @@ export default function SuccessResult() {
                 </Typography>
                 <CenterCard />
                 <Typography variant="body1" gutterBottom>
-                  Udostęnij link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.<br/>
-                  Razem uratujemy więcej ludzkich żyć!
+                <strong>Udostęnij</strong> link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.<br/>
+                Razem uratujemy więcej ludzkich żyć!
                 </Typography>
         </div>
     );

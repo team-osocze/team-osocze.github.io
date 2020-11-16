@@ -6,11 +6,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import ContactList from './ContactList';
 import  Grid  from '@material-ui/core/Grid';
-import logo from '../../logoRCKiK.png'
-
 
 const Logo = function() {
-  return <img src={logo} width="100%" alt="RCKiK w Krakowie logo" />;
+  return <img src="logoRCKiK.png" width="100%" alt="RCKiK w Krakowie logo" />;
 }
 
 const useStyles = makeStyles((theme: Theme) =>

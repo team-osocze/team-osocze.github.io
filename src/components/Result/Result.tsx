@@ -8,28 +8,35 @@ import Typography from '@material-ui/core/Typography';
 
 
 const useStyles = makeStyles((theme: Theme) =>
-createStyles({     
-      header: {
-        marginTop: "30px",
+createStyles({ 
+    content:{
+        padding: "0 16px",
+        flex: 1
+    }, 
+    header: {
+        marginTop: "16px",
+        marginBottom: "8px",
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-      }     
+      }   
     }),
 );
 
 export default function Result() {
     const classes = useStyles();
     
+    //todo: it should depend on result oucome
     const showSuccessResult = false;
     const showErrorResult = false;
     const showWarningResult = true;
 
     return (
-        <div> 
+        <>
+        <div className={classes.content}> 
             <header className={classes.header}>
-                <Typography variant="h4" gutterBottom>Rezultat</Typography>
+                <Typography variant="h4" gutterBottom>Wynik</Typography>
                 <Button size="large" variant="contained" color="primary">Test</Button>
             </header>
             <div>     
@@ -38,5 +45,6 @@ export default function Result() {
                 { showWarningResult ? <WarningResult /> : null } 
             </div>
         </div>
+        </>
     );
 }

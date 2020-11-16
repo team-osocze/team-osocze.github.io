@@ -8,6 +8,10 @@ import { Test } from "../../questions/test";
 import { IQuestionGroup } from "../../questions/questionGroup";
 
 const useStyles = makeStyles((theme) => ({
+  content:{
+    padding: "0 16px",
+    flex: 1
+  },
   heading: {
     flexBasis: "33.33%",
     flexShrink: 0,
@@ -18,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   header: {
-    marginTop: "30px",
+    marginTop: "16px",
+    marginBottom: "8px",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -77,15 +82,15 @@ const TestComponent: React.FC<TestComponentProps> = (
 
   return (
     <>
-      <div>
+      <div className={classes.content}>
         <header className={classes.header}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4">
             Test
           </Typography>
           <Button
             variant="contained"
             color="secondary"
-            onClick={(e) => restart()}
+            onClick={(e) => restart()}            
           >
             <ReplayIcon />
             POWTÓRZ
