@@ -6,6 +6,8 @@ import Alert from "@material-ui/lab/Alert";
 import QuestionGroupComponent from "./questionGroup";
 import { Test } from "../../questions/test";
 import { IQuestionGroup } from "../../questions/questionGroup";
+import { useHistory } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   content:{
@@ -39,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
 interface TestComponentProps {
   test?: Test;
+  onResultChange: (result: "Success" | "Error" | "Warning") => void;
 }
 
 const TestComponent: React.FC<TestComponentProps> = (
@@ -50,6 +53,7 @@ const TestComponent: React.FC<TestComponentProps> = (
     setExpandedGroup,
   ] = React.useState<IQuestionGroup | null>(null);
 
+  const history = useHistory();
   const [test] = React.useState<Test>(props.test ?? new Test());
 
   useEffect(() => {
@@ -109,7 +113,10 @@ const TestComponent: React.FC<TestComponentProps> = (
               isLastGroup={index === test.questionGroups.length - 1}
               onToggleGroup={() => toggleGroup(group)}
               onNext={() => openNextGroup()}
-              onShowResult={() => alert("navigate to result. Test passed:" + test.getResult())}
+              onShowResult={() => { 
+                props.onResultChange(test.getResult() ? "Success" : "Error");
+                history.push("result");
+              }}
               group={group}
               key={group.header}
             />

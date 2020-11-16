@@ -57,7 +57,11 @@ function ListItemLink(props: ListItemLinkProps) {
     );
 }
 
-export default function ButtonAppBar() {
+interface AppBarProps {
+    showResultOption: boolean;
+}
+
+export default function ButtonAppBar({showResultOption}: AppBarProps) {
     const classes = useStyles();
     const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -90,7 +94,7 @@ export default function ButtonAppBar() {
 
                     <ListItemLink primary="O projekcie" to="" />
                     <ListItemLink primary="Test" to="test" />
-                    <ListItemLink primary="Wynik" to="result" />
+                    {showResultOption && <ListItemLink primary="Wynik" to="result" />}
                     <Divider />
                     <ListItem button component="a" href="https://github.com/team-osocze/team-osocze.github.io">
                         <ListItemIcon><GitHubIcon /></ListItemIcon>

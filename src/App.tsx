@@ -10,7 +10,7 @@ import {
 import { createStyles, makeStyles, Theme, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import TestComponent from "./components/Test";
 import Container from '@material-ui/core/Container';
-import {LandingPage} from "./components/Landing/LandingPage";
+import { LandingPage } from "./components/Landing/LandingPage";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const theme = createMuiTheme({
   palette: {
-    primary: { 
+    primary: {
       main: '#393070', //granatowy
       contrastText: '#FFFFFF'
     },
@@ -36,18 +36,18 @@ const theme = createMuiTheme({
       main: '#B2D4DC', //szary
       contrastText: '#000000'
     },
-    error:{
+    error: {
       main: '#EB5F5E'
     },
-    warning:{
+    warning: {
       main: '#DEC97A'
     },
-    info:{
+    info: {
       main: '#59A9DE'
     },
-    success:{
+    success: {
       main: '#4EDEC9'
-    },    
+    },
     contrastThreshold: 3,
     tonalOffset: 0.2,
   },
@@ -60,44 +60,52 @@ const theme = createMuiTheme({
   },
 });
 
+type ResultStates = React.ComponentProps<typeof Result>["result"];
+
 function App() {
   const classes = useStyles();
+  const [completionState, setCompletionState] = React.useState<ResultStates | null>(null);
+
+  const setResultState = (result: ResultStates) => {
+    setCompletionState(result);
+  }
+
   return (
     <Router>
-      <Container maxWidth="sm" style={{padding: 0}}>
-      <ThemeProvider theme={theme}>
-        <div className={classes.app}>
-          <Switch>
-            <Route exact path="/">
-              <>
-                <AppBar />
-                <LandingPage />
-                <BottomNavigation />
-              </>
-            </Route>
-            <Route path="/test">
-              <>
-                <AppBar />
-                <div className={classes.content}>
-                  <TestComponent />
-                </div>
-                <BottomNavigation />
-              </>
+      <Container maxWidth="sm" style={{ padding: 0 }}>
+        <ThemeProvider theme={theme}>
+          <div className={classes.app}>
+            <Switch>
+              <Route exact path="/">
+                <>
+                  <AppBar showResultOption={!!completionState} />
+                  <LandingPage />
+                  <BottomNavigation />
+                </>
+              </Route>
+              <Route path="/test">
+                <>
+                  <AppBar showResultOption={!!completionState} />
+                  <div className={classes.content}>
+                    <TestComponent onResultChange={setResultState}/>
+                  </div>
+                  <BottomNavigation />
+                </>
 
-            </Route>
-            <Route path="/result">
-              <>
-                <AppBar />
-                <div className={classes.content}>
-                  <Result />
-                </div>
-                <BottomNavigation />
-              </>
+              </Route>
+              {completionState && <Route path="/result">
+                <>
+                  <AppBar showResultOption={!!completionState} />
+                  <div className={classes.content}>
+                    <Result result={completionState} />
+                  </div>
+                  <BottomNavigation />
+                </>
 
-            </Route>
-          </Switch>
-        </div>
-      </ThemeProvider>
+              </Route>}
+            </Switch>
+          </div>
+        </ThemeProvider>
       </Container>
     </Router>
 

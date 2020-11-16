@@ -5,6 +5,7 @@ import WarningResult from "./WarningResult";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -24,25 +25,24 @@ createStyles({
     }),
 );
 
-export default function Result() {
+interface ResultProps {
+    result: "Success" | "Error" | "Warning";
+}
+
+export default function Result({result}: ResultProps) {
     const classes = useStyles();
-    
-    //todo: it should depend on result oucome
-    const showSuccessResult = false;
-    const showErrorResult = false;
-    const showWarningResult = true;
 
     return (
         <>
         <div className={classes.content}> 
             <header className={classes.header}>
                 <Typography variant="h4" gutterBottom>Wynik</Typography>
-                <Button size="large" variant="contained" color="primary">Test</Button>
+                <Button component={Link} to="test" size="large" variant="contained" color="primary">Test</Button>
             </header>
             <div>     
-                { showSuccessResult ? <SuccessResult /> : null }     
-                { showErrorResult ? <ErrorResult /> : null } 
-                { showWarningResult ? <WarningResult /> : null } 
+                { result === "Success" ? <SuccessResult /> : null }     
+                { result === "Error" ? <ErrorResult /> : null } 
+                { result === "Warning" ? <WarningResult /> : null } 
             </div>
         </div>
         </>
