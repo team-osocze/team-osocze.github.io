@@ -75,35 +75,32 @@ function App() {
       <Container maxWidth="sm" style={{ padding: 0 }}>
         <ThemeProvider theme={theme}>
           <div className={classes.app}>
+            <AppBar showResultOption={!!completionState} />
             <Switch>
+
               <Route exact path="/">
-                <>
-                  <AppBar showResultOption={!!completionState} />
-                  <LandingPage />
-                  <BottomNavigation />
-                </>
+                <LandingPage />
               </Route>
               <Route path="/test">
                 <>
-                  <AppBar showResultOption={!!completionState} />
                   <div className={classes.content}>
-                    <TestComponent onResultChange={setResultState}/>
+                    <TestComponent onResultChange={setResultState} />
                   </div>
-                  <BottomNavigation />
                 </>
-
               </Route>
               {completionState && <Route path="/result">
                 <>
-                  <AppBar showResultOption={!!completionState} />
                   <div className={classes.content}>
                     <Result result={completionState} />
                   </div>
-                  <BottomNavigation />
                 </>
-
               </Route>}
+              <Route path="*">
+                <LandingPage />
+              </Route>
+
             </Switch>
+            <BottomNavigation />
           </div>
         </ThemeProvider>
       </Container>
