@@ -61,20 +61,16 @@ export default function ButtonAppBar() {
     const classes = useStyles();
     const [drawerOpen, setDrawerOpen] = useState(false);
 
-    const handleDrawerOpen = () => {
-        setDrawerOpen(true);
-    };
-
-    const handleDrawerClose = () => {
-        setDrawerOpen(false);
+    const toggleDrawerOpen = () => {
+        setDrawerOpen(x => !x);
     };
 
     return (
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <MenuIcon onClick={handleDrawerOpen} />
+                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawerOpen}>
+                        <MenuIcon />
                     </IconButton>
                 </Toolbar>
             </AppBar>
@@ -83,7 +79,7 @@ export default function ButtonAppBar() {
                 variant="persistent"
                 anchor="left"
             >
-                <div className={classes.drawerHeader} onClick={handleDrawerClose}>
+                <div className={classes.drawerHeader} onClick={toggleDrawerOpen}>
                     <Typography>Osocze app</Typography>
                     <IconButton>
                         <ChevronLeftIcon />
