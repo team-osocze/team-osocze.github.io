@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     content: {
       flex: 1
+    },
+    container: {
+      padding: 0
     }
   }),
 );
@@ -69,7 +72,7 @@ function App() {
 
   return (
     <Router>
-      <Container maxWidth="sm" style={{ padding: 0 }}>
+      <Container maxWidth="sm" className={classes.container}>
         <ThemeProvider theme={theme}>
           <div className={classes.app}>
             <AppBar showResultOption={!!completionState} />
