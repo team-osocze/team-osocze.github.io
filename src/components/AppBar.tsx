@@ -34,6 +34,7 @@ interface ListItemLinkProps {
     icon?: React.ReactElement;
     primary: string;
     to: string;
+    onClick: () => void;
 }
 
 function ListItemLink(props: ListItemLinkProps) {
@@ -48,7 +49,7 @@ function ListItemLink(props: ListItemLinkProps) {
     );
 
     return (
-        <li>
+        <li onClick={props.onClick}>
             <ListItem button component={renderLink}>
                 {icon && <ListItemIcon>{icon}</ListItemIcon>}
                 <ListItemText primary={primary} />
@@ -92,9 +93,9 @@ export default function ButtonAppBar({showResultOption}: AppBarProps) {
                 <Divider />
                 <List>
 
-                    <ListItemLink primary="O projekcie" to="" />
-                    <ListItemLink primary="Test" to="test" />
-                    {showResultOption && <ListItemLink primary="Wynik" to="result" />}
+                    <ListItemLink primary="O projekcie" to="" onClick={toggleDrawerOpen} />
+                    <ListItemLink primary="Test" to="test" onClick={toggleDrawerOpen}/>
+                    {showResultOption && <ListItemLink primary="Wynik" to="result" onClick={toggleDrawerOpen}/>}
                     <Divider />
                     <ListItem button component="a" href="https://github.com/team-osocze/team-osocze.github.io">
                         <ListItemIcon><GitHubIcon /></ListItemIcon>
