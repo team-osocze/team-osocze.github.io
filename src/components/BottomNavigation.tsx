@@ -15,7 +15,8 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
     padding: 10,
-    background: "lightgray"
+    background: "lightgray",
+    marginTop: "10px"
   },
   icon: {
     padding: 5

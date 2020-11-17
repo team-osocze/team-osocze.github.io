@@ -6,3 +6,7 @@ code {
   font-family: source-code-pro, menlo, monaco, consolas, 'courier new',
     monospace;
 }
+
+html {
+  overflow-y: scroll;
+}
