@@ -3,6 +3,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import ReplayIcon from "@material-ui/icons/Replay";
 import Alert from "@material-ui/lab/Alert";
+import Collapse from '@material-ui/core/Collapse';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 import QuestionGroupComponent from "./questionGroupComponent";
 import {
   ITest,
@@ -62,6 +65,7 @@ const TestComponent: React.FC<TestComponentProps> = ({
   const [expandedGroupHeader, setExpandedGroupHeader] = React.useState<
     string | null
   >(testState.groups[0].header);
+  const [showInfo, setShowInfo] = React.useState(true);
 
   const history = useHistory();
 
@@ -96,6 +100,7 @@ const TestComponent: React.FC<TestComponentProps> = ({
   function restart() {
     onRestart();
     setExpandedGroupHeader(testState.groups[0].header);
+    setShowInfo(true)
   }
 
   function showResult() {
@@ -121,12 +126,24 @@ const TestComponent: React.FC<TestComponentProps> = ({
             POWTÓRZ
           </Button>
         </header>
-        <Alert severity="info">
+        <Collapse in={showInfo}>
+          <Alert severity="info" 
+                  action={
+                    <IconButton
+                      aria-label="close"
+                      color="inherit"
+                      size="small"
+                      onClick={() => {
+                        setShowInfo(false);
+                      }}><CloseIcon fontSize="inherit" />
+                    </IconButton>
+          }>
           <Typography variant="body2">
             Informacje nie są zbierane ani przekazywane. Tylko Ty je widzisz i
             masz do nich dostęp.
           </Typography>
         </Alert>
+        </Collapse>
         <div className={classes.groupsList}>
           {testState.groups.map((group: IQuestionGroup, index: number) => (
             <QuestionGroupComponent
