@@ -88,9 +88,9 @@ const TestComponent: React.FC<TestComponentProps> = ({
     });
   }
 
-  function localOnAnswer(question: IQuestion, answer: YesNoAnswer){
+  function localOnAnswer(question: IQuestion, answer: YesNoAnswer) {
     onAnswer(question, answer);
-    history.push("result");
+    if (question.correctAnswer !== answer) history.push("result");
   }
 
   function restart() {
