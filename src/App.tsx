@@ -19,14 +19,7 @@ import TestComponent from "./components/Test";
 import Container from "@material-ui/core/Container";
 import { LandingPage } from "./components/Landing/LandingPage";
 
-import {
-  ITest,
-  testState as initialTestState,
-  IQuestion,
-  YesNoAnswer,
-  IQuestionGroup,
-  createTestState,
-} from "./questions/test";
+import {appStateReducer, initialState, resetStateAction, answerQuestionAction} from "./appState";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -78,64 +71,10 @@ const theme = createMuiTheme({
 function App() {
   const classes = useStyles();
 
-  const [testState, setTest] = React.useState<ITest>(initialTestState);
-
-  function onAnswer(question: IQuestion, answer: YesNoAnswer) {
-    setTest((previous) => {
-      const groups: IQuestionGroup[] = [];
-
-      for (const g of previous.groups) {
-        if (containsQuestion(g, question)) {
-          const questions: IQuestion[] = [];
-          for (const q of g.questions) {
-            if (q.text === question.text) {
-              questions.push({
-                type: q.type,
-                text: q.text,
-                notAbblicableAvailable: q.notAbblicableAvailable,
-                correctAnswer: q.correctAnswer,
-                answer: answer,
-                answeredCorrectly: q.correctAnswer === answer,
-              });
-            } else {
-              questions.push(q);
-            }
-          }
-          groups.push({
-            header: g.header,
-            questions: questions,
-            allQuestionsCorrect: questions.some((q) => q.answer === null)
-              ? null
-              : questions.every((q) => q.answeredCorrectly === true),
-          });
-        } else {
-          groups.push(g);
-        }
-      }
-      const answeredQuestions = groups
-        .flatMap((g) => g.questions)
-        .filter((q) => q.answer !== null);
-
-      return {
-        groups: groups,
-        numberOfAllQuestions: previous.numberOfAllQuestions,
-        numberOfAnsweredQuestions: answeredQuestions.length,
-        isDone:
-          previous.numberOfAllQuestions === answeredQuestions.length ||
-          answeredQuestions.some((q) => q.answeredCorrectly === false),
-        testResult: groups.every((g) => g.allQuestionsCorrect)
-          ? "Success"
-          : "Error",
-      };
-    });
-
-    function containsQuestion(group: IQuestionGroup, question: IQuestion) {
-      return group.questions.some((q) => q.text === question.text);
-    }
-  }
+  const [testState, dispatch] = React.useReducer(appStateReducer, initialState);
 
   function onRestart() {
-    setTest(() => createTestState());
+    dispatch(resetStateAction());
   }
 
   return (
@@ -152,7 +91,7 @@ function App() {
                 <div className={classes.content}>
                   <TestComponent
                     testState={testState}
-                    onAnswer={onAnswer}
+                    onAnswer={(question, answer) => { dispatch(answerQuestionAction(question, answer)); }}
                     onRestart={onRestart}
                   />
                 </div>
