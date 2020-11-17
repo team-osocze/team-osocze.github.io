@@ -7,9 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import ContactList from './ContactList';
 import  Grid  from '@material-ui/core/Grid';
 
-const Logo = function() {
-  return <img src="logoRCKiK.png" width="100%" alt="RCKiK w Krakowie logo" />;
-}
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,9 +26,16 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     centerCardContent:{
       paddingTop: 4,
+    },
+    logo:{
+      maxWidth: "150px",
     }
   }),
 );
+
+const Logo = function() {
+  return <img src="logoRCKiK_150.png"  alt="RCKiK w Krakowie logo" />;
+}
 
 export default function Contact() {
   const classes = useStyles();
@@ -38,19 +43,22 @@ export default function Contact() {
   return (
     <Card className={classes.centerCard}>
       <Grid container direction="row">
-        <Grid item xs={5} >        
-              <Logo />
+        <Grid item xs={12} sm={3}>
+          <Logo />
         </Grid>
-        <Grid item xs={7} >
-        <CardHeader className={classes.centerCardHeader}    
-          title="Regionalne Centrum Krwiodawstwa i Krwiolecznictwa w Krakowie"
-        />    
+
+        <Grid item xs={12} sm={9} >
+          <CardHeader className={classes.centerCardHeader}    
+            title="Regionalne Centrum Krwiodawstwa i Krwiolecznictwa w Krakowie" /> 
+        <Grid />
+        <Grid xs={12}>
         <CardContent className={classes.centerCardContent}>        
           <Typography variant="body2" component="p">
               <ContactList/>
           </Typography>
-        </CardContent>   
+        </CardContent>           
         </Grid>
+       </Grid>
       </Grid>
     </Card>
   );
