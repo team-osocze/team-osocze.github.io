@@ -20,12 +20,12 @@ const useStyles = makeStyles((theme: Theme) =>
             flexGrow: 1,
         },
         drawerHeader: {
-            width: "180px",
+            width: "100%",
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            padding: "0 10px"
+            padding: "0 0 0 10px"
         }
     }),
 );
