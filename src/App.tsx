@@ -1,12 +1,9 @@
 import React from 'react';
 import AppBar from "./components/AppBar";
 import Result from "./components/Result/Result";
+import FAQComponent from "./components/FAQ";
 import BottomNavigation from "./components/BottomNavigation";
-import {
-  HashRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { createStyles, makeStyles, Theme, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import TestComponent from "./components/Test";
 import Container from '@material-ui/core/Container';
@@ -77,35 +74,31 @@ function App() {
           <div className={classes.app}>
             <AppBar showResultOption={!!completionState} />
             <Switch>
-
               <Route exact path="/">
                 <LandingPage />
               </Route>
               <Route path="/test">
-                <>
                   <div className={classes.content}>
                     <TestComponent onResultChange={setResultState} />
                   </div>
-                </>
               </Route>
               {completionState && <Route path="/result">
-                <>
                   <div className={classes.content}>
                     <Result result={completionState} />
                   </div>
-                </>
               </Route>}
+              <Route path="/faq">
+                  <FAQComponent />
+              </Route>
               <Route path="*">
                 <LandingPage />
               </Route>
-
             </Switch>
             <BottomNavigation />
           </div>
         </ThemeProvider>
       </Container>
     </Router>
-
   );
 }
 

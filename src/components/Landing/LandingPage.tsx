@@ -57,7 +57,7 @@ export function LandingPage() {
                         <img src="logoRCKiK1.png" className={classes.logoImg} alt="RCKiK w Krakowie logo" />
                     </a>
                     <Typography>
-                        Ankieta pod patronatem <strong>RCKiK</strong> dane są w pełni anonimowe, pozostają tylko u Ciebie na komputerze, nikt ich nie zbiera i nie przetważa
+                        Ankieta pod patronatem <strong>RCKiK</strong> dane są w pełni anonimowe, pozostają tylko u Ciebie na komputerze, nikt ich nie zbiera i nie przetwarza
                     </Typography>
                 </section>
                 <section>
