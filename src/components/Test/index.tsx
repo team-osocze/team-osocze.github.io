@@ -1,20 +1,22 @@
 import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React, { useEffect } from "react";
+import React from "react";
 import ReplayIcon from "@material-ui/icons/Replay";
 import Alert from "@material-ui/lab/Alert";
-import QuestionGroupComponent from "./questionGroup";
-import { Test } from "../../questions/test";
-import { IQuestionGroup } from "../../questions/questionGroup";
+import QuestionGroupComponent from "./questionGroupComponent";
+import {
+  ITest,
+  IQuestionGroup,
+  IQuestion,
+  YesNoAnswer,
+} from "../../questions/test";
 import { useHistory } from "react-router-dom";
 import ProgressBar from "../progressBar";
 
-
-
 const useStyles = makeStyles((theme) => ({
-  content:{
+  content: {
     padding: "0 16px",
-    flex: 1
+    flex: 1,
   },
   heading: {
     flexBasis: "33.33%",
@@ -39,67 +41,81 @@ const useStyles = makeStyles((theme) => ({
   groupsList: {
     marginTop: "10px",
   },
+  resultButtonContainer: {
+    textAlign: "center",
+    marginTop: "20px",
+  },
 }));
 
 interface TestComponentProps {
-  test?: Test;
-  onResultChange: (result: "Success" | "Error" | "Warning") => void;
+  testState: ITest;
+  onAnswer: (question: IQuestion, answer: YesNoAnswer) => void;
+  onRestart: () => void;
 }
 
-const TestComponent: React.FC<TestComponentProps> = (
-  props: TestComponentProps
-) => {
+const TestComponent: React.FC<TestComponentProps> = ({
+  testState,
+  onAnswer,
+  onRestart,
+}: TestComponentProps) => {
   const classes = useStyles();
-  const [
-    expandedGroup,
-    setExpandedGroup,
-  ] = React.useState<IQuestionGroup | null>(null);
+  const [expandedGroupHeader, setExpandedGroupHeader] = React.useState<
+    string | null
+  >(testState.groups[0].header);
 
   const history = useHistory();
-  const [test] = React.useState<Test>(props.test ?? new Test());
-
-  const [progress, setProgress] = React.useState<number>(0);
-
-  useEffect(() => {
-    setExpandedGroup(test.questionGroups[0]);
-  }, [test]);
 
   function toggleGroup(group: IQuestionGroup) {
-    setExpandedGroup((previouslyExpandedGroup) =>
-      previouslyExpandedGroup !== group ? group : null
+    setExpandedGroupHeader((previouslyExpandedGroupHeader) =>
+      previouslyExpandedGroupHeader !== group.header ? group.header : null
     );
   }
 
   function openNextGroup() {
-    setExpandedGroup((previouslyExpandedGroup) => {
-      if (previouslyExpandedGroup === null) {
-        return test.questionGroups[0];
+    setExpandedGroupHeader((previouslyExpandedGroupHeader) => {
+      if (previouslyExpandedGroupHeader === null) {
+        return testState.groups[0].header;
       } else {
         const nextGroupIndex =
-          test.questionGroups.indexOf(previouslyExpandedGroup, 0) + 1;
-        if (nextGroupIndex < test.questionGroups.length)
-          return test.questionGroups[nextGroupIndex];
+          testState.groups.findIndex(
+            (g) => g.header === previouslyExpandedGroupHeader
+          ) + 1;
+
+        if (nextGroupIndex < testState.groups.length)
+          return testState.groups[nextGroupIndex].header;
         else return null;
       }
     });
   }
 
+  function localOnAnswer(question: IQuestion, answer: YesNoAnswer){
+    onAnswer(question, answer);
+    history.push("result");
+  }
+
   function restart() {
-    setExpandedGroup(test.questionGroups[0]);
+    onRestart();
+    setExpandedGroupHeader(testState.groups[0].header);
+  }
+
+  function showResult() {
+    history.push("result");
   }
 
   return (
     <>
       <div className={classes.content}>
         <header className={classes.header}>
-          <Typography variant="h4">
-            Test
-          </Typography>
-          <ProgressBar value={progress} />
+          <Typography variant="h4">Test</Typography>
+          <ProgressBar
+            answeredQuestions={testState.numberOfAnsweredQuestions}
+            allQuestions={testState.numberOfAllQuestions}
+          />
+
           <Button
             variant="contained"
             color="secondary"
-            onClick={(e) => restart()}            
+            onClick={() => restart()}
           >
             <ReplayIcon />
             POWTÓRZ
@@ -112,21 +128,27 @@ const TestComponent: React.FC<TestComponentProps> = (
           </Typography>
         </Alert>
         <div className={classes.groupsList}>
-          {test.questionGroups.map((group: IQuestionGroup, index: number) => (
+          {testState.groups.map((group: IQuestionGroup, index: number) => (
             <QuestionGroupComponent
-              expanded={expandedGroup === group}
-              isLastGroup={index === test.questionGroups.length - 1}
+              expanded={expandedGroupHeader === group.header}
+              isLastGroup={index === testState.groups.length - 1}
               onToggleGroup={() => toggleGroup(group)}
               onNext={() => openNextGroup()}
-              onShowResult={() => { 
-                props.onResultChange(test.getResult() ? "Success" : "Error");
-                history.push("result");
-              }}
-              onAnswer={()=>setProgress(test.getProgress())}
+              onAnswer={localOnAnswer}
               group={group}
               key={group.header}
             />
           ))}
+          <div className={classes.resultButtonContainer}>
+            <Button
+              variant="contained"
+              color="secondary"
+              disabled={!testState.isDone}
+              onClick={() => showResult()}
+            >
+              REZULTAT
+            </Button>
+          </div>
         </div>
       </div>
     </>

@@ -1,11 +1,7 @@
 import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import {
-  YesNoAnswer,
-  YesNoQuestion,
-  IQuestion,
-} from "../../questions/questionGroup";
+import { YesNoAnswer, IQuestion } from "../../questions/test";
 import Alert from "@material-ui/lab/Alert";
 
 const useStyles = makeStyles((theme) => ({
@@ -34,39 +30,37 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface IYesNoQuestionProps {
-  question: YesNoQuestion;
-  onAnswer: (question: IQuestion, isCorrect: boolean | null) => void;
+  question: IQuestion;
+  onAnswer: (question: IQuestion, answer: YesNoAnswer) => void;
 }
 
 const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
   props: IYesNoQuestionProps
 ) => {
   const classes = useStyles();
-  const [answer, setAnswer] = React.useState<YesNoAnswer | null>(
-    props.question.getAnswer()
-  );
 
   function onAnswer(answer: YesNoAnswer) {
-    setAnswer(answer);
-    props.question.setAnswer(answer);
-    props.onAnswer(props.question, props.question.getResult());
+    props.onAnswer(props.question, answer);
   }
 
   function questionResult() {
-    if (answer === null) return <></>;
-
-    if (props.question.getResult())
+    if (
+      props.question.answeredCorrectly === null
+    ) {
+      return <></>;
+    } else if (props.question.answeredCorrectly === true) {
       return (
         <Alert severity="success">
           <Typography variant="body2">Wspaniale</Typography>
         </Alert>
       );
-
-    return (
-      <Alert severity="error">
-        <Typography variant="body2">Przykro nam</Typography>
-      </Alert>
-    );
+    } else {
+      return (
+        <Alert severity="error">
+          <Typography variant="body2">Przykro nam</Typography>
+        </Alert>
+      );
+    }
   }
   return (
     <>
@@ -75,24 +69,30 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
         <div className={classes.answer}>
           <div className={classes.anserwButtons}>
             <Button
-              variant="outlined"
+              variant={
+                props.question.answer === "Yes" ? "contained" : "outlined"
+              }
               color="primary"
-              onClick={() => onAnswer(YesNoAnswer.Yes)}
+              onClick={() => onAnswer("Yes")}
             >
               TAK
             </Button>
             <Button
-              variant="contained"
+              variant={
+                props.question.answer === "No" ? "contained" : "outlined"
+              }
               color="primary"
-              onClick={() => onAnswer(YesNoAnswer.No)}
+              onClick={() => onAnswer("No")}
             >
               NIE
             </Button>
-            {props.question.getCanBeNotApplicable() && (
+            {props.question.notAbblicableAvailable && (
               <Button
-                variant="contained"
+                variant={
+                  props.question.answer === "NotApplicable" ? "contained" : "outlined"
+                }
                 color="primary"
-                onClick={() => onAnswer(YesNoAnswer.NotApplicable)}
+                onClick={() => onAnswer("NotApplicable")}
               >
                 NIE DOTYCZY
               </Button>

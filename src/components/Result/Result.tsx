@@ -6,7 +6,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
-
+import {TestResult} from "../../questions/test";
 
 const useStyles = makeStyles((theme: Theme) =>
 createStyles({ 
@@ -26,7 +26,7 @@ createStyles({
 );
 
 interface ResultProps {
-    result: "Success" | "Error" | "Warning";
+    result: TestResult;
 }
 
 export default function Result({result}: ResultProps) {

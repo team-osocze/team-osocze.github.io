@@ -10,12 +10,9 @@ import React from "react";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DoneIcon from "@material-ui/icons/Done";
 import ErrorIcon from "@material-ui/icons/Error";
-import {
-  IQuestion,
-  IQuestionGroup,
-  YesNoQuestion,
-} from "../../questions/questionGroup";
+import { IQuestion, IQuestionGroup, YesNoAnswer } from "../../questions/test";
 import YesNoQuestionComponent from "./yesNoQuestionComponent";
+import { group } from "console";
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -42,51 +39,34 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface QuestionGroupProps {
+interface IQuestionGroupProps {
   isLastGroup: boolean;
   expanded: boolean;
   onToggleGroup: () => void;
   onNext: () => void;
   group: IQuestionGroup;
-  onShowResult: () => void;
-  onAnswer: ()=>void;
+  onAnswer: (question: IQuestion, answer: YesNoAnswer) => void;
 }
 
-const QuestionGroupComponent: React.FC<QuestionGroupProps> = (
-  props: QuestionGroupProps
+const QuestionGroupComponent: React.FC<IQuestionGroupProps> = (
+  props: IQuestionGroupProps
 ) => {
   const classes = useStyles();
 
-  const [results, setResults] = React.useState<Map<IQuestion, boolean | null>>(
-    new Map<IQuestion, boolean | null>(props.group.getAnswers())
-  );
-
-  function setQuestionResult(q: IQuestion, isCorrect: boolean | null) {
-    setResults((prev) => {
-      return new Map(prev.set(q, isCorrect));
-    });
-
-    props.onAnswer();
-    if (!isCorrect) {
-      props.onShowResult();
-    }
-  }
-
   function renderQuestion(q: IQuestion) {
-    if (q instanceof YesNoQuestion) {
-      return (
-        <YesNoQuestionComponent question={q} onAnswer={setQuestionResult} />
-      );
-    }
+    if (q.type === "YesNo")
+      return <YesNoQuestionComponent question={q} onAnswer={props.onAnswer} />;
   }
 
   function groupStatus() {
-    const answersArray = Array.from(results.values());
-    if (answersArray.some((a) => a === null)) return <></>;
-
-    if (answersArray.some((a) => a === false))
+    const allQuestionsCorrect = props.group.allQuestionsCorrect;
+    if (allQuestionsCorrect === null) {
+      return <></>;
+    } else if (allQuestionsCorrect === false) {
       return <ErrorIcon className={classes.red} />;
-    else return <DoneIcon className={classes.green} />;
+    } else {
+      return <DoneIcon className={classes.green} />;
+    }
   }
 
   return (
@@ -108,21 +88,13 @@ const QuestionGroupComponent: React.FC<QuestionGroupProps> = (
         <AccordionDetails className={classes.groupDetails}>
           {props.group.questions.map((q) => renderQuestion(q))}
           <div className={classes.footer}>
-            {!props.isLastGroup ? (
+            {!props.isLastGroup && (
               <Button
                 variant="contained"
                 color="secondary"
                 onClick={() => props.onNext()}
               >
                 DALEJ
-              </Button>
-            ) : (
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={() => props.onShowResult()}
-              >
-                REZULTAT
               </Button>
             )}
           </div>
