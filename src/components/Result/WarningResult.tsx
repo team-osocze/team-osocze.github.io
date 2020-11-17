@@ -36,7 +36,7 @@ export default function SuccessResult() {
                 </Typography>
                 <CenterCard />
                 <Typography variant="body1" gutterBottom>
-                <strong>Udostęnij</strong> link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.<br/>
+                <strong>Udostępnij</strong> link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.<br/>
                 Razem uratujemy więcej ludzkich żyć!
                 </Typography>
         </div>
