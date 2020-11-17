@@ -12,7 +12,6 @@ import DoneIcon from "@material-ui/icons/Done";
 import ErrorIcon from "@material-ui/icons/Error";
 import { IQuestion, IQuestionGroup, YesNoAnswer } from "../../questions/test";
 import YesNoQuestionComponent from "./yesNoQuestionComponent";
-import { group } from "console";
 
 const useStyles = makeStyles((theme) => ({
   heading: {

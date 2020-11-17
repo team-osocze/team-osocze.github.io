@@ -7,7 +7,6 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  useHistory,
 } from "react-router-dom";
 import {
   createStyles,
