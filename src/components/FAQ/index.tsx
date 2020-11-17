@@ -1,6 +1,6 @@
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React, { useEffect } from "react";
+import React from "react";
 import FAQQuestionComponent from "./question";
 import faqQuestions from "./questions.json";
 
@@ -39,10 +39,6 @@ const FAQComponent: React.FC = function() {
     const [expandedGroup, setExpandedGroup] = React.useState<typeof faqQuestions[0] | null>(null);
     const [questions] = React.useState<typeof faqQuestions>(faqQuestions);
 
-    useEffect(() => {
-        setExpandedGroup(questions[0]);
-    }, [questions]);
-
     function toggleGroup(group: typeof faqQuestions[0]) {
         setExpandedGroup((previouslyExpandedGroup) =>
             previouslyExpandedGroup !== group ? group : null
@@ -63,7 +59,8 @@ const FAQComponent: React.FC = function() {
                   isLastGroup={index === questions.length - 1}
                   onToggleGroup={() => toggleGroup(group)}
                   question={group.question}
-                  answer={group.answer} 
+                  answer={group.answer}
+                  key={index} 
                 />
               ))}
             </div>
