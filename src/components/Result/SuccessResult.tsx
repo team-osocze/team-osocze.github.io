@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function SuccessResult() {
     const classes = useStyles();
-    const preventDefault = (event: React.SyntheticEvent) => event.preventDefault(); //todo
 
     const message = "Osocze możesz oddać po 28.12.2020" //todo: this should come from test outocome
 
@@ -46,7 +45,14 @@ export default function SuccessResult() {
                 <Typography variant="body1" gutterBottom>
                 Jeśli do Krakowa masz za daleko, sprawdź jak oddać osocze w cenrum krwiodastwa bliżej Ciebie. Lista centrów krwiodastwa jest dostępna na stronie:
                 </Typography>                   
-                <Button className={classes.buttonLink} color="primary" variant="outlined" startIcon={<Language/>} href="https://www.gov.pl/web/nck/centrakrwiodawstwa" onClick={preventDefault}>
+                <Button 
+                  component="a" 
+                  className={classes.buttonLink} 
+                  color="primary" 
+                  variant="outlined" 
+                  startIcon={<Language/>} 
+                  href="https://www.gov.pl/web/nck/centrakrwiodawstwa"
+                  target="_blank">
                 Narodowego Centrum Krwi
                 </Button>  
                 <Typography variant="body1" gutterBottom>
