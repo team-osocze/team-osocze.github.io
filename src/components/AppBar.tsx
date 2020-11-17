@@ -98,11 +98,11 @@ export default function ButtonAppBar({showResultOption}: AppBarProps) {
                     {showResultOption && <ListItemLink primary="Wynik" to="result" onClick={toggleDrawerOpen}/>}
                     <ListItemLink primary="FAQ - Najczęściej zadawane pytania" to="faq" onClick={toggleDrawerOpen}/>
                     <Divider />
-                    <ListItem button component="a" href="https://github.com/team-osocze/team-osocze.github.io">
+                    <ListItem button component="a" href="https://github.com/team-osocze/team-osocze.github.io" target="_blank">
                         <ListItemIcon><GitHubIcon /></ListItemIcon>
                         <ListItemText primary="Kod źródłowy"/>
                     </ListItem>
-                    <ListItem button component="a" href="https://www.mediusflow.com/">
+                    <ListItem button component="a" href="https://www.mediusflow.com/" target="_blank">
                         <ListItemIcon>
                             <SvgIcon>
                             <circle cx="11.9" cy="12.1" r="5.2" />
