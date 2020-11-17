@@ -1,6 +1,46 @@
 [
     {
-        "question": "What is FAQ?",
-        "answer": "FAQ stands for Frequently Asked Questions"
+        "question": "Kto to jest ozdrowieniec?",
+        "answer": "Określenie ozdrowieniec zarezerwowane jest dla osoby, u której ustąpiły objawy choroby zakaźnej. A więc to osoba u której wykryto materiał genetyczny wirusa SARS-CoV-2 - wymaz ( może przebyć zakażenie bezobjawowo lub objawowo o różnym stopniu nasilenia objawów COVID-19) a obecnie nie wykrywa się już jego obecności lub osoba, która nie miała stwierdzonego zakażenia, a obecnie w jej krwi wykrywa się przeciwciała przeciwko wirusowi SARS-CoV-2."
+    },
+    {
+        "question": "Dlaczego osocze ozdrowieńców jest potrzebne?",
+        "answer": "Osocze to zawiera przeciwciała, które mogą wspomagać leczenie chorych na COVID-19 z ciężkimi, zagrażającymi życiu objawami zakażenia. Terapia oparta na przetoczeniach osocza rekonwalescentów chorób zakaźnych była skutecznie stosowana u pacjentów zakażonych wirusem EBOLA, koronawirusem SARS (SARS-CoV), wirusem grypy A (H1N1) oraz wirusem ”ptasiej” grypy A (H5N1). Zawarte w osoczu przeciwciała do wirusa SARS-CoV-2, który powoduje COVID-19, mają po przetoczeniu zblokować namnażanie się wirusa w organizmie pacjenta z aktywnym zakażeniem."
+    },
+    {
+        "question": "Jak pobiera się osocze?",
+        "answer": "Osocze pobierane jest metodą plazmaferezy. Podczas plazmaferezy pobierana jest krew, którą rozdziela się (w specjalnym urządzeniu - separatorze) na osocze i pozostałe składniki, które są przetaczane z powrotem do tej samej żyły. Pobieranie osocza jest bezbolesne, całkowicie bezpieczne i trwa od 30 do 40 minut. "
+    },
+    {
+        "question": "Co dalej dzieje się z osoczem?",
+        "answer": "Pobrane osocze jest poddawane procedurze redukcji patogenów, dzielone na dawki wielkości 100-200 ml i zamrażane. W zależności od zawartości w osoczu przeciwciał neutralizujących wirusa, chorym na COVID-19 przetacza się 200-400 ml osocza."
+    },
+    {
+        "question": "Jakie badania świadczą o przebytym zakażeniu?",
+        "answer": "Wystarczy jedno z poniższych: \n dodatni wynik testu NAT (wymaz z nosogardzieli) \n dodatni wynik badania wykrywającego antygen SARS-CoV-2 \n dodatni wynik badania przeciwciał anty-SARS-CoV-2"
+    },
+    {
+        "question": "Jaki jest następny krok po wypełnieniu ankiety?",
+        "answer": "Prosimy o kontakt z regionalnym centrum krwiodawstwa w celu ustalenia terminu. Podczas rozmowy prosimy o wspomnienie o wypełnieniu ankiety."
+    },
+    {
+        "question": "Dlaczego nie mogę dodzwonić się na podane numery?",
+        "answer": "Staramy się ze wszystkich sił, aby kontakt i sama wizyta u nas była jak najprostsza i najszybsza, jak to tylko możliwe. Niestety lekarze dostępni pod numerami telefonów (w godz. 7:30-15:05) odbierają je na zmianę z przyjmowaniem pacjentów na miejscu. Dlatego w przypadku problemu z dodzwonieniem, prosimy o kontakt mailowy."
+    },
+    {
+        "question": "Jak się przygotować do oddania osocza?",
+        "answer": "Prosimy zabrać ze sobą potwierdzenie przebycia COVID-19: informacja z sanepidu, ze strony pacjent.gov.pl lub wynik testu."
+    },
+    {
+        "question": "Czy można oddać krew zamiast osocza?",
+        "answer": "Jeśli pobranie osocza metodą plazmaferezy będzie utrudnione, ozdrowieniec może oddać krew pełną, z której pozyskamy osocze do leczenia chorych na COVID-19 oraz krwinki czerwone do leczenia innych chorych potrzebujących transfucji krwi. Nie wymaga to oczekiwania na termin."
+    },
+    {
+        "question": "Czy można oddać osocze kilka razy?",
+        "answer": "Tak. Po każdej donacji badane są przeciwciała jeżeli ich ilość jest odpowiednia, dawca umawiany jest na kolejne oddania. Zauważono, że liczba przeciwciał jest tym wyższe, im gorzej dana osoba przechodziła chorobę. Zgodnie z obowiązującą procedurą osocze od ozdrowieńców można pobrać 3 razy w odstępie tygodniowym, a jeżeli dawca nadal ma wystarczającą ilość przeciwciał kolejne donacje może oddawać w odstępach dwutygodniowych."
+    },
+    {
+        "question": "Czy można oddać osocze ze wskazaniem na konkretnego pacjenta?",
+        "answer": "Centrum Krwiodastwa rejestruje donacje osocza ze wskazaniem na konkretnego pacjenta, nie ma natomiast możliwości by dawca zastrzegł, że osocze pobrane od niego będzie przeznaczone tylko i wyłącznie dla jednego, konkretnego pacjenta z COVID-19. Pobierane osocze trafia do ogólnej puli dla szpitali, które to zamawiają je dla swoich pacjentów. "
     }
 ]
