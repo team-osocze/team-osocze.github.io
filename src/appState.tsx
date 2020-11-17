@@ -13,7 +13,7 @@ type AnswerQuestionAction = {
     }
 }
 
-type ResetState = {
+type ResetAction = {
     type: typeof RESET_STATE_TYPE;
 }
 
@@ -26,13 +26,13 @@ export function answerQuestionAction(question: IQuestion, answer: YesNoAnswer): 
     }
 }
 
-export function resetStateAction(): ResetState {
+export function resetStateAction(): ResetAction {
     return {
         type: RESET_STATE_TYPE
     }
 }
 
-export function appStateReducer(state: ITest, action: AnswerQuestionAction | ResetState): ITest {
+export function appStateReducer(state: ITest, action: AnswerQuestionAction | ResetAction): ITest {
     switch (action.type) {
         case ANSWER_QUESTION_TYPE:
           return onAnswer(state, action.payload.question, action.payload.answer);

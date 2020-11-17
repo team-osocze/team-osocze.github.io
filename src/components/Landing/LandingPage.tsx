@@ -49,7 +49,7 @@ export function LandingPage() {
                 </header>
                 <section>                    
                     <Typography>
-                        Chorowałeś na COVID-19 i jesteś już zdrowy? Wspaniale! Teraz możesz uratować komyś życie!
+                        Chorowałeś na COVID-19 i jesteś już zdrowy? Wspaniale! Teraz możesz uratować komuś życie!
                     </Typography>
                 </section>
                 <section className={classes.logoSection}>
