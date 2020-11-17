@@ -1,8 +1,8 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Alert, AlertTitle } from '@material-ui/lab';
-import ShareCard from './ShareCard';
 import { Typography } from '@material-ui/core';
+import {ShareActions} from "../shareActions";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -12,6 +12,12 @@ const useStyles = makeStyles((theme: Theme) =>
         marginTop: theme.spacing(2),
       },
     },
+    shareActionsContainer: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-between",
+      padding: "0 50px;"
+    }
   }),
 );
 
@@ -30,7 +36,9 @@ export default function SuccessResult() {
                 Ciągle jednak możesz zrobić coś, co pomoże innym.<br/> <strong>Udostępnij</strong> link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.<br/>
                 Razem uratujemy więcej ludzkich żyć!
                 </Typography>
-                <ShareCard />
+                <div className={classes.shareActionsContainer}>
+                  <ShareActions />
+                </div>
         </div>
     );
 }
