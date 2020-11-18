@@ -158,6 +158,7 @@ const TestComponent: React.FC<TestComponentProps> = ({
           ))}
           <div className={classes.resultButtonContainer}>
             <Button
+              size="large"
               variant="contained"
               color="secondary"
               disabled={!testState.isDone}
