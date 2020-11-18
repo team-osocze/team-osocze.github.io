@@ -9,7 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DoneIcon from "@material-ui/icons/Done";
-import ErrorIcon from "@material-ui/icons/Error";
+import ClearIcon from '@material-ui/icons/Clear';
 import { IQuestion, IQuestionGroup, YesNoAnswer } from "../../questions/test";
 import YesNoQuestionComponent from "./yesNoQuestionComponent";
 
@@ -62,7 +62,7 @@ const QuestionGroupComponent: React.FC<IQuestionGroupProps> = (
     if (allQuestionsCorrect === null) {
       return <></>;
     } else if (allQuestionsCorrect === false) {
-      return <ErrorIcon className={classes.red} />;
+      return <ClearIcon className={classes.red} />;
     } else {
       return <DoneIcon className={classes.green} />;
     }

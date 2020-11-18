@@ -27,39 +27,45 @@ const useStyles = makeStyles((theme: Theme) =>
     centerCardContent:{
       paddingTop: 4,
     },
-    logo:{
-      maxWidth: "150px",
+    logoSection: {
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      margin: "5px 0",
+      "& img": {
+          marginRight: 10
+      }
+    },
+    logoImg: {
+        width: "100%",
+        maxWidth: "300px"
+    },
+    logoTitle:{
+      padding: "16px"
     }
   }),
 );
-
-const Logo = function() {
-  return <img src="LogoRCKiK.png"  alt="RCKiK w Krakowie logo" style={{width: "150px"}} />;
-}
 
 export default function Contact() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.centerCard}>
-      <Grid container direction="row">
-        <Grid item xs={12} sm={3}>
-          <Logo />
-        </Grid>
-
-        <Grid item xs={12} sm={9} >
-          <CardHeader className={classes.centerCardHeader}    
-            title="Regionalne Centrum Krwiodawstwa i Krwiolecznictwa w Krakowie" /> 
-        <Grid />
-        <Grid xs={12}>
+      <Card className={classes.centerCard}>
+        <div>      
+          <section className={classes.logoSection}>
+              <a href="https://rckik.krakow.pl" target="blank">
+                  <img src="LogoRCKiK.png" className={classes.logoImg} alt="RCKiK w Krakowie logo" />
+              </a>
+              <Typography variant="h6" className={classes.logoTitle}>
+              Regionalne Centrum Krwiodawstwa i Krwiolecznictwa w Krakowie
+              </Typography>
+          </section>
+        </div>
         <CardContent className={classes.centerCardContent}>        
           <Typography variant="body2" component="p">
               <ContactList/>
           </Typography>
-        </CardContent>           
-        </Grid>
-       </Grid>
-      </Grid>
+        </CardContent>  
     </Card>
   );
 }
