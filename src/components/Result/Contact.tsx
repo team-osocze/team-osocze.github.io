@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Logo = function() {
-  return <img src="logoRCKiK_150.png"  alt="RCKiK w Krakowie logo" />;
+  return <img src="LogoRCKiK.png"  alt="RCKiK w Krakowie logo" style="width: 150px"/>;
 }
 
 export default function Contact() {
