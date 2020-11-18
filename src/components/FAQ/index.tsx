@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import FAQQuestionComponent from "./question";
 import faqQuestions from "./questions.json";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     content:{
@@ -32,6 +34,12 @@ const useStyles = makeStyles((theme) => ({
     groupsList: {
       marginTop: "10px",
     },
+    testStartSection: {
+        marginTop: "10px",
+        padding: "5px",
+        display: "flex",
+        justifyContent: "center"
+    }
   }));
 
 const FAQComponent: React.FC = function() {
@@ -46,12 +54,11 @@ const FAQComponent: React.FC = function() {
     }
 
     return (
-          <div className={classes.content}>
-            <header className={classes.header}>
-              <Typography variant="h4">
-                FAQ - Najczęściej zadawane pytania
-              </Typography>
-            </header>
+          <div className={classes.content}> 
+            <header className={classes.header}>     
+              <Typography variant="h5">FAQ - Najczęściej zadawane pytania</Typography>
+              <Button component={Link} to="test" size="large" variant="contained" color="primary">Test</Button>                
+            </header>           
             <div className={classes.groupsList}>
               {questions.map((group: typeof faqQuestions[0], index: number) => (
                 <FAQQuestionComponent
@@ -64,6 +71,9 @@ const FAQComponent: React.FC = function() {
                 />
               ))}
             </div>
+            <section className={classes.testStartSection}>
+                    <Button component={Link} to="test" size="large" variant="contained" color="primary">Rozpocznij test</Button>
+            </section>
           </div>
       );
 };
