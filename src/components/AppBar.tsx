@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme: Theme) =>
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            padding: "0 0 0 10px"
+            padding: "0 0 0 10px",
+            boxSizing: "border-box"
         }
     }),
 );

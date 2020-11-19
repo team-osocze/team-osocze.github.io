@@ -17,7 +17,7 @@ import {
 } from "@material-ui/core/styles";
 import TestComponent from "./components/Test";
 import Container from "@material-ui/core/Container";
-import { LandingPage } from "./components/Landing/LandingPage";
+import { LandingPage } from "./components/Landing/Page";
 
 import {appStateReducer, initialState, resetStateAction, answerQuestionAction} from "./appState";
 

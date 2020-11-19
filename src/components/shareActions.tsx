@@ -37,7 +37,7 @@ const handleShare = () => {
         }).then(() => {
             console.log('Thanks for sharing!');
         })
-            .catch(console.error);
+        .catch(console.error);
     } else {
         // fallback
         console.log('fallback to dialog')
@@ -60,7 +60,7 @@ export function ShareActions() {
         <WhatsappShareButton url={sharedUrl} title={sharedTextWithUrl}>
             <WhatsappIcon className={classes.icon} color="primary" />
         </WhatsappShareButton>
-        <ShareIcon className={classes.icon} color="primary" onClick={handleShare} />
+        {navigator.share && <ShareIcon className={classes.icon} color="primary" onClick={handleShare} />}
     </>
     )
 }

@@ -1,11 +1,10 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import ContactList from './ContactList';
-import  Grid  from '@material-ui/core/Grid';
+import logo from "../../logoRCKiK.png";
 
 
 
@@ -54,7 +53,7 @@ export default function Contact() {
         <div>      
           <section className={classes.logoSection}>
               <a href="https://rckik.krakow.pl" target="blank">
-                  <img src="LogoRCKiK.png" className={classes.logoImg} alt="RCKiK w Krakowie logo" />
+                  <img src={logo} className={classes.logoImg} alt="RCKiK w Krakowie logo" />
               </a>
               <Typography variant="h6" className={classes.logoTitle}>
               Regionalne Centrum Krwiodawstwa i Krwiolecznictwa w Krakowie

@@ -3,6 +3,7 @@ import * as React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
+import logo from "../../logoRCKiK.png";
 
 const useStyles = makeStyles({
     header: {
@@ -54,7 +55,7 @@ export function LandingPage() {
                 </section>
                 <section className={classes.logoSection}>
                     <a href="https://rckik.krakow.pl" target="blank">
-                        <img src="LogoRCKiK.png" className={classes.logoImg} alt="RCKiK w Krakowie logo" />
+                        <img src={logo} className={classes.logoImg} alt="RCKiK w Krakowie logo" />
                     </a>
                     <Typography>
                         Ankieta pod patronatem <strong>RCKiK</strong> dane są w pełni anonimowe, pozostają tylko u Ciebie na komputerze, nikt ich nie zbiera i nie przetwarza
