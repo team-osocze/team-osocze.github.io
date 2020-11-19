@@ -1,7 +1,7 @@
 [
     {
         "question": "Kto to jest ozdrowieniec?",
-        "answer": "Określenie ozdrowieniec zarezerwowane jest dla osoby, u której ustąpiły objawy choroby zakaźnej. A więc to osoba u której wykryto materiał genetyczny wirusa SARS-CoV-2 - wymaz ( może przebyć zakażenie bezobjawowo lub objawowo o różnym stopniu nasilenia objawów COVID-19) a obecnie nie wykrywa się już jego obecności lub osoba, która nie miała stwierdzonego zakażenia, a obecnie w jej krwi wykrywa się przeciwciała przeciwko wirusowi SARS-CoV-2."
+        "answer": "Jest to osoba, która przebyła zakażenie wirusem SARS-CoV-2. Ozdrowieńcem jest każdy, u kogo podczas badania wymazu wykryto materiał genetyczny wirusa SARS-CoV-2, u kogo wystąpiły objawy COVID-19 o różnym stopniu nasileniu lub przeszedł zakażenie bezobjawowo, a obecnie nie wykrywa się obecności wirusa. Może być to również osoba, która nie miała stwierdzonego zakażenia, a obecnie w jej krwi wykrywa się przeciwciała przeciwko wirusowi SARS-CoV-2."
     },
     {
         "question": "Dlaczego osocze ozdrowieńców jest potrzebne?",
@@ -29,11 +29,11 @@
     },
     {
         "question": "Jak się przygotować do oddania osocza?",
-        "answer": "Prosimy zabrać ze sobą potwierdzenie przebycia COVID-19: informacja z sanepidu, ze strony pacjent.gov.pl lub wynik testu."
+        "answer": "Prosimy zabrać ze sobą dokument ze zdjęciem pozwalającym na stwierdzenie tożsamości (dowód osobisty, paszport, prawo jazdy). oraz dokument potwierdzający przebycie COVID-19: informacja z sanepidu, ze strony pacjent.gov.pl lub wynik testu. Każdy, kto zgłasza się do oddania krwi powinien być zdrowy, wypoczęty, wyspany oraz po spożyciu lekkostrawnego i niskokalorycznego posiłku i wypiciu około 1,5 litra płynów w ciągu 24 godzin przed oddaniem krwi."
     },
     {
         "question": "Czy można oddać krew zamiast osocza?",
-        "answer": "Jeśli pobranie osocza metodą plazmaferezy będzie utrudnione, ozdrowieniec może oddać krew pełną, z której pozyskamy osocze do leczenia chorych na COVID-19 oraz krwinki czerwone do leczenia innych chorych potrzebujących transfucji krwi. Nie wymaga to oczekiwania na termin."
+        "answer": "Jeśli pobranie osocza metodą plazmaferezy będzie utrudnione, ozdrowieniec może oddać krew pełną, z której pozyskamy osocze do leczenia chorych na COVID-19 oraz krwinki czerwone do leczenia innych chorych potrzebujących transfuzji krwi. Nie wymaga to oczekiwania na termin."
     },
     {
         "question": "Czy można oddać osocze kilka razy?",
@@ -41,6 +41,14 @@
     },
     {
         "question": "Czy można oddać osocze ze wskazaniem na konkretnego pacjenta?",
-        "answer": "Centrum Krwiodastwa rejestruje donacje osocza ze wskazaniem na konkretnego pacjenta, nie ma natomiast możliwości by dawca zastrzegł, że osocze pobrane od niego będzie przeznaczone tylko i wyłącznie dla jednego, konkretnego pacjenta z COVID-19. Pobierane osocze trafia do ogólnej puli dla szpitali, które to zamawiają je dla swoich pacjentów. "
+        "answer": "Centrum Krwiodawstwa rejestruje donacje osocza ze wskazaniem na konkretnego pacjenta, nie ma natomiast możliwości by dawca zastrzegł, że osocze pobrane od niego będzie przeznaczone tylko i wyłącznie dla jednego, konkretnego pacjenta z COVID-19. Pobierane osocze trafia do ogólnej puli dla szpitali, które to zamawiają je dla swoich pacjentów. "
+    },
+    {
+        "question": "Czy za oddanie osocza należy się wolny dzień i ekwiwalent kalorii?",
+        "answer": "Tak. Po oddaniu krwi dawca otrzyma: posiłek regeneracyjny, zwolnienie z pracy w dniu oddania krwi, legitymację Honorowego Dawcy Krwi, bezpłatne wyniki badań: grupy krwi ( na życzenie Dawcy wynik w postaci karty identyfikacyjnej grupy krwi ), morfologii, na obecność markerów chorób zakaźnych przenoszonych drogą krwi, w tym wirusowego zapalenia wątroby B i C, wirusa HIV i kiły."
+    },
+    {
+        "question": "Czy jako obcokrajowiec mogę oddać osocze?",
+        "answer": "Kandydat na dawcę krwi musi posiadać nr PESEL oraz powinien posługiwać się językiem polskim w mowie i piśmie w stopniu, który umożliwi mu bez udziału osób trzecich samodzielne zrozumienie treści kwestionariusza i wypełnienie go."
     }
 ]
