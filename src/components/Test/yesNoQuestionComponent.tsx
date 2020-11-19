@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import { YesNoAnswer, IQuestion } from "../../questions/test";
 import Alert from "@material-ui/lab/Alert";
+import DoneIcon from "@material-ui/icons/Done";
+import ClearIcon from '@material-ui/icons/Clear';
 
 const useStyles = makeStyles((theme) => ({
   question: {
@@ -24,9 +26,15 @@ const useStyles = makeStyles((theme) => ({
     width: "50%",
   },
   result: {
-    width: "50%",
+    width: "56px",
     justifyContent: "flex-end",
   },
+  green: {
+    color: "green",
+  },
+  red: {
+    color: "red",
+  }
 }));
 
 interface IYesNoQuestionProps {
@@ -50,15 +58,11 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
       return <></>;
     } else if (props.question.answeredCorrectly === true) {
       return (
-        <Alert severity="success">
-          <Typography variant="body2">Wspaniale</Typography>
-        </Alert>
+        <Alert icon={<DoneIcon fontSize="inherit" />} severity="success"/>     
       );
     } else {
       return (
-        <Alert severity="error">
-          <Typography variant="body2">Przykro nam</Typography>
-        </Alert>
+        <Alert icon={<ClearIcon fontSize="inherit" />} severity="error"/>  
       );
     }
   }
