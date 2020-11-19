@@ -34,16 +34,16 @@ export default function SuccessResult() {
         <div className={classes.successResult}>            
             <Alert severity="success">
                 <AlertTitle>Wspaniale!</AlertTitle>
-                <p>Wygląda na to, że Twoje osocze może uratować komuś życie! Zadzwoń żeby by umówić się na oddanie osocza.</p>
+                <p>Wygląda na to, że Twoje osocze może uratować komuś życie! Zadzwoń, żeby by umówić się na oddanie osocza.</p>
                 <p><strong>{message}</strong></p>
                 </Alert>
                 <Typography variant="body1" gutterBottom>
-                   Pamiętaj! Linie mogą być obciążone i być może trzeba będzie czekać na połączenie.<br/>
+                   Pamiętaj! Linie mogą być obciążone i być może koniecznym będzie poczekanie na połączenie.<br/>
                    <strong>Nie poddawaj się!</strong>                 
                 </Typography>                
                 <RCKiKCard />
                 <Typography variant="body1" gutterBottom>
-                Jeśli do Krakowa masz za daleko, sprawdź jak oddać osocze w cenrum krwiodastwa bliżej Ciebie. Lista centrów krwiodastwa jest dostępna na stronie:
+                Jeżeli do Krakowa masz za daleko, sprawdź jak oddać osocze w cenrum krwiodawstwa bliżej Ciebie. Lista centrów krwiodawstwa jest dostępna na stronie:
                 </Typography>                   
                 <Button 
                   component="a" 

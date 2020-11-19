@@ -31,7 +31,7 @@ export default function SuccessResult() {
                 </Alert>
                 <Typography variant="body1" gutterBottom>
                   Zadzwoń, by przejść przez kwestionariusz z osobą, która będzie mogła rozwiać wszelkie wątpliwości.<br/>
-                  Pamiętaj! Linie mogą być obciążone i być może trzeba będzie czekać na połączenie.<br/>
+                  Pamiętaj! Linie mogą być obciążone i być może koniecznym będzie poczekanie na połączenie.<br/>
                   <strong>Nie poddawaj się!</strong> 
                 </Typography>
                 <CenterCard />
