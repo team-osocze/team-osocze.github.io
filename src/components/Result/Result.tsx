@@ -37,7 +37,7 @@ export default function Result({result}: ResultProps) {
         <div className={classes.content}> 
             <header className={classes.header}>
                 <Typography variant="h4" gutterBottom>Wynik</Typography>
-                <Button component={Link} to="test" size="large" variant="contained" color="primary">Test</Button>
+                <Button component={Link} to="test" size="large" variant="contained" color="primary">Wróć do testu</Button>
             </header>
             <div>     
                 { result === "Success" ? <SuccessResult /> : null }     

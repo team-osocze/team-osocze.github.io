@@ -27,14 +27,16 @@ const useStyles = makeStyles({
             marginRight: 10
         }
     },
+    logoImg: {
+        width: "100%"
+    },
     testStartSection: {
+        width: "100%",
         marginTop: "10px",
+        marginBottom: "10px",
         padding: "5px",
         display: "flex",
         justifyContent: "center"
-    },
-    logoImg: {
-        width: "100%"
     }
 });
 
@@ -46,7 +48,6 @@ export function LandingPage() {
             <div className={classes.content}>
                 <header className={classes.header}>
                     <Typography variant="h4">Ozdrowieńcu!</Typography>
-                    <Button component={Link} to="test" size="large" variant="contained" color="primary">Test</Button>
                 </header>
                 <section>                    
                     <Typography>
@@ -57,9 +58,12 @@ export function LandingPage() {
                     <a href="https://rckik.krakow.pl" target="blank">
                         <img src={logo} className={classes.logoImg} alt="RCKiK w Krakowie logo" />
                     </a>
-                    <Typography>
+                    <Typography variant="body2">
                         Ankieta pod patronatem <strong>RCKiK</strong>. Dane są w pełni anonimowe, pozostają tylko u Ciebie na komputerze, nikt ich nie zbiera i nie przetwarza
                     </Typography>
+                </section>
+                <section className={classes.testStartSection}>
+                    <Button component={Link} to="test" size="large" variant="contained" color="primary">Rozpocznij test</Button>
                 </section>
                 <section>
                     <Typography component="article" variant="body2" style={{ marginBottom: "10px" }}>
@@ -70,9 +74,6 @@ export function LandingPage() {
                         Pytania w ankiecie odpowiadają tym, które zadałaby Ci przez telefon osoba z punktu krwiodawstwa. Odpowiedzi nie są zbierane na tym etapie
                         i są całkowicie anonimowe. To narzędzie ma służyć wyłacznie sprawdzeniu czy nie ma przeciwskazań, abyś został dawcą osocza.
                     </Typography>
-                </section>
-                <section className={classes.testStartSection}>
-                    <Button component={Link} to="test" size="large" variant="contained" color="primary">Rozpocznij test</Button>
                 </section>
             </div>
         </>

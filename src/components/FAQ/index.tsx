@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "10px",
     },
     testStartSection: {
+        width: "100%",
         marginTop: "10px",
         padding: "5px",
         display: "flex",
@@ -57,7 +58,6 @@ const FAQComponent: React.FC = function() {
           <div className={classes.content}> 
             <header className={classes.header}>     
               <Typography variant="h5">FAQ - Najczęściej zadawane pytania</Typography>
-              <Button component={Link} to="test" size="large" variant="contained" color="primary">Test</Button>                
             </header>           
             <div className={classes.groupsList}>
               {questions.map((group: typeof faqQuestions[0], index: number) => (
@@ -72,7 +72,7 @@ const FAQComponent: React.FC = function() {
               ))}
             </div>
             <section className={classes.testStartSection}>
-                    <Button component={Link} to="test" size="large" variant="contained" color="primary">Rozpocznij test</Button>
+              <Button component={Link} to="test" size="large" variant="contained" color="primary">Rozpocznij test</Button>
             </section>
           </div>
       );
