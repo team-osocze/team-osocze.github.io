@@ -32,7 +32,7 @@ const useStyles = makeStyles({
 const handleShare = () => {
     if (navigator.share) {
         navigator.share({
-            title: 'WebShare API Demo',
+            title: sharedText,
             url: sharedUrl
         }).then(() => {
             console.log('Thanks for sharing!');
