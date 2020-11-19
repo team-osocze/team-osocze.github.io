@@ -57,7 +57,7 @@ export function ShareActions() {
         <EmailShareButton url={sharedUrl} subject="Osocze ozdrowieńców COVID-19" body={sharedText}>
             <EmailIcon className={classes.icon} color="primary" />
         </EmailShareButton>
-        <WhatsappShareButton url={sharedUrl} title={sharedTextWithUrl}>
+        <WhatsappShareButton url={sharedUrl} title={sharedText}>
             <WhatsappIcon className={classes.icon} color="primary" />
         </WhatsappShareButton>
         {navigator.share && <ShareIcon className={classes.icon} color="primary" onClick={handleShare} />}
