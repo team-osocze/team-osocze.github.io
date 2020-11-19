@@ -6,6 +6,7 @@ import Alert from "@material-ui/lab/Alert";
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import QuestionGroupComponent from "./questionGroupComponent";
 import {
   ITest,
@@ -126,16 +127,17 @@ const TestComponent: React.FC<TestComponentProps> = ({
           </Button>
         </header>
         <Collapse in={showInfo}>
-          <Alert severity="info" 
-                  action={
-                    <IconButton
-                      aria-label="close"
-                      color="inherit"
-                      size="small"
-                      onClick={() => {
-                        setShowInfo(false);
-                      }}><CloseIcon fontSize="inherit" />
-                    </IconButton>
+          <Alert severity="info"
+              icon={<VisibilityOff fontSize="inherit" />}
+              action={
+                <IconButton
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                  onClick={() => {
+                    setShowInfo(false);
+                  }}><CloseIcon fontSize="inherit" />
+                </IconButton>
           }>
           <Typography variant="body2">
             Informacje nie są zbierane ani przekazywane. Tylko Ty je widzisz i
