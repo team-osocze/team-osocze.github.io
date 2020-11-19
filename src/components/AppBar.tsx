@@ -86,7 +86,7 @@ export default function ButtonAppBar({showResultOption}: AppBarProps) {
                 anchor="left"
             >
                 <div className={classes.drawerHeader} onClick={toggleDrawerOpen}>
-                    <Typography>Osocze app</Typography>
+                    <Typography>Osocze ma moc!</Typography>
                     <IconButton>
                         <ChevronLeftIcon />
                     </IconButton>

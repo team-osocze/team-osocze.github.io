@@ -24,7 +24,6 @@ import {appStateReducer, initialState, resetStateAction, answerQuestionAction} f
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     app: {
-      //textAlign: "center",
       height: "100vh",
       display: "flex",
       flexDirection: "column",
