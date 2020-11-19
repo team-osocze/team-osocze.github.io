@@ -58,17 +58,17 @@ export function LandingPage() {
                         <img src={logo} className={classes.logoImg} alt="RCKiK w Krakowie logo" />
                     </a>
                     <Typography>
-                        Ankieta pod patronatem <strong>RCKiK</strong> dane są w pełni anonimowe, pozostają tylko u Ciebie na komputerze, nikt ich nie zbiera i nie przetwarza
+                        Ankieta pod patronatem <strong>RCKiK</strong>. Dane są w pełni anonimowe, pozostają tylko u Ciebie na komputerze, nikt ich nie zbiera i nie przetwarza
                     </Typography>
                 </section>
                 <section>
                     <Typography component="article" variant="body2" style={{ marginBottom: "10px" }}>
-                        Wiemy jak trudno jest uzyskać konkretną informację na temat możliwości oddania osocza przez ozdrowieńców. Dlatego, żeby odciążyć centra krwiodastwa
+                        Wiemy jak trudno jest uzyskać konkretną informację na temat możliwości oddania osocza przez ozdrowieńców. Dlatego, żeby odciążyć centra krwiodawstwa
                         na etapie wstępnych wywiadów, stworzyliśmy projekt osocze.info. W ciągu kilku minut dowiesz się czy Twoje osocze może pomóc leczyć chorych na koronawirusa.
                     </Typography>
                     <Typography component="article" variant="body2">
-                        Pytania w ankiecie odpowiadają tym, które zadałaby Ci przez telefon osoba z punktu krwiodastwa. Odpowiedzi nie są zbierane na tym etapie
-                        i są całkowicie anonimowe. To narzędzie ma służyć wyłacznie sprawdzeniu czy jest sens próbować dodzwonić się do punktu odbiory osocza.
+                        Pytania w ankiecie odpowiadają tym, które zadałaby Ci przez telefon osoba z punktu krwiodawstwa. Odpowiedzi nie są zbierane na tym etapie
+                        i są całkowicie anonimowe. To narzędzie ma służyć wyłacznie sprawdzeniu czy jest nie ma przeciwskazań, abyś został dawcą osocza.
                     </Typography>
                 </section>
                 <section className={classes.testStartSection}>

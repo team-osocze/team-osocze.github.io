@@ -6,8 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import ContactList from './ContactList';
 import logo from "../../logoRCKiK.png";
 
-
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     centerCard: {
