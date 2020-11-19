@@ -100,7 +100,6 @@ const TestComponent: React.FC<TestComponentProps> = ({
   function restart() {
     onRestart();
     setExpandedGroupHeader(testState.groups[0].header);
-    setShowInfo(true)
   }
 
   function showResult() {
