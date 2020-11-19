@@ -16,6 +16,7 @@ import {
 } from "../../questions/test";
 import { useHistory } from "react-router-dom";
 import ProgressBar from "../progressBar";
+import { useAppContext } from "../../appContext";
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -66,7 +67,8 @@ const TestComponent: React.FC<TestComponentProps> = ({
   const [expandedGroupHeader, setExpandedGroupHeader] = React.useState<
     string | null
   >(testState.groups[0].header);
-  const [showInfo, setShowInfo] = React.useState(true);
+  
+  const { showInfo, setShowInfo } = useAppContext();
 
   const history = useHistory();
 

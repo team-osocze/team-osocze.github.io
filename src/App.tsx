@@ -20,6 +20,7 @@ import Container from "@material-ui/core/Container";
 import { LandingPage } from "./components/Landing/Page";
 
 import {appStateReducer, initialState, resetStateAction, answerQuestionAction} from "./appState";
+import { AppContextProvider } from "./appContext";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -71,6 +72,7 @@ function App() {
   const classes = useStyles();
 
   const [testState, dispatch] = React.useReducer(appStateReducer, initialState);
+  const [showInfo, setShowInfo] = React.useState(true);
 
   function onRestart() {
     dispatch(resetStateAction());
@@ -88,11 +90,14 @@ function App() {
               </Route>
               <Route path="/test">
                 <div className={classes.content}>
-                  <TestComponent
-                    testState={testState}
-                    onAnswer={(question, answer) => { dispatch(answerQuestionAction(question, answer)); }}
-                    onRestart={onRestart}
-                  />
+                  <AppContextProvider value={ {showInfo: showInfo, setShowInfo: setShowInfo}}>
+                    <TestComponent
+                      testState={testState}
+                      onAnswer={(question, answer) => { dispatch(answerQuestionAction(question, answer)); }}
+                      onRestart={onRestart}
+                    />
+                  </AppContextProvider>
+
                 </div>
               </Route>
               {testState.isDone && (
