@@ -28,7 +28,7 @@ export default function SimpleBottomNavigation() {
     <div
       className={classes.root}
     >
-      <Typography component="span" className={classes.bottomText}>Udostepnij:</Typography>
+      <Typography component="span" className={classes.bottomText}>Udostępnij:</Typography>
       <ShareActions />
     </div>
   );
