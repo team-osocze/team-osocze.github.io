@@ -1,14 +1,23 @@
 import * as React from "react";
 import { Dispatch, SetStateAction} from "react";
 
-interface AppContextProps {
+export interface ScrollInfo {
+    appliedPosition: number;
+    persistedPosition: number;
+}
+
+export interface AppContextProps {
     showInfo: boolean;
     setShowInfo: Dispatch<SetStateAction<boolean>>;
+    scroll: ScrollInfo;
+    setScroll: Dispatch<SetStateAction<ScrollInfo>>;
 }
 
 const defaultContext: AppContextProps = {
     showInfo: true,
-    setShowInfo: (): void => {},
+    setShowInfo: () => {},
+    scroll: { appliedPosition: 0, persistedPosition: 0 },
+    setScroll: () => {}
 };
 
 const AppContext = React.createContext<AppContextProps>(defaultContext);

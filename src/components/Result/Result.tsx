@@ -27,9 +27,10 @@ createStyles({
 
 interface ResultProps {
     result: TestResult;
+    backToTestCallback: () => void;
 }
 
-export default function Result({result}: ResultProps) {
+export default function Result({result, backToTestCallback}: ResultProps) {
     const classes = useStyles();
 
     return (
@@ -37,7 +38,7 @@ export default function Result({result}: ResultProps) {
         <div className={classes.content}> 
             <header className={classes.header}>
                 <Typography variant="h4" gutterBottom>Wynik</Typography>
-                <Button component={Link} to="test" size="large" variant="contained" color="primary">Wróć do testu</Button>
+                <Button component={Link} to="test" size="large" variant="contained" color="primary" onClick={backToTestCallback}>Wróć do testu</Button>
             </header>
             <div>     
                 { result === "Success" ? <SuccessResult /> : null }     
