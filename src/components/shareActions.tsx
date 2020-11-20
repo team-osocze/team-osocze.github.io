@@ -7,9 +7,9 @@ import EmailIcon from '@material-ui/icons/Email';
 import WhatsappIcon from '@material-ui/icons/WhatsApp';
 import ShareIcon from '@material-ui/icons/Share';
 
-const sharedUrl: string = "https://osocze.info"
+const sharedUrl: string = window.location.href;
 const sharedText: string = "Czy wiesz, że Twoje osocze może uratować życie? Sprawdź, czy możesz zostać jego dawcą na osocze.info. Wypełnienie wstępnej ankiety zajmie Ci tylko 5 minut. Satysfakcja z uratowania drugiego człowieka będzie trwała całe życie :) Wejdź na:"
-const sharedTextWithUrl: string = sharedText + " https://osocze.info"
+const sharedTextWithUrl: string = `${sharedText} ${sharedUrl}`
 
 const useStyles = makeStyles({
     root: {
