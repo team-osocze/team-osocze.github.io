@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.background.paper,
     },
     constactListElement:{
-      paddingTop: 2
+      paddingTop: 0,
+      paddingBottom: 0
     }
    }),
 );
@@ -29,17 +30,29 @@ export default function ContactList() {
         </ListItemIcon>  
       <ListItemText primary="ul. Rzeźnicza 11" secondary="31-540 Kraków" />
       </ListItem>
-      <ListItem button component="a" href="tel:+48122618803" className={classes.constactListElement}>         
+      <ListItem button component="a" href="tel:+4812 261 88 03" className={classes.constactListElement}>         
         <ListItemIcon>
           <Phone />
         </ListItemIcon>  
-      <ListItemText primary="+48 663 560 300" secondary="w godz. 8:00-16:00" />
+      <ListItemText primary="+48 12 261 88 03" secondary="w godz. 8:00-16:00" />
+      </ListItem>
+      <ListItem button component="a" href="tel:+48 663 560 300" className={classes.constactListElement}>         
+        <ListItemIcon>
+          <Phone />
+        </ListItemIcon>  
+      <ListItemText primary="+48 663 560 300" secondary="w godz. 7:00-15:00" />
       </ListItem>
       <ListItem button component="a" href="tel:+48 661 926 116" className={classes.constactListElement}>         
-        <ListItemIcon>
+      <ListItemIcon>
           <Phone />
         </ListItemIcon>  
-      <ListItemText primary="+48 661 926 116" secondary="w godz. 7:00-15:00" />
+      <ListItemText primary="+48 661 926 116" secondary="w godz. 8:00-15:00" />
+      </ListItem>
+      <ListItem button component="a" href="tel:+48 603 697 534" className={classes.constactListElement}>         
+      <ListItemIcon>
+          <Phone />
+        </ListItemIcon>  
+      <ListItemText primary="+48 603 697 534" secondary="w godz. 8:00-15:00" />
       </ListItem>
       <ListItem button component="a" href="mailto:osocze@rckik.pl" className={classes.constactListElement}>         
         <ListItemIcon>
