@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import AppBar from "./components/AppBar";
 import Result from "./components/Result/Result";
 import FAQComponent from "./components/FAQ";
@@ -19,8 +19,9 @@ import TestComponent from "./components/Test";
 import Container from "@material-ui/core/Container";
 import { LandingPage } from "./components/Landing/Page";
 
-import {appStateReducer, initialState, resetStateAction, answerQuestionAction} from "./appState";
-import { AppContextProvider } from "./appContext";
+import {appStateReducer, initialState, resetStateAction, answerQuestionAction } from "./appState";
+import { AppContextProvider, ScrollInfo } from "./appContext";
+import { IQuestion, YesNoAnswer } from "./questions/test";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,6 +36,9 @@ const useStyles = makeStyles((theme: Theme) =>
     container: {
       padding: 0,
     },
+    test: {
+      overflowY: "scroll"
+    }
   })
 );
 
@@ -70,15 +74,35 @@ const theme = createMuiTheme({
 
 function App() {
   const classes = useStyles();
+  const initialScrollState: ScrollInfo = { position: 0, applyScroll: Symbol()};
 
   const [testState, dispatch] = React.useReducer(appStateReducer, initialState);
   const [showInfo, setShowInfo] = React.useState(true);
+  const [scrollState, setScrollState] = React.useState(initialScrollState);
+  const appContainerElement = useRef(null);
 
   function onRestart() {
     dispatch(resetStateAction());
   }
 
+  function onBackToTest() {
+    setScrollState(prev => ({...prev, applyScroll: Symbol()}))
+  }
+
+  function onAnswer(question: IQuestion, answer: YesNoAnswer) {
+      const scrollPosition: number = (appContainerElement as any).current?.scrollTop ?? 0;
+      setScrollState(prev => ({...prev, position: scrollPosition}))
+      dispatch(answerQuestionAction(question, answer));
+  }
+
+  useEffect(() => {
+    if ((appContainerElement as any)?.current !== null) {
+      (appContainerElement as any).current.scrollTop = scrollState.position;
+    }
+  }, [scrollState.applyScroll]);
+
   return (
+    <div ref={appContainerElement} className={classes.test}>
     <Router>
       <Container maxWidth="sm" className={classes.container}>
         <ThemeProvider theme={theme}>
@@ -90,20 +114,15 @@ function App() {
               </Route>
               <Route path="/test">
                 <div className={classes.content}>
-                  <AppContextProvider value={ {showInfo: showInfo, setShowInfo: setShowInfo}}>
-                    <TestComponent
-                      testState={testState}
-                      onAnswer={(question, answer) => { dispatch(answerQuestionAction(question, answer)); }}
-                      onRestart={onRestart}
-                    />
+                  <AppContextProvider value={ {showInfo: showInfo, setShowInfo: setShowInfo, scroll: scrollState, setScroll: setScrollState}}>
+                    <TestComponent testState={testState} onAnswer={onAnswer} onRestart={onRestart} />
                   </AppContextProvider>
-
                 </div>
               </Route>
               {testState.isDone && (
                 <Route path="/result">
                   <div className={classes.content}>
-                    <Result result={testState.testResult!} />
+                    <Result result={testState.testResult!} backToTestCallback={onBackToTest} />
                   </div>
                 </Route>
               )}
@@ -119,6 +138,7 @@ function App() {
         </ThemeProvider>
       </Container>
     </Router>
+    </div>
   );
 }
 

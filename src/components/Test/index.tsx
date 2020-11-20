@@ -14,7 +14,7 @@ import {
   IQuestion,
   YesNoAnswer,
 } from "../../questions/test";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ProgressBar from "../progressBar";
 import { useAppContext } from "../../appContext";
 
@@ -58,35 +58,27 @@ interface TestComponentProps {
   onRestart: () => void;
 }
 
-const TestComponent: React.FC<TestComponentProps> = ({
-  testState,
-  onAnswer,
-  onRestart,
-}: TestComponentProps) => {
+const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRestart}: TestComponentProps) => {
   const classes = useStyles();
-  const [expandedGroupHeader, setExpandedGroupHeader] = React.useState<
-    string | null
-  >(testState.groups[0].header);
+  const [expandedGroupHeader, setExpandedGroupHeader] = React.useState<string | null>(testState.groups[0].header);
   
-  const { showInfo, setShowInfo } = useAppContext();
+  const { showInfo, setShowInfo, scroll, setScroll } = useAppContext();
 
   const history = useHistory();
 
   function toggleGroup(group: IQuestionGroup) {
-    setExpandedGroupHeader((previouslyExpandedGroupHeader) =>
+    setExpandedGroupHeader((previouslyExpandedGroupHeader: string | null) =>
       previouslyExpandedGroupHeader !== group.header ? group.header : null
     );
   }
 
   function openNextGroup() {
-    setExpandedGroupHeader((previouslyExpandedGroupHeader) => {
+    setExpandedGroupHeader((previouslyExpandedGroupHeader: string | null) => {
       if (previouslyExpandedGroupHeader === null) {
         return testState.groups[0].header;
       } else {
         const nextGroupIndex =
-          testState.groups.findIndex(
-            (g) => g.header === previouslyExpandedGroupHeader
-          ) + 1;
+          testState.groups.findIndex((g) => g.header === previouslyExpandedGroupHeader) + 1;
 
         if (nextGroupIndex < testState.groups.length)
           return testState.groups[nextGroupIndex].header;
@@ -105,8 +97,8 @@ const TestComponent: React.FC<TestComponentProps> = ({
     setExpandedGroupHeader(testState.groups[0].header);
   }
 
-  function showResult() {
-    history.push("result");
+  function onResult(){
+    setScroll(prev => ({...prev, position: 0}))
   }
 
   return (
@@ -165,7 +157,9 @@ const TestComponent: React.FC<TestComponentProps> = ({
               variant="contained"
               color="secondary"
               disabled={!testState.isDone}
-              onClick={() => showResult()}
+              component={Link} 
+              to="result"
+              onClick={onResult}
             >
               REZULTAT
             </Button>
