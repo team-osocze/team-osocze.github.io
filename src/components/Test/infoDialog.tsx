@@ -9,7 +9,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import { makeStyles } from '@material-ui/core/styles';
 
 interface IInfoDialogProps {
-    infoText: String;
+    infoText: string;
 }
 
 const useStyles = makeStyles({
@@ -48,7 +48,7 @@ export default function InfoDialog({ infoText }: IInfoDialogProps){
               </DialogContentText>
             </DialogContent>
             <DialogActions>             
-              <Button onClick={handleClose} color="primary" autoFocus>
+              <Button onClick={handleClose} color="primary" >
                 Rozumiem
               </Button>
             </DialogActions>

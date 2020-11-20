@@ -71,7 +71,7 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
     <>
       <div className={classes.question}>
         <Typography>{props.question.text}
-        <InfoDialog infoText={"additional info about question bla bla blab blalba bla bla blab blalbabla bla blab blalba "}/>                    
+          { !!props.question.info ? <InfoDialog infoText={props.question.info}/> : null }                            
         </Typography>
         <div className={classes.answer}>
           <div className={classes.anserwButtons}>

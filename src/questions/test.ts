@@ -8,6 +8,7 @@ export interface IQuestion {
   notAbblicableAvailable: boolean;
   answer: YesNoAnswer | null;
   answeredCorrectly: boolean | null;
+  info: string;
 }
 export interface IQuestionGroup {
   header: string;
@@ -39,6 +40,7 @@ export function createTestState() : ITest{
           notAbblicableAvailable: false,
           answer: null,
           answeredCorrectly: null,
+          info: "Za każdym razem, gdy oddajesz krew, oddajesz bogate w żelazo czerwone krwinki. Ponieważ młodzi ludzie wciąż się rozwijają, mają większe zapotrzebowanie na żelazo. Organizm zastępuje żelazo utracone w wyniku darowizny, wchłaniając więcej żelaza z pożywienia. Czas potrzebny dawcom na zastąpienie tego żelaza jest bardzo zróżnicowany - zależy to od rodzaju i ilości żelaza w diecie oraz od tego, czy występują inne straty żelaza.",
         },
         {
           type: "YesNo",
