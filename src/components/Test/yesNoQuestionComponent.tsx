@@ -5,6 +5,7 @@ import { YesNoAnswer, IQuestion } from "../../questions/test";
 import Alert from "@material-ui/lab/Alert";
 import DoneIcon from "@material-ui/icons/Done";
 import ClearIcon from '@material-ui/icons/Clear';
+import InfoDialog from "./infoDialog";
 
 const useStyles = makeStyles((theme) => ({
   question: {
@@ -69,7 +70,9 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
   return (
     <>
       <div className={classes.question}>
-        <Typography>{props.question.text}</Typography>
+        <Typography>{props.question.text}
+        <InfoDialog infoText={"additional info about question bla bla blab blalba bla bla blab blalbabla bla blab blalba "}/>                    
+        </Typography>
         <div className={classes.answer}>
           <div className={classes.anserwButtons}>
             <Button
