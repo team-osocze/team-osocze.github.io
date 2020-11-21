@@ -1,10 +1,9 @@
 import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import { YesNoAnswer, IQuestion } from "../../questions/test";
 import Alert from "@material-ui/lab/Alert";
 import DoneIcon from "@material-ui/icons/Done";
-import ClearIcon from '@material-ui/icons/Clear';
+import ClearIcon from "@material-ui/icons/Clear";
 import InfoDialog from "./infoDialog";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,12 +34,16 @@ const useStyles = makeStyles((theme) => ({
   },
   red: {
     color: "red",
-  }
+  },
 }));
 
 interface IYesNoQuestionProps {
-  question: IQuestion;
-  onAnswer: (question: IQuestion, answer: YesNoAnswer) => void;
+  text: string;
+  info: string;
+  correctAnswer: YesNoAnswer;
+  notAbblicableAvailable?: boolean;
+  //question: IQuestion;
+  onAnswer: (questionText: string, answeredCorrectly: boolean) => void;
 }
 
 const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
@@ -49,35 +52,38 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
   const classes = useStyles();
 
   function onAnswer(answer: YesNoAnswer) {
-    props.onAnswer(props.question, answer);
+    props.onAnswer(props.text, answer === props.correctAnswer);
   }
 
   function questionResult() {
-    if (
-      props.question.answeredCorrectly === null
-    ) {
-      return <></>;
-    } else if (props.question.answeredCorrectly === true) {
-      return (
-        <Alert icon={<DoneIcon fontSize="inherit" />} severity="success"/>     
-      );
-    } else {
-      return (
-        <Alert icon={<ClearIcon fontSize="inherit" />} severity="error"/>  
-      );
-    }
+    return "";
+    // if (
+    //   props.question.answeredCorrectly === null
+    // ) {
+    //   return <></>;
+    // } else if (props.question.answeredCorrectly === true) {
+    //   return (
+    //     <Alert icon={<DoneIcon fontSize="inherit" />} severity="success"/>
+    //   );
+    // } else {
+    //   return (
+    //     <Alert icon={<ClearIcon fontSize="inherit" />} severity="error"/>
+    //   );
+    // }
   }
   return (
     <>
       <div className={classes.question}>
-        <Typography>{props.question.text}
-          { !!props.question.info ? <InfoDialog infoText={props.question.info}/> : null }                            
+        <Typography>
+          {props.text}
+          {!!props.info ? <InfoDialog infoText={props.info} /> : null}
         </Typography>
         <div className={classes.answer}>
           <div className={classes.anserwButtons}>
             <Button
               variant={
-                props.question.answer === "Yes" ? "contained" : "outlined"
+                "contained"
+                // props.question.answer === "Yes" ? "contained" : "outlined"
               }
               color="primary"
               onClick={() => onAnswer("Yes")}
@@ -86,17 +92,19 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
             </Button>
             <Button
               variant={
-                props.question.answer === "No" ? "contained" : "outlined"
+                "outlined"
+                // props.question.answer === "No" ? "contained" : "outlined"
               }
               color="primary"
               onClick={() => onAnswer("No")}
             >
               NIE
             </Button>
-            {props.question.notAbblicableAvailable && (
+            {props.notAbblicableAvailable && (
               <Button
                 variant={
-                  props.question.answer === "NotApplicable" ? "contained" : "outlined"
+                  "outlined"
+                  // props.question.answer === "NotApplicable" ? "contained" : "outlined"
                 }
                 color="primary"
                 onClick={() => onAnswer("NotApplicable")}

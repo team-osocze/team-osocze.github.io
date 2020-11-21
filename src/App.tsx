@@ -3,11 +3,7 @@ import AppBar from "./components/AppBar";
 import Result from "./components/Result/Result";
 import FAQComponent from "./components/FAQ";
 import BottomNavigation from "./components/BottomNavigation";
-import {
-  HashRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import {
   createStyles,
   makeStyles,
@@ -19,9 +15,14 @@ import TestComponent from "./components/Test";
 import Container from "@material-ui/core/Container";
 import { LandingPage } from "./components/Landing/Page";
 
-import {appStateReducer, initialState, resetStateAction, answerQuestionAction } from "./appState";
+import {
+  appStateReducer,
+  initialState,
+  resetStateAction,
+  answerQuestionAction,
+  createGroupAction,
+} from "./appState";
 import { AppContextProvider, ScrollInfo } from "./appContext";
-import { IQuestion, YesNoAnswer } from "./questions/test";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -37,8 +38,8 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: 0,
     },
     test: {
-      overflowY: "scroll"
-    }
+      overflowY: "scroll",
+    },
   })
 );
 
@@ -74,7 +75,10 @@ const theme = createMuiTheme({
 
 function App() {
   const classes = useStyles();
-  const initialScrollState: ScrollInfo = { appliedPosition: 0, persistedPosition: 0 };
+  const initialScrollState: ScrollInfo = {
+    appliedPosition: 0,
+    persistedPosition: 0,
+  };
 
   const [testState, dispatch] = React.useReducer(appStateReducer, initialState);
   const [showInfo, setShowInfo] = React.useState(true);
@@ -86,58 +90,88 @@ function App() {
   }
 
   function onBackToTest() {
-    setScrollState(prev => ({...prev, appliedPosition: prev.persistedPosition}))
+    setScrollState((prev) => ({
+      ...prev,
+      appliedPosition: prev.persistedPosition,
+    }));
   }
 
-  function onAnswer(question: IQuestion, answer: YesNoAnswer) {
-      const scrollPosition: number = (appContainerElement as any).current?.scrollTop ?? 0;
-      setScrollState(prev => ({...prev, persistedPosition: scrollPosition}))
-      dispatch(answerQuestionAction(question, answer));
+  function onAnswer(
+    groupHeader: string,
+    questionText: string,
+    answeredCorrectly: boolean
+  ) {
+    const scrollPosition: number =
+      (appContainerElement as any).current?.scrollTop ?? 0;
+    setScrollState((prev) => ({ ...prev, persistedPosition: scrollPosition }));
+    dispatch(
+      answerQuestionAction(groupHeader, questionText, answeredCorrectly)
+    );
+  }
+
+  function onGroupCreated(groupHeader: string, questionsNumber: number) {
+    dispatch(createGroupAction(groupHeader, questionsNumber));
   }
 
   useEffect(() => {
     if ((appContainerElement as any)?.current !== null) {
-      (appContainerElement as any).current.scrollTop = scrollState.appliedPosition;
+      (appContainerElement as any).current.scrollTop =
+        scrollState.appliedPosition;
     }
   }, [scrollState.appliedPosition]);
 
   return (
     <div ref={appContainerElement} className={classes.test}>
-    <Router>
-      <Container maxWidth="sm" className={classes.container}>
-        <ThemeProvider theme={theme}>
-          <div className={classes.app}>
-            <AppBar showResultOption={!!testState.isDone} />
-            <Switch>
-              <Route exact path="/">
-                <LandingPage />
-              </Route>
-              <Route path="/test">
-                <div className={classes.content}>
-                  <AppContextProvider value={ {showInfo: showInfo, setShowInfo: setShowInfo, scroll: scrollState, setScroll: setScrollState}}>
-                    <TestComponent testState={testState} onAnswer={onAnswer} onRestart={onRestart} />
-                  </AppContextProvider>
-                </div>
-              </Route>
-              {testState.isDone && (
-                <Route path="/result">
+      <Router>
+        <Container maxWidth="sm" className={classes.container}>
+          <ThemeProvider theme={theme}>
+            <div className={classes.app}>
+              <AppBar showResultOption={!!testState.isDone} />
+              <Switch>
+                <Route exact path="/">
+                  <LandingPage />
+                </Route>
+                <Route path="/test">
                   <div className={classes.content}>
-                    <Result result={testState.testResult!} backToTestCallback={onBackToTest} />
+                    <AppContextProvider
+                      value={{
+                        showInfo: showInfo,
+                        setShowInfo: setShowInfo,
+                        scroll: scrollState,
+                        setScroll: setScrollState,
+                      }}
+                    >
+                      <TestComponent
+                        testState={testState}
+                        onAnswer={onAnswer}
+                        onRestart={onRestart}
+                        onGroupCreated={onGroupCreated}
+                      />
+                    </AppContextProvider>
                   </div>
                 </Route>
-              )}
-              <Route path="/faq">
-                <FAQComponent />
-              </Route>
-              <Route path="*">
-                <LandingPage />
-              </Route>
-            </Switch>
-            <BottomNavigation />
-          </div>
-        </ThemeProvider>
-      </Container>
-    </Router>
+                {testState.isDone && (
+                  <Route path="/result">
+                    <div className={classes.content}>
+                      <Result
+                        result={testState.testResult!}
+                        backToTestCallback={onBackToTest}
+                      />
+                    </div>
+                  </Route>
+                )}
+                <Route path="/faq">
+                  <FAQComponent />
+                </Route>
+                <Route path="*">
+                  <LandingPage />
+                </Route>
+              </Switch>
+              <BottomNavigation />
+            </div>
+          </ThemeProvider>
+        </Container>
+      </Router>
     </div>
   );
 }

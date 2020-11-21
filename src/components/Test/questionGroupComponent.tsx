@@ -9,9 +9,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DoneIcon from "@material-ui/icons/Done";
-import ClearIcon from '@material-ui/icons/Clear';
-import { IQuestion, IQuestionGroup, YesNoAnswer } from "../../questions/test";
-import YesNoQuestionComponent from "./yesNoQuestionComponent";
+import ClearIcon from "@material-ui/icons/Clear";
+import { IQuestionGroup } from "../../appState";
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -40,11 +39,12 @@ const useStyles = makeStyles((theme) => ({
 
 interface IQuestionGroupProps {
   isLastGroup: boolean;
-  expanded: boolean;
-  onToggleGroup: () => void;
-  onNext: () => void;
-  group: IQuestionGroup;
-  onAnswer: (question: IQuestion, answer: YesNoAnswer) => void;
+  isExpanded: (header: string) => boolean;
+  onToggleGroup: (header: string) => void;
+  onNext?: () => void;
+  children?: JSX.Element | JSX.Element[];
+  header: string;
+  group?: IQuestionGroup;
 }
 
 const QuestionGroupComponent: React.FC<IQuestionGroupProps> = (
@@ -52,13 +52,8 @@ const QuestionGroupComponent: React.FC<IQuestionGroupProps> = (
 ) => {
   const classes = useStyles();
 
-  function renderQuestion(q: IQuestion) {
-    if (q.type === "YesNo")
-      return <YesNoQuestionComponent question={q} onAnswer={props.onAnswer} />;
-  }
-
   function groupStatus() {
-    const allQuestionsCorrect = props.group.allQuestionsCorrect;
+    const allQuestionsCorrect = props.group?.allQuestionsCorrect;
     if (allQuestionsCorrect === null) {
       return <></>;
     } else if (allQuestionsCorrect === false) {
@@ -71,27 +66,27 @@ const QuestionGroupComponent: React.FC<IQuestionGroupProps> = (
   return (
     <>
       <Accordion
-        expanded={props.expanded}
-        onChange={() => props.onToggleGroup()}
+        expanded={props.isExpanded(props.header)}
+        onChange={() => props.onToggleGroup(props.header)}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls={props.group.header + "-content"}
-          id={props.group.header + "-header"}
+          aria-controls={props.header + "-content"}
+          id={props.header + "-header"}
         >
           <div className={classes.heading}>{groupStatus()}</div>
           <Typography variant="h6" className={classes.secondaryHeading}>
-            {props.group.header}
+            {props.header}
           </Typography>
         </AccordionSummary>
         <AccordionDetails className={classes.groupDetails}>
-          {props.group.questions.map((q) => renderQuestion(q))}
+          {props.children}
           <div className={classes.footer}>
             {!props.isLastGroup && (
               <Button
                 variant="contained"
                 color="secondary"
-                onClick={() => props.onNext()}
+                onClick={() => props.onNext!()}
               >
                 DALEJ
               </Button>
