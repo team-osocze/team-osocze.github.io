@@ -97,7 +97,11 @@ const TestComponent: React.FC<TestComponentProps> = ({
 
   function localOnAnswer(question: IQuestion, answer: YesNoAnswer) {
     onAnswer(question, answer);
-    if (question.result === "Error") history.push("result");
+    if (
+      question.correctAnswer != answer &&
+      question.incorrectAnswerResult === "Error"
+    )
+      history.push("result");
   }
 
   function restart() {

@@ -9,7 +9,6 @@ export interface IQuestion {
   correctAnswer: YesNoAnswer;
   notAbblicableAvailable: boolean;
   answer: YesNoAnswer | null;
-  answeredCorrectly: boolean | null;
   incorrectAnswerResult: QuestionResult;
   additionalResultMessage?: string;
   info?: string;
@@ -43,7 +42,6 @@ export function createTestState(): ITest {
           notAbblicableAvailable: false,
           answer: null,
           result: null,
-          answeredCorrectly: null,
           info:
             "Za każdym razem, gdy oddajesz krew, oddajesz bogate w żelazo czerwone krwinki. Ponieważ młodzi ludzie wciąż się rozwijają, mają większe zapotrzebowanie na żelazo. Organizm zastępuje żelazo utracone w wyniku darowizny, wchłaniając więcej żelaza z pożywienia. Czas potrzebny dawcom na zastąpienie tego żelaza jest bardzo zróżnicowany - zależy to od rodzaju i ilości żelaza w diecie oraz od tego, czy występują inne straty żelaza.",
           incorrectAnswerResult: "Error",
@@ -55,7 +53,6 @@ export function createTestState(): ITest {
           notAbblicableAvailable: false,
           answer: null,
           result: null,
-          answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
         {
@@ -65,7 +62,6 @@ export function createTestState(): ITest {
           notAbblicableAvailable: false,
           answer: null,
           result: null,
-          answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
         {
@@ -75,7 +71,6 @@ export function createTestState(): ITest {
           notAbblicableAvailable: false,
           answer: null,
           result: null,
-          answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
         {
@@ -85,7 +80,6 @@ export function createTestState(): ITest {
           notAbblicableAvailable: false,
           answer: null,
           result: null,
-          answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
         {
@@ -95,7 +89,6 @@ export function createTestState(): ITest {
           notAbblicableAvailable: false,
           answer: null,
           result: null,
-          answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
         {
@@ -105,7 +98,6 @@ export function createTestState(): ITest {
           notAbblicableAvailable: false,
           answer: null,
           result: null,
-          answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
         {
@@ -116,7 +108,6 @@ export function createTestState(): ITest {
           notAbblicableAvailable: false,
           answer: null,
           result: null,
-          answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
         {
@@ -127,7 +118,6 @@ export function createTestState(): ITest {
           notAbblicableAvailable: false,
           answer: null,
           result: null,
-          answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
         {
@@ -137,7 +127,6 @@ export function createTestState(): ITest {
           notAbblicableAvailable: false,
           answer: null,
           result: null,
-          answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
         {
@@ -147,7 +136,6 @@ export function createTestState(): ITest {
           notAbblicableAvailable: false,
           answer: null,
           result: null,
-          answeredCorrectly: null,
           incorrectAnswerResult: "Warning",
           additionalResultMessage: "Transfuzja",
         },
@@ -158,7 +146,6 @@ export function createTestState(): ITest {
           notAbblicableAvailable: false,
           answer: null,
           result: null,
-          answeredCorrectly: null,
           info: "",
           incorrectAnswerResult: "Warning",
           additionalResultMessage: "Ciążą ",
@@ -176,7 +163,6 @@ export function createTestState(): ITest {
           notAbblicableAvailable: false,
           answer: null,
           result: null,
-          answeredCorrectly: null,
           info: "",
           incorrectAnswerResult: "Error",
         },
