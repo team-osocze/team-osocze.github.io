@@ -3,10 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import ReplayIcon from "@material-ui/icons/Replay";
 import Alert from "@material-ui/lab/Alert";
-import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Collapse from "@material-ui/core/Collapse";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import QuestionGroupComponent from "./questionGroupComponent";
 import {
   ITest,
@@ -58,10 +58,16 @@ interface TestComponentProps {
   onRestart: () => void;
 }
 
-const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRestart}: TestComponentProps) => {
+const TestComponent: React.FC<TestComponentProps> = ({
+  testState,
+  onAnswer,
+  onRestart,
+}: TestComponentProps) => {
   const classes = useStyles();
-  const [expandedGroupHeader, setExpandedGroupHeader] = React.useState<string | null>(testState.groups[0].header);
-  
+  const [expandedGroupHeader, setExpandedGroupHeader] = React.useState<
+    string | null
+  >(testState.groups[0].header);
+
   const { showInfo, setShowInfo, setScroll } = useAppContext();
 
   const history = useHistory();
@@ -78,7 +84,9 @@ const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRes
         return testState.groups[0].header;
       } else {
         const nextGroupIndex =
-          testState.groups.findIndex((g) => g.header === previouslyExpandedGroupHeader) + 1;
+          testState.groups.findIndex(
+            (g) => g.header === previouslyExpandedGroupHeader
+          ) + 1;
 
         if (nextGroupIndex < testState.groups.length)
           return testState.groups[nextGroupIndex].header;
@@ -89,7 +97,7 @@ const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRes
 
   function localOnAnswer(question: IQuestion, answer: YesNoAnswer) {
     onAnswer(question, answer);
-    if (question.correctAnswer !== answer) history.push("result");
+    if (question.result === "Error") history.push("result");
   }
 
   function restart() {
@@ -97,8 +105,8 @@ const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRes
     setExpandedGroupHeader(testState.groups[0].header);
   }
 
-  function onResult(){
-    setScroll(prev => ({...prev, persistedPosition: 0}))
+  function onResult() {
+    setScroll((prev) => ({ ...prev, persistedPosition: 0 }));
   }
 
   return (
@@ -121,23 +129,27 @@ const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRes
           </Button>
         </header>
         <Collapse in={showInfo}>
-          <Alert severity="info"
-              icon={<VisibilityOff fontSize="inherit" />}
-              action={
-                <IconButton
-                  aria-label="close"
-                  color="inherit"
-                  size="small"
-                  onClick={() => {
-                    setShowInfo(false);
-                  }}><CloseIcon fontSize="inherit" />
-                </IconButton>
-          }>
-          <Typography variant="body2">
-            Informacje nie są zbierane ani przekazywane. Tylko Ty je widzisz i
-            masz do nich dostęp.
-          </Typography>
-        </Alert>
+          <Alert
+            severity="info"
+            icon={<VisibilityOff fontSize="inherit" />}
+            action={
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                size="small"
+                onClick={() => {
+                  setShowInfo(false);
+                }}
+              >
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+            }
+          >
+            <Typography variant="body2">
+              Informacje nie są zbierane ani przekazywane. Tylko Ty je widzisz i
+              masz do nich dostęp.
+            </Typography>
+          </Alert>
         </Collapse>
         <div className={classes.groupsList}>
           {testState.groups.map((group: IQuestionGroup, index: number) => (
@@ -157,7 +169,7 @@ const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRes
               variant="contained"
               color="secondary"
               disabled={!testState.isDone}
-              component={Link} 
+              component={Link}
               to="result"
               onClick={onResult}
             >

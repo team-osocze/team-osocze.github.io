@@ -11,8 +11,9 @@ export interface IQuestion {
   answer: YesNoAnswer | null;
   answeredCorrectly: boolean | null;
   incorrectAnswerResult: QuestionResult;
-  warningMessage?: string;
+  additionalResultMessage?: string;
   info?: string;
+  result: QuestionResult | null;
 }
 export interface IQuestionGroup {
   header: string;
@@ -41,6 +42,7 @@ export function createTestState(): ITest {
           correctAnswer: "Yes",
           notAbblicableAvailable: false,
           answer: null,
+          result: null,
           answeredCorrectly: null,
           info:
             "Za każdym razem, gdy oddajesz krew, oddajesz bogate w żelazo czerwone krwinki. Ponieważ młodzi ludzie wciąż się rozwijają, mają większe zapotrzebowanie na żelazo. Organizm zastępuje żelazo utracone w wyniku darowizny, wchłaniając więcej żelaza z pożywienia. Czas potrzebny dawcom na zastąpienie tego żelaza jest bardzo zróżnicowany - zależy to od rodzaju i ilości żelaza w diecie oraz od tego, czy występują inne straty żelaza.",
@@ -52,6 +54,7 @@ export function createTestState(): ITest {
           correctAnswer: "Yes",
           notAbblicableAvailable: false,
           answer: null,
+          result: null,
           answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
@@ -61,6 +64,7 @@ export function createTestState(): ITest {
           correctAnswer: "No",
           notAbblicableAvailable: false,
           answer: null,
+          result: null,
           answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
@@ -70,6 +74,7 @@ export function createTestState(): ITest {
           correctAnswer: "No",
           notAbblicableAvailable: false,
           answer: null,
+          result: null,
           answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
@@ -79,6 +84,7 @@ export function createTestState(): ITest {
           correctAnswer: "No",
           notAbblicableAvailable: false,
           answer: null,
+          result: null,
           answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
@@ -88,6 +94,7 @@ export function createTestState(): ITest {
           correctAnswer: "No",
           notAbblicableAvailable: false,
           answer: null,
+          result: null,
           answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
@@ -97,6 +104,7 @@ export function createTestState(): ITest {
           correctAnswer: "No",
           notAbblicableAvailable: false,
           answer: null,
+          result: null,
           answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
@@ -107,6 +115,7 @@ export function createTestState(): ITest {
           correctAnswer: "No",
           notAbblicableAvailable: false,
           answer: null,
+          result: null,
           answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
@@ -117,6 +126,7 @@ export function createTestState(): ITest {
           correctAnswer: "No",
           notAbblicableAvailable: false,
           answer: null,
+          result: null,
           answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
@@ -126,6 +136,7 @@ export function createTestState(): ITest {
           correctAnswer: "No",
           notAbblicableAvailable: false,
           answer: null,
+          result: null,
           answeredCorrectly: null,
           incorrectAnswerResult: "Error",
         },
@@ -135,9 +146,10 @@ export function createTestState(): ITest {
           correctAnswer: "No",
           notAbblicableAvailable: false,
           answer: null,
+          result: null,
           answeredCorrectly: null,
           incorrectAnswerResult: "Warning",
-          warningMessage: "Transfuzja",
+          additionalResultMessage: "Transfuzja",
         },
         {
           type: "YesNo",
@@ -145,10 +157,11 @@ export function createTestState(): ITest {
           correctAnswer: "No",
           notAbblicableAvailable: false,
           answer: null,
+          result: null,
           answeredCorrectly: null,
           info: "",
-          incorrectAnswerResult: "Error",
-          warningMessage: "Ciążą ",
+          incorrectAnswerResult: "Warning",
+          additionalResultMessage: "Ciążą ",
         },
       ],
     },
@@ -162,6 +175,7 @@ export function createTestState(): ITest {
           correctAnswer: "Yes",
           notAbblicableAvailable: false,
           answer: null,
+          result: null,
           answeredCorrectly: null,
           info: "",
           incorrectAnswerResult: "Error",

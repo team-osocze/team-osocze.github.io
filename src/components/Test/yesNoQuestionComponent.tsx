@@ -4,7 +4,7 @@ import React from "react";
 import { YesNoAnswer, IQuestion } from "../../questions/test";
 import Alert from "@material-ui/lab/Alert";
 import DoneIcon from "@material-ui/icons/Done";
-import ClearIcon from '@material-ui/icons/Clear';
+import ClearIcon from "@material-ui/icons/Clear";
 import InfoDialog from "./infoDialog";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   red: {
     color: "red",
-  }
+  },
 }));
 
 interface IYesNoQuestionProps {
@@ -53,25 +53,25 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
   }
 
   function questionResult() {
-    if (
-      props.question.answeredCorrectly === null
-    ) {
+    if (props.question.result === null) {
       return <></>;
-    } else if (props.question.answeredCorrectly === true) {
-      return (
-        <Alert icon={<DoneIcon fontSize="inherit" />} severity="success"/>     
-      );
+    } else if (props.question.result === "Error") {
+      return <Alert icon={<ClearIcon fontSize="inherit" />} severity="error" />;
     } else {
       return (
-        <Alert icon={<ClearIcon fontSize="inherit" />} severity="error"/>  
+        <Alert icon={<DoneIcon fontSize="inherit" />} severity="success" />
       );
     }
   }
+  
   return (
     <>
       <div className={classes.question}>
-        <Typography>{props.question.text}
-          { !!props.question.info ? <InfoDialog infoText={props.question.info}/> : null }                            
+        <Typography>
+          {props.question.text}
+          {!!props.question.info ? (
+            <InfoDialog infoText={props.question.info} />
+          ) : null}
         </Typography>
         <div className={classes.answer}>
           <div className={classes.anserwButtons}>
@@ -96,7 +96,9 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
             {props.question.notAbblicableAvailable && (
               <Button
                 variant={
-                  props.question.answer === "NotApplicable" ? "contained" : "outlined"
+                  props.question.answer === "NotApplicable"
+                    ? "contained"
+                    : "outlined"
                 }
                 color="primary"
                 onClick={() => onAnswer("NotApplicable")}
