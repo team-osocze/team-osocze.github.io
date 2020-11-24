@@ -30,7 +30,8 @@ export default function SuccessResult() {
                 <AlertTitle>Przykro nam.</AlertTitle>
                 <Typography variant="body1" gutterBottom>
                 Dziękujemy za wypełnienie kwestionariusza. Niestety, wygląda na to, że w tym momencie nie możesz zostać dawcą osocza. 
-                </Typography>
+                <p><strong>Wciąż jesteś dobrym kandydatem do oddania krwi (jesli error tylko w pytaniu o chorowanie na kowid)</strong></p>
+                </Typography>                
                 </Alert>
                 <Typography variant="body1" gutterBottom>
                 Ciągle jednak możesz zrobić coś, co pomoże innym.<br/> <strong>Udostępnij</strong> link do tej strony jak największej liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.<br/>

@@ -72,7 +72,7 @@ const FAQComponent: React.FC = function() {
               ))}
             </div>
             <section className={classes.testStartSection}>
-              <Button component={Link} to="test" size="large" variant="contained" color="primary">Rozpocznij test</Button>
+              <Button component={Link} to="test" size="large" variant="contained" color="primary">Test</Button>
             </section>
           </div>
       );

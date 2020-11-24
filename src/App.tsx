@@ -49,20 +49,19 @@ const theme = createMuiTheme({
       contrastText: "#FFFFFF",
     },
     secondary: {
-      main: "#B2D4DC", //szary
-      contrastText: "#000000",
+      main: "#AEA9BA", //szary
     },
     error: {
-      main: "#EB5F5E",
+      main: "#F88065",
     },
     warning: {
-      main: "#DEC97A",
+      main: "#FFBA5A",
     },
     info: {
-      main: "#59A9DE",
+      main: "#595685",
     },
     success: {
-      main: "#4EDEC9",
+      main: "#5D9F65",
     },
     contrastThreshold: 3,
     tonalOffset: 0.2,

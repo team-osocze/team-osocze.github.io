@@ -161,7 +161,7 @@ const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRes
               to="result"
               onClick={onResult}
             >
-              REZULTAT
+              WYNIK
             </Button>
           </div>
         </div>
