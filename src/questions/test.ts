@@ -1,6 +1,8 @@
 export type YesNoAnswer = "Yes" | "No" | "NotApplicable";
 export type QuestionType = "YesNo" | "Date";
 export type TestResult = "Success" | "Error" | "Warning";
+export type QuestionResult = "Success" | "Warning" | "Error";
+
 export interface IQuestion {
   type: QuestionType;
   text: string;
@@ -8,7 +10,9 @@ export interface IQuestion {
   notAbblicableAvailable: boolean;
   answer: YesNoAnswer | null;
   answeredCorrectly: boolean | null;
-  info: string;
+  incorrectAnswerResult: QuestionResult;
+  warningMessage?: string;
+  info?: string;
 }
 export interface IQuestionGroup {
   header: string;
@@ -16,10 +20,8 @@ export interface IQuestionGroup {
   allQuestionsCorrect: boolean | null;
 }
 
-//questions:
-//how to do this to not initlaize answer etc with null
-//maybe test definiction should be separate to test answers?
 export interface ITest {
+  testResultAdditionalMessages: string;
   groups: IQuestionGroup[];
   isDone: boolean;
   numberOfAnsweredQuestions: number;
@@ -27,7 +29,7 @@ export interface ITest {
   testResult: TestResult | null;
 }
 
-export function createTestState() : ITest{
+export function createTestState(): ITest {
   const groups: IQuestionGroup[] = [
     {
       header: "Ogólne",
@@ -40,7 +42,9 @@ export function createTestState() : ITest{
           notAbblicableAvailable: false,
           answer: null,
           answeredCorrectly: null,
-          info: "Za każdym razem, gdy oddajesz krew, oddajesz bogate w żelazo czerwone krwinki. Ponieważ młodzi ludzie wciąż się rozwijają, mają większe zapotrzebowanie na żelazo. Organizm zastępuje żelazo utracone w wyniku darowizny, wchłaniając więcej żelaza z pożywienia. Czas potrzebny dawcom na zastąpienie tego żelaza jest bardzo zróżnicowany - zależy to od rodzaju i ilości żelaza w diecie oraz od tego, czy występują inne straty żelaza.",
+          info:
+            "Za każdym razem, gdy oddajesz krew, oddajesz bogate w żelazo czerwone krwinki. Ponieważ młodzi ludzie wciąż się rozwijają, mają większe zapotrzebowanie na żelazo. Organizm zastępuje żelazo utracone w wyniku darowizny, wchłaniając więcej żelaza z pożywienia. Czas potrzebny dawcom na zastąpienie tego żelaza jest bardzo zróżnicowany - zależy to od rodzaju i ilości żelaza w diecie oraz od tego, czy występują inne straty żelaza.",
+          incorrectAnswerResult: "Error",
         },
         {
           type: "YesNo",
@@ -49,6 +53,7 @@ export function createTestState() : ITest{
           notAbblicableAvailable: false,
           answer: null,
           answeredCorrectly: null,
+          incorrectAnswerResult: "Error",
         },
         {
           type: "YesNo",
@@ -57,6 +62,7 @@ export function createTestState() : ITest{
           notAbblicableAvailable: false,
           answer: null,
           answeredCorrectly: null,
+          incorrectAnswerResult: "Error",
         },
         {
           type: "YesNo",
@@ -65,6 +71,7 @@ export function createTestState() : ITest{
           notAbblicableAvailable: false,
           answer: null,
           answeredCorrectly: null,
+          incorrectAnswerResult: "Error",
         },
         {
           type: "YesNo",
@@ -73,6 +80,7 @@ export function createTestState() : ITest{
           notAbblicableAvailable: false,
           answer: null,
           answeredCorrectly: null,
+          incorrectAnswerResult: "Error",
         },
         {
           type: "YesNo",
@@ -81,6 +89,7 @@ export function createTestState() : ITest{
           notAbblicableAvailable: false,
           answer: null,
           answeredCorrectly: null,
+          incorrectAnswerResult: "Error",
         },
         {
           type: "YesNo",
@@ -89,14 +98,17 @@ export function createTestState() : ITest{
           notAbblicableAvailable: false,
           answer: null,
           answeredCorrectly: null,
+          incorrectAnswerResult: "Error",
         },
         {
           type: "YesNo",
-          text: "Czy w ciągu ostatnich 6 miesięcy miałeś(-aś) zabieg operacyjny?",
+          text:
+            "Czy w ciągu ostatnich 6 miesięcy miałeś(-aś) zabieg operacyjny?",
           correctAnswer: "No",
           notAbblicableAvailable: false,
           answer: null,
           answeredCorrectly: null,
+          incorrectAnswerResult: "Error",
         },
         {
           type: "YesNo",
@@ -106,6 +118,7 @@ export function createTestState() : ITest{
           notAbblicableAvailable: false,
           answer: null,
           answeredCorrectly: null,
+          incorrectAnswerResult: "Error",
         },
         {
           type: "YesNo",
@@ -114,6 +127,7 @@ export function createTestState() : ITest{
           notAbblicableAvailable: false,
           answer: null,
           answeredCorrectly: null,
+          incorrectAnswerResult: "Error",
         },
         {
           type: "YesNo",
@@ -122,36 +136,48 @@ export function createTestState() : ITest{
           notAbblicableAvailable: false,
           answer: null,
           answeredCorrectly: null,
+          incorrectAnswerResult: "Warning",
+          warningMessage: "Transfuzja",
         },
         {
           type: "YesNo",
           text: "Czy byłaś w ciąży?",
           correctAnswer: "No",
-          notAbblicableAvailable: true,
+          notAbblicableAvailable: false,
           answer: null,
           answeredCorrectly: null,
+          info: "",
+          incorrectAnswerResult: "Error",
+          warningMessage: "Ciążą ",
         },
       ],
     },
-    { header: "COVID", allQuestionsCorrect: null, questions: [
-      {
-        type: "YesNo",
-        text: "Czy chorowałeś(-aś) na COVID?",
-        correctAnswer: "Yes",
-        notAbblicableAvailable: false,
-        answer: null,
-        answeredCorrectly: null,
-      },
-    ] },
+    {
+      header: "COVID",
+      allQuestionsCorrect: null,
+      questions: [
+        {
+          type: "YesNo",
+          text: "Czy chorowałeś(-aś) na COVID?",
+          correctAnswer: "Yes",
+          notAbblicableAvailable: false,
+          answer: null,
+          answeredCorrectly: null,
+          info: "",
+          incorrectAnswerResult: "Error",
+        },
+      ],
+    },
   ];
-  
+
   return {
     isDone: false,
     groups: groups,
     numberOfAllQuestions: groups.flatMap((g) => g.questions).length,
     numberOfAnsweredQuestions: 0,
     testResult: null,
-  };  
-};
+    testResultAdditionalMessages: "",
+  };
+}
 
 export const testState = createTestState();

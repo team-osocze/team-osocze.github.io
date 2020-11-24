@@ -121,7 +121,7 @@ function App() {
               {testState.isDone && (
                 <Route path="/result">
                   <div className={classes.content}>
-                    <Result result={testState.testResult!} backToTestCallback={onBackToTest} />
+                    <Result result={testState.testResult!} resultAdditionalMessage={testState.testResultAdditionalMessages} backToTestCallback={onBackToTest} />
                   </div>
                 </Route>
               )}
