@@ -1,4 +1,4 @@
-export type YesNoAnswer = "Yes" | "No" | "NotApplicable";
+export type YesNoAnswer = "Yes" | "No";
 export type QuestionType = "YesNo" | "Date";
 export type TestResult = "Success" | "Error" | "Warning";
 export type QuestionResult = "Success" | "Warning" | "Error";
@@ -7,7 +7,6 @@ export interface IQuestion {
   type: QuestionType;
   text: string;
   correctAnswer: YesNoAnswer;
-  notAbblicableAvailable: boolean;
   answer: YesNoAnswer | null;
   incorrectAnswerResult: QuestionResult;
   additionalResultMessage?: string;
@@ -39,7 +38,6 @@ export function createTestState(): ITest {
           type: "YesNo",
           text: "Czy jesteś w wieku 18 - 65 lat?",
           correctAnswer: "Yes",
-          notAbblicableAvailable: false,
           answer: null,
           result: null,
           info:
@@ -50,7 +48,6 @@ export function createTestState(): ITest {
           type: "YesNo",
           text: "Czy ważysz powyżej 50 kilogramów?",
           correctAnswer: "Yes",
-          notAbblicableAvailable: false,
           answer: null,
           result: null,
           incorrectAnswerResult: "Error",
@@ -59,7 +56,6 @@ export function createTestState(): ITest {
           type: "YesNo",
           text: "Czy chorujesz przewlekle na choroby układu krążenia?",
           correctAnswer: "No",
-          notAbblicableAvailable: false,
           answer: null,
           result: null,
           incorrectAnswerResult: "Error",
@@ -68,7 +64,6 @@ export function createTestState(): ITest {
           type: "YesNo",
           text: "Czy chorujesz przewlekle na choroby układu oddechowego?",
           correctAnswer: "No",
-          notAbblicableAvailable: false,
           answer: null,
           result: null,
           incorrectAnswerResult: "Error",
@@ -77,7 +72,6 @@ export function createTestState(): ITest {
           type: "YesNo",
           text: "Czy chorujesz przewlekle na choroby nerek?",
           correctAnswer: "No",
-          notAbblicableAvailable: false,
           answer: null,
           result: null,
           incorrectAnswerResult: "Error",
@@ -86,7 +80,6 @@ export function createTestState(): ITest {
           type: "YesNo",
           text: "Czy chorujesz przewlekle na cukrzycę?",
           correctAnswer: "No",
-          notAbblicableAvailable: false,
           answer: null,
           result: null,
           incorrectAnswerResult: "Error",
@@ -95,7 +88,6 @@ export function createTestState(): ITest {
           type: "YesNo",
           text: "Czy chorujesz przewlekle na padaczkę?",
           correctAnswer: "No",
-          notAbblicableAvailable: false,
           answer: null,
           result: null,
           incorrectAnswerResult: "Error",
@@ -105,7 +97,6 @@ export function createTestState(): ITest {
           text:
             "Czy w ciągu ostatnich 6 miesięcy miałeś(-aś) zabieg operacyjny?",
           correctAnswer: "No",
-          notAbblicableAvailable: false,
           answer: null,
           result: null,
           incorrectAnswerResult: "Error",
@@ -115,7 +106,6 @@ export function createTestState(): ITest {
           text:
             "Czy w ciągu ostatnich 6 miesięcy miałeś(-aś) badanie endoskopowe?",
           correctAnswer: "No",
-          notAbblicableAvailable: false,
           answer: null,
           result: null,
           incorrectAnswerResult: "Error",
@@ -124,7 +114,6 @@ export function createTestState(): ITest {
           type: "YesNo",
           text: "Czy w ciągu ostatnich 6 miesięcy miałeś(-aś) wykonany tatuaż?",
           correctAnswer: "No",
-          notAbblicableAvailable: false,
           answer: null,
           result: null,
           incorrectAnswerResult: "Error",
@@ -133,7 +122,6 @@ export function createTestState(): ITest {
           type: "YesNo",
           text: "Czy kiedykolwiek miałeś(-aś) transfuzję krwi?",
           correctAnswer: "No",
-          notAbblicableAvailable: false,
           answer: null,
           result: null,
           incorrectAnswerResult: "Warning",
@@ -143,7 +131,6 @@ export function createTestState(): ITest {
           type: "YesNo",
           text: "Czy byłaś w ciąży?",
           correctAnswer: "No",
-          notAbblicableAvailable: false,
           answer: null,
           result: null,
           info: "",
@@ -160,11 +147,10 @@ export function createTestState(): ITest {
           type: "YesNo",
           text: "Czy chorowałeś(-aś) na COVID?",
           correctAnswer: "Yes",
-          notAbblicableAvailable: false,
           answer: null,
           result: null,
           info: "",
-          incorrectAnswerResult: "Error",
+          incorrectAnswerResult: "Error", 
         },
       ],
     },

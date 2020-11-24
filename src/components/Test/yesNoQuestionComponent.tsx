@@ -63,7 +63,7 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
       );
     }
   }
-  
+
   return (
     <>
       <div className={classes.question}>
@@ -93,19 +93,6 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
             >
               NIE
             </Button>
-            {props.question.notAbblicableAvailable && (
-              <Button
-                variant={
-                  props.question.answer === "NotApplicable"
-                    ? "contained"
-                    : "outlined"
-                }
-                color="primary"
-                onClick={() => onAnswer("NotApplicable")}
-              >
-                NIE DOTYCZY
-              </Button>
-            )}
           </div>
           <div className={classes.result}>{questionResult()}</div>
         </div>
