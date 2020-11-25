@@ -103,15 +103,11 @@ export default function ButtonAppBar({showResultOption}: AppBarProps) {
                         <ListItemIcon><GitHubIcon style={{color: "black"}}/></ListItemIcon>
                         <ListItemText primary="Kod źródłowy"/>
                     </ListItem>
-                    <ListItem button component="a" href="https://www.mediusflow.com/" target="_blank">
-                        <ListItemIcon>
-                            <SvgIcon>
+                    <ListItemLink primary="Twórcy" to="tworcy" onClick={toggleDrawerOpen} 
+                        icon={<SvgIcon>
                             <circle cx="11.9" cy="12.1" r="5.2" fill="red" />
                             <path d="M11.9,23.6c-6.4,0-11.6-5.2-11.6-11.6S5.6,0.5,11.9,0.5s11.6,5.2,11.6,11.6S18.3,23.6,11.9,23.6z M11.9,2.9&#xD;&#xA;	c-5.1,0-9.2,4.1-9.2,9.2c0,5.1,4.1,9.2,9.2,9.2c5.1,0,9.2-4.1,9.2-9.2C21.1,7,17,2.9,11.9,2.9z" fill="black"/>
-                            </SvgIcon>
-                        </ListItemIcon>
-                        <ListItemText primary="Twórcy"/>
-                    </ListItem>
+                            </SvgIcon>}/>
                     <Divider />
                     <ListItem button component="a" href="https://rckik.krakow.pl/" target="_blank">
                         <ListItemIcon>

@@ -18,6 +18,7 @@ import {
 import TestComponent from "./components/Test";
 import Container from "@material-ui/core/Container";
 import { LandingPage } from "./components/Landing/Page";
+import { CreatorsPage } from "./components/Creators/CreatorsPage";
 
 import {appStateReducer, initialState, resetStateAction, answerQuestionAction } from "./appState";
 import { AppContextProvider, ScrollInfo } from "./appContext";
@@ -127,6 +128,9 @@ function App() {
               )}
               <Route path="/faq">
                 <FAQComponent />
+              </Route>
+              <Route path="/tworcy">
+                <CreatorsPage />
               </Route>
               <Route path="*">
                 <LandingPage />
