@@ -5,6 +5,7 @@ import { YesNoAnswer, IQuestion } from "../../questions/test";
 import Alert from "@material-ui/lab/Alert";
 import DoneIcon from "@material-ui/icons/Done";
 import ClearIcon from "@material-ui/icons/Clear";
+import PriorityHigh from "@material-ui/icons/PriorityHigh";
 import InfoDialog from "./infoDialog";
 
 const useStyles = makeStyles((theme) => ({
@@ -57,6 +58,8 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
       return <></>;
     } else if (props.question.result === "Error") {
       return <Alert icon={<ClearIcon fontSize="inherit" />} severity="error" />;
+    } else if (props.question.result === "Warning") {
+        return <Alert icon={<PriorityHigh fontSize="inherit" />} severity="warning" />;
     } else {
       return (
         <Alert icon={<DoneIcon fontSize="inherit" />} severity="success" />

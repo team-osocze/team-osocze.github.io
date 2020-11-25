@@ -40,7 +40,7 @@ export function createTestState(): ITest {
           correctAnswer: "No",
           answer: null,
           result: null,
-          info: null,
+          info: "",
           incorrectAnswerResult: "Error",
         },
         {
@@ -122,17 +122,16 @@ export function createTestState(): ITest {
           answer: null,
           result: null,
           info:  "Jeśli tak, konieczne będą dodatkowe badania p/c anty HLA",
-          incorrectAnswerResult: "Error",
-        }
-        ,
+          incorrectAnswerResult: "Warning",
+        },
         {
           type: "YesNo",
-          text: "Czy kiedykolwiek byłaś w ciąży? (Wybierz NIE jeśli pytanie Cie nie dotyczy)",
+          text: "Czy kiedykolwiek byłaś w ciąży? (Wybierz NIE jeśli pytanie Cię nie dotyczy)",
           correctAnswer: "No",
           answer: null,
           result: null,
           info:  "Jeśli tak, konieczne będą dodatkowe badania p/c anty HLA",
-          incorrectAnswerResult: "Error",
+          incorrectAnswerResult: "Warning",
         }
       ],
     },      
@@ -142,7 +141,7 @@ export function createTestState(): ITest {
       questions: [
         {
           type: "YesNo",
-          text: "Czy w ciągu ostatnich 6 miesięcy miałeś/aś jakikolwiek zabieg operacyjny, gastroskopię, kolonoskopię, biopsję, tatuaż, piercing lub mały zabieg u stomatologa? ",
+          text: "Czy w ciągu ostatnich 6 miesięcy miałeś jakikolwiek zabieg operacyjny, gastroskopię, kolonoskopię, biopsję, tatuaż, piercing lub mały zabieg u stomatologa? ",
           correctAnswer: "No",
           answer: null,
           result: null,
@@ -151,7 +150,7 @@ export function createTestState(): ITest {
         },
         {
           type: "YesNo",
-          text: "Czy w ciągu ostatnich 6 miesięcy prowadziłaś/eś diagnostykę z powodu choroby, tomografię komputerową lub rezonans magnetyczny? ",
+          text: "Czy w ciągu ostatnich 6 miesięcy prowadziłeś diagnostykę z powodu choroby, tomografię komputerową lub rezonans magnetyczny? ",
           correctAnswer: "No",
           answer: null,
           result: null,
@@ -160,7 +159,7 @@ export function createTestState(): ITest {
         },
         {
           type: "YesNo",
-          text: "Czy w ciągu ostatnich 6 miesięcy zmieniałaś/eś partnera seksualnego?",
+          text: "Czy w ciągu ostatnich 6 miesięcy zmieniałeś partnera seksualnego?",
           correctAnswer: "No",
           answer: null,
           result: null,
@@ -169,22 +168,13 @@ export function createTestState(): ITest {
         },
         {
           type: "YesNo",
-          text: "Czy w ciągu ostatnich 6 miesięcy wykonywałaś/eś zabiegi kosmetyczne z przebijaniem naskórka, makijaż permanentny, manicure lub pedicure?",
+          text: "Czy w ciągu ostatnich 6 miesięcy wykonywałeś zabiegi kosmetyczne z przebijaniem naskórka, makijaż permanentny, manicure lub pedicure?",
           correctAnswer: "No",
           answer: null,
           result: null,
           info: "",
           incorrectAnswerResult: "Error", 
-        },
-        {
-          type: "YesNo",
-          text: "Czy w ciągu ostatnich 6 miesięcy miałeś/aś jakikolwiek zabieg operacyjny, gastroskopię, kolonoskopię, biopsję, tatuaż, piercing lub mały zabieg u stomatologa? ",
-          correctAnswer: "Yes",
-          answer: null,
-          result: null,
-          info: "",
-          incorrectAnswerResult: "Error", 
-        },
+        }
       ],
     },
     {
