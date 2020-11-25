@@ -120,9 +120,13 @@ export function onAnswer(
     answeredQuestions: IQuestion[]
   ): [TestResult, string[]] {
     const testResult = calculateResult(answeredQuestions);
-    const additionalResultMessages = answeredQuestions
-      .filter((q) => q.result === testResult && q.additionalResultMessage)
-      .map((q) => q.additionalResultMessage!);
+
+    const additionalResultMessages =
+      testResult === "Success"
+        ? []
+        : answeredQuestions
+            .filter((q) => q.result === testResult && q.additionalResultMessage)
+            .map((q) => q.additionalResultMessage!);
 
     return [testResult, additionalResultMessages];
   }
