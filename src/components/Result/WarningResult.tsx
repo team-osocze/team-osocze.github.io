@@ -15,9 +15,9 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 interface IWarningResultProps {
-  resultMessage: string;
+  resultMessages: string[];
 }
-export default function WarningResult({ resultMessage }: IWarningResultProps) {
+export default function WarningResult({ resultMessages }: IWarningResultProps) {
   const classes = useStyles();
 
   return (
@@ -29,9 +29,11 @@ export default function WarningResult({ resultMessage }: IWarningResultProps) {
             Jest duża szansa, że Twoje osocze może uratować komuś życie! Kilka
             odpowiedzi na pytania wymaga jednak konsultacji ze specjalistą.
           </p>
-          <p>
-            <strong>{resultMessage}</strong>
-          </p>
+          {resultMessages.map((m) => (
+            <p>
+              <strong>{m}</strong>
+            </p>
+          ))}
         </Typography>
       </Alert>
       <Typography variant="body1" gutterBottom>

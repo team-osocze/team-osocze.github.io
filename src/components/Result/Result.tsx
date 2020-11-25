@@ -6,7 +6,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
-import { TestResult } from "../../questions/test";
+import { TestResult } from "../../questions/testDefinition";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,13 +27,13 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface ResultProps {
   result: TestResult;
-  resultAdditionalMessage: string;
+  resultAdditionalMessages: string[];
   backToTestCallback: () => void;
 }
 
 export default function Result({
   result,
-  resultAdditionalMessage,
+  resultAdditionalMessages: resultAdditionalMessage,
   backToTestCallback,
 }: ResultProps) {
   const classes = useStyles();
@@ -58,13 +58,13 @@ export default function Result({
         </header>
         <div>
           {result === "Success" ? (
-            <SuccessResult resultMessage={resultAdditionalMessage} />
+            <SuccessResult resultMessages={resultAdditionalMessage} />
           ) : null}
           {result === "Error" ? (
-            <ErrorResult resultMessage={resultAdditionalMessage} />
+            <ErrorResult resultMessages={resultAdditionalMessage} />
           ) : null}
           {result === "Warning" ? (
-            <WarningResult resultMessage={resultAdditionalMessage} />
+            <WarningResult resultMessages={resultAdditionalMessage} />
           ) : null}
         </div>
       </div>

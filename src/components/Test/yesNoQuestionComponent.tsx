@@ -1,7 +1,7 @@
 import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import { YesNoAnswer, IQuestion } from "../../questions/test";
+import { YesNoAnswer, IQuestion } from "../../questions/testDefinition";
 import Alert from "@material-ui/lab/Alert";
 import DoneIcon from "@material-ui/icons/Done";
 import ClearIcon from "@material-ui/icons/Clear";
@@ -54,16 +54,24 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
   }
 
   function questionResult() {
-    if (props.question.result === null) {
-      return <></>;
-    } else if (props.question.result === "Error") {
-      return <Alert icon={<ClearIcon fontSize="inherit" />} severity="error" />;
-    } else if (props.question.result === "Warning") {
-        return <Alert icon={<PriorityHigh fontSize="inherit" />} severity="warning" />;
-    } else {
-      return (
-        <Alert icon={<DoneIcon fontSize="inherit" />} severity="success" />
-      );
+    switch (props.question.result) {
+      case null:
+        return <></>;
+      case "Error":
+        return (
+          <Alert icon={<ClearIcon fontSize="inherit" />} severity="error" />
+        );
+      case "Warning":
+        return (
+          <Alert
+            icon={<PriorityHigh fontSize="inherit" />}
+            severity="warning"
+          />
+        );
+      case "Success":
+        return (
+          <Alert icon={<DoneIcon fontSize="inherit" />} severity="success" />
+        );
     }
   }
 

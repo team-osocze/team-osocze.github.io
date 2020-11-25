@@ -26,10 +26,10 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface ISuccessResultProps {
-  resultMessage: string;
+  resultMessages: string[];
 }
 
-export default function SuccessResult({ resultMessage }: ISuccessResultProps) {
+export default function SuccessResult({ resultMessages }: ISuccessResultProps) {
   const classes = useStyles();
 
   return (
@@ -40,9 +40,11 @@ export default function SuccessResult({ resultMessage }: ISuccessResultProps) {
           Wygląda na to, że Twoje osocze może uratować komuś życie! Zadzwoń,
           żeby by umówić się na oddanie osocza.
         </p>
-        <p>
-          <strong>{resultMessage}</strong>
-        </p>
+        {resultMessages.map((m) => (
+          <p>
+            <strong>{m}</strong>
+          </p>
+        ))}
       </Alert>
       <Typography variant="body1" gutterBottom>
         Pamiętaj! Linie mogą być obciążone i być może koniecznym będzie

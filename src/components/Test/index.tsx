@@ -13,10 +13,11 @@ import {
   IQuestionGroup,
   IQuestion,
   YesNoAnswer,
-} from "../../questions/test";
+} from "../../questions/testDefinition";
 import { Link, useHistory } from "react-router-dom";
 import ProgressBar from "../progressBar";
 import { useAppContext } from "../../appContext";
+import { questionError } from "../../questions/testLogic";
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -97,11 +98,9 @@ const TestComponent: React.FC<TestComponentProps> = ({
 
   function localOnAnswer(question: IQuestion, answer: YesNoAnswer) {
     onAnswer(question, answer);
-    if (
-      question.correctAnswer !== answer &&
-      question.incorrectAnswerResult === "Error"
-    )
+    if (questionError(question, answer)) {
       history.push("result");
+    }
   }
 
   function restart() {

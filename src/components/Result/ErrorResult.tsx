@@ -21,9 +21,9 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 interface IErrorResultProps {
-  resultMessage: string;
+  resultMessages: string[];
 }
-export default function ErrorResult({ resultMessage }: IErrorResultProps) {
+export default function ErrorResult({ resultMessages }: IErrorResultProps) {
   const classes = useStyles();
 
   return (
@@ -33,9 +33,11 @@ export default function ErrorResult({ resultMessage }: IErrorResultProps) {
         <Typography variant="body1" gutterBottom>
           Dziękujemy za wypełnienie kwestionariusza. Niestety, wygląda na to, że
           w tym momencie nie możesz zostać dawcą osocza.
-          <p>
-            <strong>{resultMessage}</strong>
-          </p>
+          {resultMessages.map((m) => (
+            <p>
+              <strong>{m}</strong>
+            </p>
+          ))}
         </Typography>
       </Alert>
       <Typography variant="body1" gutterBottom>

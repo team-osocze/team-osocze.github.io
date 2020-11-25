@@ -9,9 +9,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DoneIcon from "@material-ui/icons/Done";
-import ClearIcon from '@material-ui/icons/Clear';
-import { IQuestion, IQuestionGroup, YesNoAnswer } from "../../questions/test";
+import ClearIcon from "@material-ui/icons/Clear";
+import { IQuestion, IQuestionGroup, YesNoAnswer } from "../../questions/testDefinition";
 import YesNoQuestionComponent from "./yesNoQuestionComponent";
+import PriorityHigh from "@material-ui/icons/PriorityHigh";
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -23,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
   red: {
     color: "red",
+  },
+  yellow: {
+    color: "rgb(255, 186, 90)",
   },
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(15),
@@ -58,13 +62,15 @@ const QuestionGroupComponent: React.FC<IQuestionGroupProps> = (
   }
 
   function groupStatus() {
-    const allQuestionsCorrect = props.group.allQuestionsCorrect;
-    if (allQuestionsCorrect === null) {
-      return <></>;
-    } else if (allQuestionsCorrect === false) {
-      return <ClearIcon className={classes.red} />;
-    } else {
-      return <DoneIcon className={classes.green} />;
+    switch (props.group.result) {
+      case null:
+        return <></>;
+      case "Success":
+        return <DoneIcon className={classes.green} />;
+      case "Warning":
+        return <PriorityHigh className={classes.yellow} />;
+      case "Error":
+        return <ClearIcon className={classes.red} />;
     }
   }
 

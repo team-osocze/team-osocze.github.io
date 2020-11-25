@@ -22,7 +22,7 @@ import { CreatorsPage } from "./components/Creators/CreatorsPage";
 
 import {appStateReducer, initialState, resetStateAction, answerQuestionAction } from "./appState";
 import { AppContextProvider, ScrollInfo } from "./appContext";
-import { IQuestion, YesNoAnswer } from "./questions/test";
+import { IQuestion, YesNoAnswer } from "./questions/testDefinition";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -122,7 +122,7 @@ function App() {
               {testState.isDone && (
                 <Route path="/result">
                   <div className={classes.content}>
-                    <Result result={testState.testResult!} resultAdditionalMessage={testState.testResultAdditionalMessages} backToTestCallback={onBackToTest} />
+                    <Result result={testState.testResult!} resultAdditionalMessages={testState.testResultAdditionalMessages} backToTestCallback={onBackToTest} />
                   </div>
                 </Route>
               )}
