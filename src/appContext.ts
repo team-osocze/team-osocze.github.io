@@ -17,7 +17,7 @@ const defaultContext: AppContextProps = {
     showInfo: true,
     setShowInfo: () => {},
     scroll: { appliedPosition: 0, persistedPosition: 0 },
-    setScroll: () => {}
+    setScroll: () => {},
 };
 
 const AppContext = React.createContext<AppContextProps>(defaultContext);

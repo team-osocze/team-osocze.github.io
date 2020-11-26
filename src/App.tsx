@@ -46,11 +46,11 @@ const useStyles = makeStyles((theme: Theme) =>
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#393070", //granatowy
+      main: "#393070",
       contrastText: "#FFFFFF",
     },
     secondary: {
-      main: "#AEA9BA", //szary
+      main: "#AEA9BA",
     },
     error: {
       main: "#F88065",
@@ -79,7 +79,13 @@ function App() {
   const [testState, dispatch] = React.useReducer(appStateReducer, initialState);
   const [showInfo, setShowInfo] = React.useState(true);
   const [scrollState, setScrollState] = React.useState(initialScrollState);
+  const [expandedGroupHeader, setExpandedGroupHeader] = React.useState<string | null>(testState.groups[0].header);
+
   const appContainerElement = useRef(null);
+
+  const appContext = { showInfo, setShowInfo, scroll: scrollState, setScroll: setScrollState};
+  const testProps = { testState, onAnswer, onRestart, expandedGroup: expandedGroupHeader, setExpandedGroup: setExpandedGroupHeader };
+  const resultProps = {result: testState.testResult!, resultAdditionalMessages: testState.testResultAdditionalMessages, backToTestCallback: onBackToTest};
 
   function onRestart() {
     dispatch(resetStateAction());
@@ -114,15 +120,15 @@ function App() {
               </Route>
               <Route path="/test">
                 <div className={classes.content}>
-                  <AppContextProvider value={ {showInfo: showInfo, setShowInfo: setShowInfo, scroll: scrollState, setScroll: setScrollState}}>
-                    <TestComponent testState={testState} onAnswer={onAnswer} onRestart={onRestart} />
+                  <AppContextProvider value={appContext}>
+                    <TestComponent {...testProps} />
                   </AppContextProvider>
                 </div>
               </Route>
               {testState.isDone && (
                 <Route path="/result">
                   <div className={classes.content}>
-                    <Result result={testState.testResult!} resultAdditionalMessages={testState.testResultAdditionalMessages} backToTestCallback={onBackToTest} />
+                    <Result {...resultProps} />
                   </div>
                 </Route>
               )}

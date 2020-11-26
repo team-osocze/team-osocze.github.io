@@ -57,43 +57,35 @@ interface TestComponentProps {
   testState: ITest;
   onAnswer: (question: IQuestion, answer: YesNoAnswer) => void;
   onRestart: () => void;
+  expandedGroup: string | null;
+  setExpandedGroup: (groupToSet: string | null) => void;
 }
 
-const TestComponent: React.FC<TestComponentProps> = ({
-  testState,
-  onAnswer,
-  onRestart,
-}: TestComponentProps) => {
+const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRestart, expandedGroup, setExpandedGroup}: TestComponentProps) => {
   const classes = useStyles();
-  const [expandedGroupHeader, setExpandedGroupHeader] = React.useState<
-    string | null
-  >(testState.groups[0].header);
-
+  
   const { showInfo, setShowInfo, setScroll } = useAppContext();
 
   const history = useHistory();
 
   function toggleGroup(group: IQuestionGroup) {
-    setExpandedGroupHeader((previouslyExpandedGroupHeader: string | null) =>
-      previouslyExpandedGroupHeader !== group.header ? group.header : null
-    );
+    const groupToSet = expandedGroup !== group.header ? group.header : null
+    setExpandedGroup(groupToSet);
   }
 
   function openNextGroup() {
-    setExpandedGroupHeader((previouslyExpandedGroupHeader: string | null) => {
+    setExpandedGroup(((previouslyExpandedGroupHeader: string | null) => {
       if (previouslyExpandedGroupHeader === null) {
         return testState.groups[0].header;
       } else {
         const nextGroupIndex =
-          testState.groups.findIndex(
-            (g) => g.header === previouslyExpandedGroupHeader
-          ) + 1;
+          testState.groups.findIndex(g => g.header === previouslyExpandedGroupHeader) + 1;
 
-        if (nextGroupIndex < testState.groups.length)
-          return testState.groups[nextGroupIndex].header;
-        else return null;
+        return nextGroupIndex < testState.groups.length
+         ? testState.groups[nextGroupIndex].header
+         : null;
       }
-    });
+    })(expandedGroup));
   }
 
   function localOnAnswer(question: IQuestion, answer: YesNoAnswer) {
@@ -105,7 +97,7 @@ const TestComponent: React.FC<TestComponentProps> = ({
 
   function restart() {
     onRestart();
-    setExpandedGroupHeader(testState.groups[0].header);
+    setExpandedGroup(testState.groups[0].header);
   }
 
   function onResult() {
@@ -157,7 +149,7 @@ const TestComponent: React.FC<TestComponentProps> = ({
         <div className={classes.groupsList}>
           {testState.groups.map((group: IQuestionGroup, index: number) => (
             <QuestionGroupComponent
-              expanded={expandedGroupHeader === group.header}
+              expanded={expandedGroup === group.header}
               isLastGroup={index === testState.groups.length - 1}
               onToggleGroup={() => toggleGroup(group)}
               onNext={() => openNextGroup()}
