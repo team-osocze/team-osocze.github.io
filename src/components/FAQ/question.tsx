@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
     groupDetails: {
         flexDirection: "column",
+        whiteSpace: "pre-line"
     },
     footer: {
         display: "flex",

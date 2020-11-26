@@ -57,7 +57,7 @@ export function CreatorsPage() {
                     <Typography component="article" variant="body2" style={{ marginBottom: "10px" }}>
                     Postanowiliśmy dobrze wykorzystać to w czym jesteśmy najlepsi.
                     Zebraliśmy wymagania, zaprojektowaliśmy i wykonaliśmy aplikację, przetestowaliśmy jej działanie oraz zweryfikowaliśmy poprawność pod czujnym okiem specjalistów z <strong>RCKiK</strong> w Krakowie.
-                    Zainwestowaliśmy swój czas wolny, aby nie tracili go Ci którzy potrafią i mogą ratować ludzkie życie.
+                    Wykorzystaliśmy swój wolny czas, aby nie tracili go Ci którzy potrafią i mogą ratować ludzkie życie.
                     </Typography>
                 </section>
                 <section>
