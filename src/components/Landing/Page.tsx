@@ -22,7 +22,7 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        margin: "5px 0",
+        margin: "10px 0",
         "& img": {
             marginRight: 10
         }
@@ -50,24 +50,11 @@ export function LandingPage() {
                     <Typography variant="h4">Ozdrowieńcu!</Typography>
                 </header>
                 <section>                    
-                    <Typography>
-                        Chorowałeś na COVID-19 i jesteś już zdrowy? Wspaniale! Teraz możesz uratować komuś życie!
-                    </Typography>
-                </section>
-                <section className={classes.logoSection}>
-                    <a href="https://rckik.krakow.pl" target="blank">
-                        <img src={logo} className={classes.logoImg} alt="RCKiK w Krakowie logo" />
-                    </a>
                     <Typography variant="body2">
-                        Ankieta pod patronatem <strong>RCKiK</strong>. Dane są w pełni anonimowe, widzisz je tylko Ty na Swoim ekranie, nikt ich nie zbiera i nie przetwarza
-                    </Typography>
-                </section>
-                <section className={classes.testStartSection}>
-                    <Button component={Link} to="test" size="large" variant="contained" color="primary">Rozpocznij test</Button>
-                </section>
-                <section>
+                        Chorowałeś na COVID-19 i jesteś już zdrowy? Wspaniale! Teraz możesz uratować komuś życie!
+                    </Typography>               
                     <Typography component="article" variant="body2" style={{ marginBottom: "10px" }}>
-                        Wiemy jak trudno jest uzyskać konkretną informację na temat możliwości oddania osocza przez ozdrowieńców. Dlatego, żeby odciążyć centra krwiodawstwa
+                        Wiemy jak trudno jest uzyskać konkretną informację na temat możliwości oddania osocza przez ozdrowieńców. Żeby odciążyć centra krwiodawstwa
                         na etapie wstępnych wywiadów, stworzyliśmy projekt osocze.info. W ciągu kilku minut dowiesz się czy Twoje osocze może pomóc leczyć chorych na koronawirusa.
                     </Typography>
                     <Typography component="article" variant="body2">
@@ -75,6 +62,17 @@ export function LandingPage() {
                         i są całkowicie anonimowe. To narzędzie ma służyć wyłacznie sprawdzeniu czy nie ma przeciwskazań, abyś został dawcą osocza.
                     </Typography>
                 </section>
+                <section className={classes.testStartSection}>
+                    <Button component={Link} to="test" size="large" variant="contained" color="primary">Rozpocznij test</Button>
+                </section>
+                <section className={classes.logoSection}>
+                    <a href="https://rckik.krakow.pl" target="blank">
+                        <img src={logo} className={classes.logoImg} alt="RCKiK w Krakowie logo" />
+                    </a>
+                    <Typography variant="body2">
+                        Ankieta pod patronatem <strong>RCKiK</strong>. Dane są w pełni anonimowe, widzisz je tylko Ty na Swoim ekranie, nikt ich nie zbiera i nie przetwarza
+                    </Typography>                                        
+                </section>              
             </div>
         </>
     )

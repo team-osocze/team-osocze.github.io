@@ -30,7 +30,7 @@ export default function ContactList() {
         </ListItemIcon>  
       <ListItemText primary="ul. Rzeźnicza 11" secondary="31-540 Kraków" />
       </ListItem>
-      <ListItem button component="a" href="tel:+4812 261 88 03" className={classes.constactListElement}>         
+      {/* <ListItem button component="a" href="tel:+4812 261 88 03" className={classes.constactListElement}>         
         <ListItemIcon>
           <Phone />
         </ListItemIcon>  
@@ -47,13 +47,7 @@ export default function ContactList() {
           <Phone />
         </ListItemIcon>  
       <ListItemText primary="+48 661 926 116" secondary="w godz. 8:00-15:00" />
-      </ListItem>
-      <ListItem button component="a" href="tel:+48 603 697 534" className={classes.constactListElement}>         
-      <ListItemIcon>
-          <Phone />
-        </ListItemIcon>  
-      <ListItemText primary="+48 603 697 534" secondary="w godz. 8:00-15:00" />
-      </ListItem>
+      </ListItem> */}      
       <ListItem button component="a" href="mailto:osocze@rckik.pl" className={classes.constactListElement}>         
         <ListItemIcon>
           <Email />

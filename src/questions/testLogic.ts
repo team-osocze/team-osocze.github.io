@@ -33,7 +33,7 @@ export function onAnswer(
               questions.push({
                 ...q,
                 answer,
-                result: "Success",
+                result: "Empty",
               });
 
               questions.push({
@@ -52,7 +52,7 @@ export function onAnswer(
               questions.push({
                 ...q,
                 answer,
-                result: "Success",
+                result: "Empty",
               });
 
               questions.push({

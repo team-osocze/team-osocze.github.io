@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Alert, AlertTitle } from "@material-ui/lab";
 import CenterCard from "./CenterCard";
 import { Typography } from "@material-ui/core";
+import Mailto from './Mailto';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,15 +37,10 @@ export default function WarningResult({ resultMessages }: IWarningResultProps) {
           ))}
         </Typography>
       </Alert>
+      <Mailto subject="Może, może... - Zgłoszenie z osocze-info" resultMessages={resultMessages}/>    
       <Typography variant="body1" gutterBottom>
-        Zadzwoń, by przejść przez kwestionariusz z osobą, która będzie mogła
-        rozwiać wszelkie wątpliwości.
-        <br />
-        Pamiętaj! Linie mogą być obciążone i być może koniecznym będzie
-        poczekanie na połączenie.
-        <br />
-        <strong>Nie poddawaj się!</strong>
-      </Typography>
+      Pamiętaj! Pracujemy na pełnych obrotach, odpowiedź może nam zająć trochę czasu. Bądź cierpliwy.
+      </Typography> 
       <CenterCard />
       <Typography variant="body1" gutterBottom>
         <strong>Udostępnij</strong> link do tej strony jak największej liczbie

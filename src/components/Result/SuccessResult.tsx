@@ -4,6 +4,7 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 import RCKiKCard from "./CenterCard";
 import Typography from "@material-ui/core/Typography";
 import { Language } from "@material-ui/icons";
+import Mailto from './Mailto';
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -22,6 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
         marginLeft: theme.spacing(2),
       },
     },
+    icon: {
+      padding: 5
+    },
   })
 );
 
@@ -31,14 +35,12 @@ interface ISuccessResultProps {
 
 export default function SuccessResult({ resultMessages }: ISuccessResultProps) {
   const classes = useStyles();
-
   return (
     <div className={classes.successResult}>
       <Alert severity="success">
         <AlertTitle>Wspaniale!</AlertTitle>
         <p>
-          Wygląda na to, że Twoje osocze może uratować komuś życie! Zadzwoń,
-          żeby by umówić się na oddanie osocza.
+          Wygląda na to, że Twoje osocze może uratować komuś życie! <strong>Napisz do nas</strong> Oddzwonimy żeby by umówić się na oddanie osocza.
         </p>
         {resultMessages.map((m) => (
           <p>
@@ -47,11 +49,9 @@ export default function SuccessResult({ resultMessages }: ISuccessResultProps) {
         ))}
       </Alert>
       <Typography variant="body1" gutterBottom>
-        Pamiętaj! Linie mogą być obciążone i być może koniecznym będzie
-        poczekanie na połączenie.
-        <br />
-        <strong>Nie poddawaj się!</strong>
-      </Typography>
+        Pamiętaj! Pracujemy na pełnych obrotach, odpowiedź może nam to zająć trochę czasu. Bądź cierpliwy.
+      </Typography>      
+      <Mailto subject="WSPANIALE - Zgłoszenie z osocze-info" resultMessages={resultMessages}/>     
       <RCKiKCard />
       <Typography variant="body1" gutterBottom>
         Jeżeli do Krakowa masz za daleko, sprawdź jak oddać osocze w cenrum

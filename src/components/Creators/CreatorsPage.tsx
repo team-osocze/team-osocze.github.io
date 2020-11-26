@@ -51,8 +51,9 @@ export function CreatorsPage() {
                 <section>
                     <Typography component="article" variant="body2" style={{ marginBottom: "10px" }}>
                     Jesteśmy grupą znajomych, których łączą co najmniej dwie rzeczy:
-                    <br /> 1) Chęć niesienia pomocy,
-                    <br /> 2) Wspólna praca i pasja jaką jest tworzenie oprogramowania.
+                    <br /> - chęć niesienia pomocy,
+                    <br /> - wspólna praca i pasja jaką jest tworzenie oprogramowania,
+                    <br /> - miłość do kawy w dobrym toważsytwie.
                     </Typography>
                     <Typography component="article" variant="body2" style={{ marginBottom: "10px" }}>
                     Postanowiliśmy dobrze wykorzystać to w czym jesteśmy najlepsi.

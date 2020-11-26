@@ -72,6 +72,8 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
         return (
           <Alert icon={<DoneIcon fontSize="inherit" />} severity="success" />
         );
+      case "Empty" || "AnotherQuestion":
+        return <></>;
     }
   }
 
