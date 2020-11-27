@@ -4,7 +4,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import { Room, Email, Language, Phone} from '@material-ui/icons';
+import { Room, Email, Language} from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
