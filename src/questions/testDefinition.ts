@@ -40,25 +40,17 @@ export function createTestState(): ITest {
       questions: [
         {
           type: "YesNo",
-          text: "Czy masz więcej niż 65 lat?",
-          onYes: "Error",
-          onNo: "Success",
+          text: "Czy jesteś w wieku 18-65 lat?",
+          onYes: "Success",
+          onNo: "Error",
           answer: null,
           result: null,
         },
         {
           type: "YesNo",
-          text: "Czy masz mniej niż 18 lat?",
-          onYes: "Error",
-          onNo: "Success",
-          answer: null,
-          result: null,
-        },
-        {
-          type: "YesNo",
-          text: "Czy ważysz mniej niż 50 kilogramów?",
-          onYes: "Error",
-          onNo: "Success",
+          text: "Czy ważysz powyżej 50 kg?",
+          onYes: "Success",
+          onNo: "Error",
           answer: null,
           result: null,
         },
@@ -123,7 +115,7 @@ export function createTestState(): ITest {
           answer: null,
           result: null,
           info: "Jeśli tak, konieczne będą dodatkowe badania p/c anty HLA",
-          additionalResultMessage:"Z powodu transfuzji, konieczne będą dodatkowe badania p/c anty HLA."
+          additionalResultMessage:"Z powodu transfuzji konieczne będą badania p/c antyHLA. Zapraszamy do RCKiK bądź Oddziału Terenowego, wykonujemy je za darmo."
         },
         {
           type: "YesNo",
@@ -133,7 +125,7 @@ export function createTestState(): ITest {
           answer: null,
           result: null,
           info: "Jeśli tak, konieczne będą dodatkowe badania p/c anty HLA",
-          additionalResultMessage:"Z powodu przebytej ciąży, konieczne będą dodatkowe badania p/c anty HLA."
+          additionalResultMessage:"Z powodu przebytej ciąży konieczne będą badania p/c antyHLA. Zapraszamy do RCKiK bądź Oddziału Terenowego, wykonujemy je za darmo."
         },
       ],
     },
@@ -185,12 +177,12 @@ export function createTestState(): ITest {
           onYes: "AnotherQuestion",
           onYesQuestion: {
             type: "YesNo",
-            text: "Czy minęło 28 dni od ustopienia u Ciebie objawów COVID-19 lub 18 dni od zakończenia izolacji?",
+            text: "Czy minęło 28 dni od ustopienia u Ciebie objawów COVID-19?",
             onYes: "Success",
             onNo: "Error",
             answer: null,
             result: null,
-            additionalResultMessage: "Uprzejmie prosimy o ponowne wykonanie testu po 28 dniach od ustopienia objawów lub 18 dni od zakończenia izolacji.",
+            additionalResultMessage: "Uprzejmie prosimy o ponowne wypełnienie ankiety  po 28 dniach od ustąpienia u Ciebie objawów COVID-19."
           },
           onNo: "AnotherQuestion",
           onNoQuestion: {
@@ -212,7 +204,7 @@ export function createTestState(): ITest {
                   onNo: "Warning",
                   answer: null,
                   result: null,
-                  additionalResultMessage: "Uprzejmie prosimy o ponowne wykonanie testu po 28 dniach od ustąpienia u Ciebie objawów COVID-19.",
+                  additionalResultMessage: "Uprzejmie prosimy o ponowne wypełnienie ankiety  po 28 dniach od ustąpienia u Ciebie objawów COVID-19.",
                 },
                 onNo: "AnotherQuestion",
                 onNoQuestion: {
@@ -222,7 +214,7 @@ export function createTestState(): ITest {
                   onNo: "Error",
                   answer: null,
                   result: null,
-                  additionalResultMessage: "Uprzejmie prosimy o ponowne wykonanie testu po 14 dniach od uzyskaina dodatniego wyniku testu na przeciwciała.",
+                  additionalResultMessage: "Uprzejmie prosimy o ponowne wypełnienie ankiety  po 14 dniach od uzyskaina dodatniego wyniku testu na przeciwciała.",
                 },
                 answer: null,
                 result: null,
@@ -247,7 +239,7 @@ export function createTestState(): ITest {
                   onNo: "Error",
                   answer: null,
                   result: null,
-                  additionalResultMessage: "Uprzejmie prosimy o ponowne wykonanie testu po 28 dniach od ustąpienia u Ciebie objawów COVID-19.",
+                  additionalResultMessage: "Uprzejmie prosimy o ponowne wypełnienie ankiety  po 28 dniach od ustąpienia u Ciebie objawów COVID-19.",
                 },
                 onNo: "Error",
                 answer: null,

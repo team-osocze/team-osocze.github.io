@@ -36,7 +36,10 @@ export default function Result({
   resultAdditionalMessages: resultAdditionalMessage,
   backToTestCallback,
 }: ResultProps) {
+
   const classes = useStyles();
+
+  const resultSuccessMessages = ["Zakażenie COVID-19 potwierdzone wymazem.", "Obecność przeciwciał CoV-2 potwierdzona testem.", "Objawy typowe dla COVID-19 i kontakt z osobą zakażoną."]; //ug: proper info should come from test
 
   return (
     <>
@@ -58,13 +61,13 @@ export default function Result({
         </header>
         <div>
           {result === "Success" ? (
-            <SuccessResult resultMessages={resultAdditionalMessage} />
+            <SuccessResult resultMessages={resultAdditionalMessage} resultSuccessMessages={resultSuccessMessages} />
           ) : null}
           {result === "Error" ? (
-            <ErrorResult resultMessages={resultAdditionalMessage} />
+            <ErrorResult resultMessages={resultAdditionalMessage}/>
           ) : null}
           {result === "Warning" ? (
-            <WarningResult resultMessages={resultAdditionalMessage} />
+            <WarningResult resultMessages={resultAdditionalMessage} resultSuccessMessages={resultSuccessMessages}/>
           ) : null}
         </div>
       </div>

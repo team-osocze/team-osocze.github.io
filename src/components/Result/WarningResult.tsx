@@ -17,8 +17,9 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 interface IWarningResultProps {
   resultMessages: string[];
+  resultSuccessMessages: string[];
 }
-export default function WarningResult({ resultMessages }: IWarningResultProps) {
+export default function WarningResult({ resultMessages, resultSuccessMessages }: IWarningResultProps) {
   const classes = useStyles();
 
   return (
@@ -27,8 +28,7 @@ export default function WarningResult({ resultMessages }: IWarningResultProps) {
         <AlertTitle>Może się udać.</AlertTitle>
         <Typography variant="body1" gutterBottom>
           <p>
-            Jest duża szansa, że Twoje osocze może uratować komuś życie! Kilka
-            odpowiedzi na pytania wymaga jednak konsultacji ze specjalistą.
+            Jest duża szansa, że Twoje osocze może uratować komuś życie! Kilka odpowiedzi na pytania wymaga jednak konsultacji ze specjalistą.
           </p>
           {resultMessages.map((m) => (
             <p>
@@ -37,7 +37,7 @@ export default function WarningResult({ resultMessages }: IWarningResultProps) {
           ))}
         </Typography>
       </Alert>
-      <Mailto subject="Może, może... - Zgłoszenie z osocze-info" resultMessages={resultMessages}/>    
+      <Mailto subject="Może, może... - Zgłoszenie z osocze-info" resultMessages={resultMessages} resultSuccessMessages={resultSuccessMessages}/>    
       <Typography variant="body1" gutterBottom>
       Pamiętaj! Pracujemy na pełnych obrotach, odpowiedź może nam zająć trochę czasu. Bądź cierpliwy.
       </Typography> 

@@ -30,35 +30,23 @@ export default function ContactList() {
         </ListItemIcon>  
       <ListItemText primary="ul. Rzeźnicza 11" secondary="31-540 Kraków" />
       </ListItem>
-      {/* <ListItem button component="a" href="tel:+4812 261 88 03" className={classes.constactListElement}>         
-        <ListItemIcon>
-          <Phone />
-        </ListItemIcon>  
-      <ListItemText primary="+48 12 261 88 03" secondary="w godz. 8:00-16:00" />
-      </ListItem>
-      <ListItem button component="a" href="tel:+48 663 560 300" className={classes.constactListElement}>         
-        <ListItemIcon>
-          <Phone />
-        </ListItemIcon>  
-      <ListItemText primary="+48 663 560 300" secondary="w godz. 7:00-15:00" />
-      </ListItem>
-      <ListItem button component="a" href="tel:+48 661 926 116" className={classes.constactListElement}>         
+      {/*<ListItem button component="a" href="tel:+48 661 926 116" className={classes.constactListElement}>         
       <ListItemIcon>
           <Phone />
         </ListItemIcon>  
       <ListItemText primary="+48 661 926 116" secondary="w godz. 8:00-15:00" />
-      </ListItem> */}      
-      <ListItem button component="a" href="mailto:osocze@rckik.pl" className={classes.constactListElement}>         
-        <ListItemIcon>
-          <Email />
-        </ListItemIcon>  
-      <ListItemText primary="dzial.dawcow@rckik.krakow.pl" secondary="w emailu podaj nr telefonu do kontaktu" />
-      </ListItem>
+      </ListItem> */}         
       <ListItem button component="a" href="https://rckik.krakow.pl" target="_blank" className={classes.constactListElement}>         
         <ListItemIcon>
           <Language />
         </ListItemIcon>  
       <ListItemText primary="rckik.krakow.pl" secondary="" />
+      </ListItem>
+      <ListItem button component="a" href="mailto:osocze@rckik.pl" className={classes.constactListElement}>         
+        <ListItemIcon>
+          <Email />
+        </ListItemIcon>  
+      <ListItemText primary="dzial.dawcow@rckik.krakow.pl" secondary="w e-mailu podaj numer telefonu do kontaktu i wynik testu" />          
       </ListItem>
     </List>
   );

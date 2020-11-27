@@ -31,9 +31,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface ISuccessResultProps {
   resultMessages: string[];
+  resultSuccessMessages: string[];
 }
 
-export default function SuccessResult({ resultMessages }: ISuccessResultProps) {
+export default function SuccessResult({ resultMessages, resultSuccessMessages }: ISuccessResultProps) {
   const classes = useStyles();
   return (
     <div className={classes.successResult}>
@@ -48,11 +49,13 @@ export default function SuccessResult({ resultMessages }: ISuccessResultProps) {
           </p>
         ))}
       </Alert>
-      <Mailto subject="WSPANIALE - Zgłoszenie z osocze-info" resultMessages={resultMessages}/>
+      <Mailto subject="WSPANIALE - Zgłoszenie z osocze-info" resultMessages={resultMessages} resultSuccessMessages={resultSuccessMessages}/>      
       <Typography variant="body1" gutterBottom>
       Pamiętaj! Pracujemy na pełnych obrotach, odpowiedź może nam zająć trochę czasu. Bądź cierpliwy.
-      </Typography>      
+      </Typography>          
       <RCKiKCard />
+      <p> 
+      </p>
       <Typography variant="body1" gutterBottom>
         Jeżeli do Krakowa masz za daleko, sprawdź jak oddać osocze w cenrum
         krwiodawstwa bliżej Ciebie. Lista centrów krwiodawstwa jest dostępna na
