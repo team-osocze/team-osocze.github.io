@@ -40,7 +40,7 @@ export default function SuccessResult({ resultMessages }: ISuccessResultProps) {
       <Alert severity="success">
         <AlertTitle>Wspaniale!</AlertTitle>
         <p>
-          Wygląda na to, że Twoje osocze może uratować komuś życie! <strong>Napisz do nas</strong> Oddzwonimy żeby by umówić się na oddanie osocza.
+          Możliwe, że Twoje osocze uratuje komuś życie! Prosimy o wysłanie maila na adres <strong>osocze@rckik.pl</strong>. Oddzwonimy najwcześniej jak to tylko możliwe.
         </p>
         {resultMessages.map((m) => (
           <p>
@@ -48,10 +48,10 @@ export default function SuccessResult({ resultMessages }: ISuccessResultProps) {
           </p>
         ))}
       </Alert>
+      <Mailto subject="WSPANIALE - Zgłoszenie z osocze-info" resultMessages={resultMessages}/>
       <Typography variant="body1" gutterBottom>
-        Pamiętaj! Pracujemy na pełnych obrotach, odpowiedź może nam to zająć trochę czasu. Bądź cierpliwy.
+      Pamiętaj! Pracujemy na pełnych obrotach, odpowiedź może nam zająć trochę czasu. Bądź cierpliwy.
       </Typography>      
-      <Mailto subject="WSPANIALE - Zgłoszenie z osocze-info" resultMessages={resultMessages}/>     
       <RCKiKCard />
       <Typography variant="body1" gutterBottom>
         Jeżeli do Krakowa masz za daleko, sprawdź jak oddać osocze w cenrum
@@ -72,8 +72,7 @@ export default function SuccessResult({ resultMessages }: ISuccessResultProps) {
       <Typography variant="body1" gutterBottom>
         <strong>Udostępnij</strong> link do tej strony jak największej liczbie
         osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.
-        <br />
-        Razem uratujemy więcej ludzkich żyć!
+        Razem możemy uratować niejedno ludzkie życie!
       </Typography>
     </div>
   );

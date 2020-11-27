@@ -1,31 +1,31 @@
 [
     {
         "question": "Kto to jest ozdrowieniec?",
-        "answer": "Jest to osoba, która przebyła zakażenie wirusem SARS-CoV-2. Ozdrowieńcem jest każdy, u kogo: \n ● podczas badania wymazu wykryto materiał genetyczny wirusa SARS-CoV-2,\n ● wystąpiły objawy COVID-19 o różnym stopniu nasilenia, \n ● wystąpiło zakażenie bezobjawowe, a obecnie nie wykrywa się obecności wirusa. \n Może być to również osoba, która nie miała stwierdzonego zakażenia, a obecnie w jej krwi wykrywa się przeciwciała przeciwko wirusowi SARS-CoV-2."
+        "answer": "Jest to osoba, która przebyła zakażenie wirusem SARS-CoV-2. Ozdrowieńcem jest każdy, u kogo: \n • podczas badania wymazu z nosogardzieli wykryto materiał genetyczny wirusa SARS-CoV-2,\n • wystąpiły objawy COVID-19 o różnym stopniu nasilenia, \n • wystąpiło zakażenie bezobjawowe, a obecnie nie wykrywa się obecności wirusa. \n Może być to również osoba, która nie miała stwierdzonego zakażenia, a obecnie w jej krwi wykrywa się przeciwciała przeciwko wirusowi SARS-CoV-2."
     },
     {
         "question": "Dlaczego osocze ozdrowieńców jest potrzebne?",
-        "answer": "Osocze to zawiera przeciwciała, które mogą wspomagać leczenie chorych na COVID-19 z ciężkimi, zagrażającymi życiu objawami zakażenia. Terapia oparta na przetaczaniu osocza od osób, które pokonały chorobę była skutecznie stosowana u pacjentów zakażonych wirusem EBOLA, koronawirusem SARS (SARS-CoV), wirusem grypy A (H1N1) oraz wirusem ”ptasiej” grypy A (H5N1). Zawarte w osoczu przeciwciała do wirusa SARS-CoV-2, który powoduje COVID-19, mają po przetoczeniu blokować namnażanie się wirusa w organizmie zakażonego pacjenta."
+        "answer": "Osocze to zawiera przeciwciała, które mogą wspomagać leczenie chorych na COVID-19 z ciężkimi, zagrażającymi życiu objawami zakażenia. Terapia oparta na przetaczaniu osocza pozyskanego od rekonwalescentów po przebyciu chorób zakaźnych była skutecznie stosowana u pacjentów zakażonych wirusem EBOLA, koronawirusem SARS (SARS-CoV), wirusem grypy A (H1N1) oraz wirusem ”ptasiej” grypy A (H5N1). Zawarte w osoczu przeciwciała do wirusa SARS-CoV-2, który powoduje COVID-19, mają po przetoczeniu zablokować namnażanie się wirusa w organizmie zakażonego pacjenta."
     },
     {
         "question": "Jak pobiera się osocze?",
-        "answer": "Osocze pobierane jest metodą plazmaferezy. Podczas plazmaferezy pobierana jest krew, którą (w specjalnym urządzeniu – separatorze) rozdziela się na osocze i pozostałe składniki, które są przetaczane z powrotem do żyły. Pobieranie osocza jest bezbolesne, całkowicie bezpieczne i trwa od 30 do 40 minut. "
+        "answer": "Osocze pobierane jest metodą plazmaferezy. Podczas plazmaferezy pobierana jest krew, którą (w specjalnym urządzeniu – separatorze) rozdziela się na osocze i pozostałe składniki komórkowe krwi, które są przetaczane zwrotnie  krwiodawcy przez to samo wkłucie dożylne. Pobieranie osocza jest bezbolesne, całkowicie bezpieczne i trwa od 30 do 40 minut. "
     },
     {
         "question": "Co dalej dzieje się z osoczem?",
-        "answer": "Pobrane osocze jest poddawane procedurze redukcji patogenów, dzielone na dawki wielkości 100-200 ml i zamrażane. W zależności od zawartości w osoczu przeciwciał neutralizujących wirusa, chorym na COVID-19 przetacza się 200-400 ml osocza."
+        "answer": "Pobrane osocze jest dzielone na dawki wielkości 200 ml, każda z nich poddawana procesowi redukcji patogenów  i zamrażana. W zależności od zawartości w osoczu przeciwciał neutralizujących wirusa, chorym na COVID-19 przetacza się 200-400 ml osocza."
     },
     {
         "question": "Jakie badania świadczą o przebytym zakażeniu?",
-        "answer": "Wystarczy jedno z poniższych: \n ● dodatni wynik testu NAT (wymaz z nosogardzieli), \n ● dodatni wynik badania wykrywającego antygen SARS-CoV-2, \n ● dodatni wynik badania przeciwciał anty-SARS-CoV-2."
+        "answer": "Wystarczy jedno z poniższych: \n • dodatni wynik testu NAT (wymaz z nosogardzieli), \n • dodatni wynik badania wykrywającego antygen SARS-CoV-2, \n • dodatni wynik badania przeciwciał anty-SARS-CoV-2."
     },
     {
-        "question": "Jaki jest następny krok po wypełnieniu ankiety?",
-        "answer": "Prosimy o kontakt z regionalnym centrum krwiodawstwa w celu ustalenia terminu. Podczas rozmowy prosimy o informację o wypełnieniu ankiety."
+        "question": "Jaki jest następny krok po wypełnieniu ankiety, której wynik kwalifikuje do oddania osocza?",
+        "answer": "Po wypełnieniu ankiety zostaniesz przeniesiony/a do swojego maila, w którym już będzie zaproponowana treść (imię nazwisko telefon dodatkowe uwagi wynikające z Twoich odpowiedzi na pytania ankiety). Jeśli nie masz skonfigurowanej skrzynki pocztowej, prosimy byś przekleił/a zaproponowane informacje do maila w wybranym przez Ciebie programie do obsługi poczty. Prosimy o wysłanie maila do Regionalnego Centrum Krwiodawstwa i Krwiolecznictwa w Krakowie na adres osocze@rckik.pl. Pracownik RCKiK oddzwoni do Ciebie w najbliższym możliwym terminie, aby ustalić termin zabiegu pobrania osocza lub krwi pełnej. "
     },
     {
-        "question": "Dlaczego nie mogę dodzwonić się na podane numery?",
-        "answer": "Staramy się ze wszystkich sił, aby kontakt i sama wizyta u nas były jak najprostsze i tak szybkie, jak to tylko możliwe. Niestety lekarze dostępni pod numerami telefonów (w godz. 7:30-15:05) odbierają je pomiędzy wizytami pacjentów. Dlatego w przypadku problemu z kontaktem telefonicznym, prosimy o kontakt mailowy."
+        "question": "Dlaczego nie mogę dodzwonić się na podane przez Centrum numery telefonów?",
+        "answer": "Staramy się ze wszystkich sił, aby kontakt i sama wizyta u nas były jak najprostsze i tak szybkie, jak to tylko możliwe. Niestety lekarze dostępni pod numerami telefonów (w godz. 7:30-15:05) odbierają je pomiędzy wizytami krwiodawców. Dlatego w przypadku problemu z kontaktem telefonicznym, prosimy o kontakt mailowy."
     },
     {
         "question": "Jak się przygotować do oddania osocza?",
@@ -37,18 +37,18 @@
     },
     {
         "question": "Czy można oddać osocze kilka razy?",
-        "answer": "Tak. Po każdej donacji badane są przeciwciała, jeżeli ich ilość jest odpowiednia, dawca umawiany jest na kolejne oddania. Zauważono, że liczba przeciwciał jest tym wyższa, im gorzej dana osoba przechodziła chorobę. Zgodnie z obowiązującą procedurą osocze od ozdrowieńców można pobrać 3 razy w odstępach tygodniowych, a jeżeli dawca nadal ma wystarczającą ilość przeciwciał - kolejne donacje może oddawać w odstępach dwutygodniowych."
+        "answer": "Tak. Po każdej donacji badany jest miano przeciwciał neutralizujących, jeżeli ich ilość jest terapeutyczna , dawca umawiany jest na kolejne oddanie. Zauważono, że poziom przeciwciał jest tym wyższy, im trudniej dana osoba przechodziła chorobę. Zgodnie z obowiązującą procedurą osocze od ozdrowieńców można pobrać 3 razy w odstępie tygodniowym."
     },
     {
         "question": "Czy można oddać osocze ze wskazaniem konkretnego pacjenta?",
-        "answer": "Nie jest możliwe aby dawca zastrzegł, że osocze pobrane od niego będzie przeznaczone wyłącznie dla jednego, konkretnego pacjenta z COVID-19. Pobierane osocze trafia do ogólnej puli dla szpitali, które zamawiają je dla swoich pacjentów. Centrum Krwiodawstwa rejestruje natomiast że donacja osocza była wykonana ze wskazaniem na konkretnego pacjenta."
+        "answer": "Nie jest możliwe aby dawca zastrzegł, że osocze pobrane od niego będzie przeznaczone wyłącznie dla jednego, konkretnego pacjenta z COVID-19. Pobierane osocze trafia do ogólnej puli dla szpitali, które zamawiają je dla swoich pacjentów. Centrum Krwiodawstwa rejestruje natomiast że donacja osocza była wykonana ze wskazaniem na konkretnego pacjenta. Osocze wydane dla pacjenta musi być zgodne z grupą krwi biorcy i zawierać odpowiednie miano przeciwciał."
     },
     {
         "question": "Czy za oddanie osocza należy się wolny dzień i ekwiwalent kalorii?",
-        "answer": "Tak. Po oddaniu krwi/osocza dawca otrzymuje: \n ● posiłek regeneracyjny, \n ● zwolnienie z pracy w dniu oddania krwi/osocza, \n ● legitymację Honorowego Dawcy Krwi, \n ● bezpłatne wyniki badań: grupy krwi (na życzenie Dawcy wynik w postaci karty identyfikacyjnej grupy krwi), morfologii, na obecność markerów chorób zakaźnych przenoszonych drogą krwi, w tym wirusowego zapalenia wątroby B i C, wirusa HIV i kiły."
+        "answer": "Tak. Po oddaniu krwi krwiodawca otrzymuje: \n • posiłek regeneracyjny, \n • zwolnienie z pracy w dniu oddania krwi, \n • legitymację Honorowego Dawcy Krwi, \n • bezpłatne wyniki badań: \n ◦ grupy krwi (na życzenie Dawcy wynik w postaci karty identyfikacyjnej grupy krwi), \n ◦ morfologii, \n ◦ na obecność markerów chorób zakaźnych przenoszonych drogą krwi, w tym wirusowego zapalenia wątroby B i C, wirusa HIV i kiły."
     },
     {
         "question": "Czy jako obcokrajowiec mogę oddać osocze?",
-        "answer": "Kandydat na dawcę krwi musi posiadać nr PESEL oraz powinien posługiwać się językiem polskim w mowie i piśmie w stopniu, który umożliwi mu bez udziału osób trzecich samodzielne zrozumienie treści kwestionariusza i wypełnienie go."
+        "answer": "Kandydat na dawcę krwi musi posiadać nr PESEL oraz powinien posługiwać się językiem polskim w mowie i piśmie w stopniu, który umożliwi mu bez udziału osób trzecich samodzielne zrozumienie treści kwestionariusza dla krwiodawcy i wypełnienie go."
     }
 ]

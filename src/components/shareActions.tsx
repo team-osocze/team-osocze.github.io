@@ -8,7 +8,7 @@ import WhatsappIcon from '@material-ui/icons/WhatsApp';
 import ShareIcon from '@material-ui/icons/Share';
 
 const sharedUrl: string = window.location.href;
-const sharedText: string = "Czy wiesz, że Twoje osocze może uratować życie? Sprawdź, czy możesz zostać jego dawcą na osocze.info. Wypełnienie wstępnej ankiety zajmie Ci tylko 5 minut. Satysfakcja z uratowania drugiego człowieka będzie trwała całe życie :) Wejdź na:"
+const sharedText: string = "Dzień dobry, Ozdrowieńcu! Czy wiesz, że Twoje osocze może uratować komuś życie? Sprawdź na osocze.info, czy możesz zostać dawcą. Wypełnienie przygotowanej ankiety zajmie Ci tylko 5 minut. Satysfakcja z uratowania drugiego człowieka będzie trwała całe życie :) Wejdź już teraz na:"
 const sharedTextWithUrl: string = `${sharedText} ${sharedUrl}`
 
 const useStyles = makeStyles({

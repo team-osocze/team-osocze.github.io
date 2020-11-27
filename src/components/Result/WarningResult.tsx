@@ -45,8 +45,7 @@ export default function WarningResult({ resultMessages }: IWarningResultProps) {
       <Typography variant="body1" gutterBottom>
         <strong>Udostępnij</strong> link do tej strony jak największej liczbie
         osób - być może wśród Twoich znajomych są potencjalni dawcy osocza.
-        <br />
-        Razem uratujemy więcej ludzkich żyć!
+        Razem możemy uratować niejedno ludzkie życie!
       </Typography>
     </div>
   );

@@ -55,11 +55,11 @@ export function LandingPage() {
                         <strong> Na tej stronie dowiesz się czy możesz zostać dawcą osocza.</strong>
                     </Typography>
                     <Typography component="article" variant="body2" style={{ marginBottom: "10px" }}>
-                        Wiemy jak trudno jest uzyskać konkretną informację na temat możliwości oddania osocza przez ozdrowieńców. Żeby odciążyć centra krwiodawstwa
-                        na etapie wstępnych wywiadów, stworzyliśmy projekt osocze.info. W ciągu kilku minut dowiesz się czy Twoje osocze może pomóc leczyć chorych na koronawirusa.
+                        Wiemy jak trudno jest uzyskać konkretną informację na temat możliwości oddania osocza przez ozdrowieńców. Żeby odciążyć centra krwiodawstwa i krwiolecznictwa
+                        na etapie wstępnych wywiadów, stworzyliśmy projekt osocze.info. W ciągu kilku minut dowiesz się, czy możesz być dawcą osocza, które wspomaga leczenie chorych na COVID-19.
                     </Typography>
                     <Typography component="article" variant="body2">
-                        Pytania w ankiecie odpowiadają tym, które zadałaby Ci przez telefon osoba z punktu krwiodawstwa. Odpowiedzi nie są zbierane na tym etapie
+                        Pytania w ankiecie odpowiadają tym, które zadałaby Ci przez telefon osoba z Centrum krwiodawstwa i krwiolecznictwa. Odpowiedzi nie są zbierane na tym etapie
                         i są całkowicie anonimowe. To narzędzie ma służyć wyłacznie sprawdzeniu czy nie ma przeciwskazań, abyś został dawcą osocza.
                     </Typography>
                 </section>

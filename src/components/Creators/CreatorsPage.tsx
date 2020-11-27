@@ -50,10 +50,10 @@ export function CreatorsPage() {
                 </header>
                 <section>
                     <Typography component="article" variant="body2" style={{ marginBottom: "10px" }}>
-                    Jesteśmy grupą znajomych, których łączą co najmniej dwie rzeczy:
-                    <br /> - chęć niesienia pomocy,
-                    <br /> - wspólna praca i pasja jaką jest tworzenie oprogramowania,
-                    <br /> - miłość do kawy w dobrym toważsytwie.
+                    Jesteśmy grupą znajomych, których łączą co najmniej trzy rzeczy:
+                    <br /> • chęć niesienia pomocy,
+                    <br /> • wspólna praca i pasja jaką jest tworzenie oprogramowania,
+                    <br /> • miłość do kawy w dobrym towarzystwie.
                     </Typography>
                     <Typography component="article" variant="body2" style={{ marginBottom: "10px" }}>
                     Postanowiliśmy dobrze wykorzystać to w czym jesteśmy najlepsi.
