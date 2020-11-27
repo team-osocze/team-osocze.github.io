@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     buttonLink:{
         marginBottom: '5px'
+    },
+    hrefLink: {
+        "text-decoration": "none"
     }
   })
 );
@@ -41,7 +44,7 @@ export default function Mailto({subject, resultMessages }: IResultProps){
         className={classes.buttonLink}
         color="primary"
         startIcon={<DraftsIcon />}>
-            <a href={`mailto:${applicationEmail}${params}`} color="primary">       
+            <a className={classes.hrefLink} href={`mailto:${applicationEmail}${params}`} color="primary">       
                 <Typography variant="h6" gutterBottom className={classes.emailLink} color="primary"> Zgłoś się przez e-mail </Typography>
             </a>  
         </Button>      
