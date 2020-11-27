@@ -50,9 +50,10 @@ export function LandingPage() {
                     <Typography variant="h4">Ozdrowieńcu!</Typography>
                 </header>
                 <section>                    
-                    <Typography variant="body2">
-                        Chorowałeś na COVID-19 i jesteś już zdrowy? Wspaniale! Teraz możesz uratować komuś życie!
-                    </Typography>               
+                    <Typography component="article" variant="body2" style={{ marginBottom: "10px" }}>
+                        Chorowałeś na COVID-19 i jesteś już zdrowy?  Wspaniale, teraz możesz uratować komuś życie!
+                        <strong> Na tej stronie dowiesz się czy możesz zostać dawcą osocza.</strong>
+                    </Typography>
                     <Typography component="article" variant="body2" style={{ marginBottom: "10px" }}>
                         Wiemy jak trudno jest uzyskać konkretną informację na temat możliwości oddania osocza przez ozdrowieńców. Żeby odciążyć centra krwiodawstwa
                         na etapie wstępnych wywiadów, stworzyliśmy projekt osocze.info. W ciągu kilku minut dowiesz się czy Twoje osocze może pomóc leczyć chorych na koronawirusa.
