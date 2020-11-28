@@ -27,19 +27,18 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface ResultProps {
   result: TestResult;
-  resultAdditionalMessages: string[];
+  resultWarningAndErrorMessages: string[];
+  resultSuccessMessages: string[];
   backToTestCallback: () => void;
 }
 
 export default function Result({
   result,
-  resultAdditionalMessages: resultAdditionalMessage,
+  resultWarningAndErrorMessages,
+  resultSuccessMessages,
   backToTestCallback,
 }: ResultProps) {
-
   const classes = useStyles();
-
-  const resultSuccessMessages = ["Zakażenie COVID-19 potwierdzone wymazem.", "Obecność przeciwciał CoV-2 potwierdzona testem.", "Objawy typowe dla COVID-19 i kontakt z osobą zakażoną."]; //ug: proper info should come from test
 
   return (
     <>
@@ -61,13 +60,21 @@ export default function Result({
         </header>
         <div>
           {result === "Success" ? (
-            <SuccessResult resultMessages={resultAdditionalMessage} resultSuccessMessages={resultSuccessMessages} />
+            <SuccessResult
+              resultWarningAndErrorMessages={resultWarningAndErrorMessages}
+              resultSuccessMessages={resultSuccessMessages}
+            />
           ) : null}
           {result === "Error" ? (
-            <ErrorResult resultMessages={resultAdditionalMessage}/>
+            <ErrorResult
+              resultWarningAndErrorMessages={resultWarningAndErrorMessages}
+            />
           ) : null}
           {result === "Warning" ? (
-            <WarningResult resultMessages={resultAdditionalMessage} resultSuccessMessages={resultSuccessMessages}/>
+            <WarningResult
+              resultWarningAndErrorMessages={resultWarningAndErrorMessages}
+              resultSuccessMessages={resultSuccessMessages}
+            />
           ) : null}
         </div>
       </div>

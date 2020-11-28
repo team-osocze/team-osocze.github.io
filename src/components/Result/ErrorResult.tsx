@@ -21,18 +21,20 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 interface IErrorResultProps {
-  resultMessages: string[];
+  resultWarningAndErrorMessages: string[];
 }
-export default function ErrorResult({ resultMessages }: IErrorResultProps) {
+export default function ErrorResult({
+  resultWarningAndErrorMessages: resultMessages,
+}: IErrorResultProps) {
   const classes = useStyles();
-
+  
   return (
     <div className={classes.successResult}>
       <Alert severity="error">
         <AlertTitle>Przykro nam.</AlertTitle>
         <Typography variant="body1" gutterBottom>
-          Dziękujemy za wypełnienie ankiety. Niestety, wygląda na to, że
-          w tym momencie nie możesz zostać dawcą osocza dla chorych na COVID-19.
+          Dziękujemy za wypełnienie ankiety. Niestety, wygląda na to, że w tym
+          momencie nie możesz zostać dawcą osocza dla chorych na COVID-19.
           {resultMessages.map((m) => (
             <p>
               <strong>{m}</strong>
@@ -44,8 +46,7 @@ export default function ErrorResult({ resultMessages }: IErrorResultProps) {
         Ciągle jednak możesz zrobić coś dobrego, co pomoże innym.
         <br /> <strong>Udostępnij</strong> link do tej strony jak największej
         liczbie osób - być może wśród Twoich znajomych są potencjalni dawcy
-        osocza.
-        Razem możemy uratować niejedno ludzkie życie!
+        osocza. Razem możemy uratować niejedno ludzkie życie!
       </Typography>
       <div className={classes.shareActionsContainer}>
         <ShareActions />

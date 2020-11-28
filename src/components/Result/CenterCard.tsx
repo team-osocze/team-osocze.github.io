@@ -1,10 +1,6 @@
-import React from 'react';
-import Contact from './Contact';
-
+import React from "react";
+import Contact from "./Contact";
 
 export default function CenterCard() {
-
-  return (
-    <Contact />
-  )
+  return <Contact />;
 }

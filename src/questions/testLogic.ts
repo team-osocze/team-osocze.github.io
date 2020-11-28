@@ -1,22 +1,22 @@
 import {
-  IQuestion,
-  IQuestionGroup,
-  ITest,
+  Question,
+  QuestionGroup,
+  Test,
   Result,
   TestResult,
   YesNoAnswer,
 } from "./testDefinition";
 
 export function onAnswer(
-  current: ITest,
-  question: IQuestion,
+  current: Test,
+  question: Question,
   answer: YesNoAnswer
-): ITest {
+): Test {
   const subQuestions = getSubquestionsOf(question);
 
-  const groups: IQuestionGroup[] = current.groups.map((group) => {
+  const groups: QuestionGroup[] = current.groups.map((group) => {
     if (containsQuestion(group.questions, question)) {
-      const questions: IQuestion[] = [];
+      const questions: Question[] = [];
       for (let q of group.questions) {
         if (containsQuestion(subQuestions, q)) {
           //in order to remove from questions list all already displayed sub questions of answered questions
@@ -29,11 +29,12 @@ export function onAnswer(
 
         switch (answer) {
           case "Yes":
-            if (q.onYes === "AnotherQuestion") {
+            if (q.onYes.result === "AnotherQuestion") {
               questions.push({
                 ...q,
                 answer,
-                result: "Empty",
+                result: "AnotherQuestion",
+                resultMessage: q.onYes.additionalMessage,
               });
 
               questions.push({
@@ -43,16 +44,18 @@ export function onAnswer(
               questions.push({
                 ...q,
                 answer,
-                result: q.onYes,
+                result: q.onYes.result,
+                resultMessage: q.onYes.additionalMessage,
               });
             }
             break;
           case "No":
-            if (q.onNo === "AnotherQuestion") {
+            if (q.onNo.result === "AnotherQuestion") {
               questions.push({
                 ...q,
                 answer,
-                result: "Empty",
+                result: "AnotherQuestion",
+                resultMessage: q.onNo.additionalMessage,
               });
 
               questions.push({
@@ -62,7 +65,8 @@ export function onAnswer(
               questions.push({
                 ...q,
                 answer,
-                result: q.onNo,
+                result: q.onNo.result,
+                resultMessage: q.onNo.additionalMessage,
               });
             }
             break;
@@ -72,7 +76,7 @@ export function onAnswer(
       return {
         ...group,
         questions,
-        result: questions.some((q) => q.answer === null)
+        result: questions.some((q) => q.answer == null)
           ? null
           : calculateResult(questions),
       };
@@ -81,11 +85,13 @@ export function onAnswer(
   });
 
   const allQuestions = groups.flatMap((g) => g.questions);
-  const answeredQuestions = allQuestions.filter((q) => q.answer !== null);
+  const answeredQuestions = allQuestions.filter((q) => q.answer != null);
 
-  const [testResult, testResultAdditionalMessages] = calculateTestResult(
-    answeredQuestions
-  );
+  const [
+    result,
+    resultWarningAndErrorMessages,
+    resultSuccessMessages,
+  ] = calculateTestResult(answeredQuestions);
 
   return {
     groups,
@@ -93,16 +99,17 @@ export function onAnswer(
     numberOfAnsweredQuestions: answeredQuestions.length,
     isDone:
       current.numberOfAllQuestions === answeredQuestions.length ||
-      testResult === "Error",
-    testResult,
-    testResultAdditionalMessages,
+      result === "Error",
+    result,
+    resultWarningAndErrorMessages,
+    resultSuccessMessages,
   };
 
-  function containsQuestion(questions: IQuestion[], question: IQuestion) {
+  function containsQuestion(questions: Question[], question: Question) {
     return questions.some((q) => q.text === question.text);
   }
 
-  function getSubquestionsOf(question: IQuestion): IQuestion[] {
+  function getSubquestionsOf(question: Question): Question[] {
     const result = [];
     if (question.onYesQuestion) {
       result.push(question.onYesQuestion);
@@ -117,21 +124,30 @@ export function onAnswer(
   }
 
   function calculateTestResult(
-    answeredQuestions: IQuestion[]
-  ): [TestResult, string[]] {
+    answeredQuestions: Question[]
+  ): [TestResult, string[], string[]] {
     const testResult = calculateResult(answeredQuestions);
 
-    const additionalResultMessages =
-      testResult === "Success"
-        ? []
-        : answeredQuestions
-            .filter((q) => q.result === testResult && q.additionalResultMessage)
-            .map((q) => q.additionalResultMessage!);
+    const testResultAdditionalWarningAndErrorMessages = answeredQuestions
+      .filter(
+        (q) =>
+          (q.result === "Error" || q.result === "Warning") &&
+          q.resultMessage != null
+      )
+      .map((q) => q.resultMessage!);
 
-    return [testResult, additionalResultMessages];
+    const testResultAdditionalSuccessMessages = answeredQuestions
+      .filter((q) => q.result === "Success" && q.resultMessage != null)
+      .map((q) => q.resultMessage!);
+
+    return [
+      testResult,
+      testResultAdditionalWarningAndErrorMessages,
+      testResultAdditionalSuccessMessages,
+    ];
   }
 
-  function calculateResult(questions: IQuestion[]): Result {
+  function calculateResult(questions: Question[]): Result {
     return questions.some((q) => q.result === "Error")
       ? "Error"
       : questions.some((q) => q.result === "Warning")
@@ -140,9 +156,9 @@ export function onAnswer(
   }
 }
 
-export function questionError(question: IQuestion, answer: YesNoAnswer) {
+export function questionError(question: Question, answer: YesNoAnswer) {
   return (
-    (answer === "Yes" && question.onYes === "Error") ||
-    (answer === "No" && question.onNo === "Error")
+    (answer === "Yes" && question.onYes.result === "Error") ||
+    (answer === "No" && question.onNo.result === "Error")
   );
 }

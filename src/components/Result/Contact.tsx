@@ -1,9 +1,9 @@
-import React from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import ContactList from './ContactList';
+import React from "react";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import ContactList from "./ContactList";
 import logo from "../../logoRCKiK.png";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -11,17 +11,16 @@ const useStyles = makeStyles((theme: Theme) =>
     centerCard: {
       maxWidth: 600,
       padding: 4,
-      margin: 'auto'
-    }, 
+      margin: "auto",
+    },
     large: {
-      width: '100%',
-      
-    },    
+      width: "100%",
+    },
     centerCardHeader: {
       paddingBottom: 4,
-      align: 'right'
+      align: "right",
     },
-    centerCardContent:{
+    centerCardContent: {
       paddingTop: 4,
     },
     logoSection: {
@@ -30,39 +29,43 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: "center",
       margin: "5px 0",
       "& img": {
-          marginRight: 10
-      }
+        marginRight: 10,
+      },
     },
     logoImg: {
-        width: "100%",
-        maxWidth: "300px"
+      width: "100%",
+      maxWidth: "300px",
     },
-    logoTitle:{
-      padding: "16px"
-    }
-  }),
+    logoTitle: {
+      padding: "16px",
+    },
+  })
 );
 
 export default function Contact() {
   const classes = useStyles();
 
   return (
-      <Card className={classes.centerCard}>
-        <div>      
-          <section className={classes.logoSection}>
-              <a href="https://rckik.krakow.pl" target="blank">
-                  <img src={logo} className={classes.logoImg} alt="RCKiK w Krakowie logo" />
-              </a>
-              <Typography variant="h6" className={classes.logoTitle}>
-              Regionalne Centrum Krwiodawstwa i Krwiolecznictwa w Krakowie
-              </Typography>
-          </section>
-        </div>
-        <CardContent className={classes.centerCardContent}>        
-          <Typography variant="body2" component="p">
-              <ContactList/>
+    <Card className={classes.centerCard}>
+      <div>
+        <section className={classes.logoSection}>
+          <a href="https://rckik.krakow.pl" target="blank">
+            <img
+              src={logo}
+              className={classes.logoImg}
+              alt="RCKiK w Krakowie logo"
+            />
+          </a>
+          <Typography variant="h6" className={classes.logoTitle}>
+            Regionalne Centrum Krwiodawstwa i Krwiolecznictwa w Krakowie
           </Typography>
-        </CardContent>  
+        </section>
+      </div>
+      <CardContent className={classes.centerCardContent}>
+        <Typography variant="body2" component="p">
+          <ContactList />
+        </Typography>
+      </CardContent>
     </Card>
   );
 }

@@ -9,9 +9,9 @@ import CloseIcon from "@material-ui/icons/Close";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import QuestionGroupComponent from "./questionGroupComponent";
 import {
-  ITest,
-  IQuestionGroup,
-  IQuestion,
+  Test,
+  QuestionGroup,
+  Question,
   YesNoAnswer,
 } from "../../questions/testDefinition";
 import { Link, useHistory } from "react-router-dom";
@@ -54,8 +54,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface TestComponentProps {
-  testState: ITest;
-  onAnswer: (question: IQuestion, answer: YesNoAnswer) => void;
+  testState: Test;
+  onAnswer: (question: Question, answer: YesNoAnswer) => void;
   onRestart: () => void;
   expandedGroup: string | null;
   setExpandedGroup: (groupToSet: string | null) => void;
@@ -68,7 +68,7 @@ const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRes
 
   const history = useHistory();
 
-  function toggleGroup(group: IQuestionGroup) {
+  function toggleGroup(group: QuestionGroup) {
     const groupToSet = expandedGroup !== group.header ? group.header : null
     setExpandedGroup(groupToSet);
   }
@@ -88,7 +88,7 @@ const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRes
     })(expandedGroup));
   }
 
-  function localOnAnswer(question: IQuestion, answer: YesNoAnswer) {
+  function localOnAnswer(question: Question, answer: YesNoAnswer) {
     onAnswer(question, answer);
     if (questionError(question, answer)) {
       history.push("result");
@@ -147,7 +147,7 @@ const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRes
           </Alert>
         </Collapse>
         <div className={classes.groupsList}>
-          {testState.groups.map((group: IQuestionGroup, index: number) => (
+          {testState.groups.map((group: QuestionGroup, index: number) => (
             <QuestionGroupComponent
               expanded={expandedGroup === group.header}
               isLastGroup={index === testState.groups.length - 1}

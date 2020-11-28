@@ -10,7 +10,11 @@ import React from "react";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DoneIcon from "@material-ui/icons/Done";
 import ClearIcon from "@material-ui/icons/Clear";
-import { IQuestion, IQuestionGroup, YesNoAnswer } from "../../questions/testDefinition";
+import {
+  Question,
+  QuestionGroup,
+  YesNoAnswer,
+} from "../../questions/testDefinition";
 import YesNoQuestionComponent from "./yesNoQuestionComponent";
 import PriorityHigh from "@material-ui/icons/PriorityHigh";
 
@@ -47,8 +51,8 @@ interface IQuestionGroupProps {
   expanded: boolean;
   onToggleGroup: () => void;
   onNext: () => void;
-  group: IQuestionGroup;
-  onAnswer: (question: IQuestion, answer: YesNoAnswer) => void;
+  group: QuestionGroup;
+  onAnswer: (question: Question, answer: YesNoAnswer) => void;
 }
 
 const QuestionGroupComponent: React.FC<IQuestionGroupProps> = (
@@ -56,7 +60,7 @@ const QuestionGroupComponent: React.FC<IQuestionGroupProps> = (
 ) => {
   const classes = useStyles();
 
-  function renderQuestion(q: IQuestion) {
+  function renderQuestion(q: Question) {
     if (q.type === "YesNo")
       return <YesNoQuestionComponent question={q} onAnswer={props.onAnswer} />;
   }

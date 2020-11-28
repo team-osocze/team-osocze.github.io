@@ -1,7 +1,7 @@
 import {
   createTestState,
-  IQuestion,
-  ITest,
+  Question,
+  Test,
   YesNoAnswer,
 } from "./questions/testDefinition";
 import { onAnswer } from "./questions/testLogic";
@@ -14,7 +14,7 @@ const RESET_STATE_TYPE = "RESET_STATE";
 type AnswerQuestionAction = {
   type: typeof ANSWER_QUESTION_TYPE;
   payload: {
-    question: IQuestion;
+    question: Question;
     answer: YesNoAnswer;
   };
 };
@@ -24,7 +24,7 @@ type ResetAction = {
 };
 
 export function answerQuestionAction(
-  question: IQuestion,
+  question: Question,
   answer: YesNoAnswer
 ): AnswerQuestionAction {
   return {
@@ -43,9 +43,9 @@ export function resetStateAction(): ResetAction {
 }
 
 export function appStateReducer(
-  state: ITest,
+  state: Test,
   action: AnswerQuestionAction | ResetAction
-): ITest {
+): Test {
   switch (action.type) {
     case ANSWER_QUESTION_TYPE:
       return onAnswer(state, action.payload.question, action.payload.answer);

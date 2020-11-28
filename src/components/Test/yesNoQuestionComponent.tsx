@@ -1,7 +1,7 @@
 import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import { YesNoAnswer, IQuestion } from "../../questions/testDefinition";
+import { YesNoAnswer, Question } from "../../questions/testDefinition";
 import Alert from "@material-ui/lab/Alert";
 import DoneIcon from "@material-ui/icons/Done";
 import ClearIcon from "@material-ui/icons/Clear";
@@ -40,8 +40,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface IYesNoQuestionProps {
-  question: IQuestion;
-  onAnswer: (question: IQuestion, answer: YesNoAnswer) => void;
+  question: Question;
+  onAnswer: (question: Question, answer: YesNoAnswer) => void;
 }
 
 const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
@@ -72,7 +72,7 @@ const YesNoQuestionComponent: React.FC<IYesNoQuestionProps> = (
         return (
           <Alert icon={<DoneIcon fontSize="inherit" />} severity="success" />
         );
-      case "Empty" || "AnotherQuestion":
+      case "AnotherQuestion":
         return <></>;
     }
   }

@@ -4,7 +4,7 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 import RCKiKCard from "./CenterCard";
 import Typography from "@material-ui/core/Typography";
 import { Language } from "@material-ui/icons";
-import Mailto from './Mailto';
+import Mailto from "./Mailto";
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -24,24 +24,29 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     icon: {
-      padding: 5
+      padding: 5,
     },
   })
 );
 
 interface ISuccessResultProps {
-  resultMessages: string[];
+  resultWarningAndErrorMessages: string[];
   resultSuccessMessages: string[];
 }
 
-export default function SuccessResult({ resultMessages, resultSuccessMessages }: ISuccessResultProps) {
+export default function SuccessResult({
+  resultWarningAndErrorMessages: resultMessages,
+  resultSuccessMessages,
+}: ISuccessResultProps) {
   const classes = useStyles();
   return (
     <div className={classes.successResult}>
       <Alert severity="success">
         <AlertTitle>Wspaniale!</AlertTitle>
         <p>
-          Możliwe, że Twoje osocze uratuje komuś życie! Prosimy o wysłanie maila na adres <strong>osocze@rckik.pl</strong>. Oddzwonimy najwcześniej jak to tylko możliwe.
+          Możliwe, że Twoje osocze uratuje komuś życie! Prosimy o wysłanie maila
+          na adres <strong>osocze@rckik.pl</strong>. Oddzwonimy najwcześniej jak
+          to tylko możliwe.
         </p>
         {resultMessages.map((m) => (
           <p>
@@ -49,13 +54,17 @@ export default function SuccessResult({ resultMessages, resultSuccessMessages }:
           </p>
         ))}
       </Alert>
-      <Mailto subject="WSPANIALE - Zgłoszenie z osocze-info" resultMessages={resultMessages} resultSuccessMessages={resultSuccessMessages}/>      
+      <Mailto
+        subject="WSPANIALE - Zgłoszenie z osocze-info"
+        resultMessages={resultMessages}
+        resultSuccessMessages={resultSuccessMessages}
+      />
       <Typography variant="body1" gutterBottom>
-      Pamiętaj! Pracujemy na pełnych obrotach, odpowiedź może nam zająć trochę czasu. Bądź cierpliwy.
-      </Typography>          
+        Pamiętaj! Pracujemy na pełnych obrotach, odpowiedź może nam zająć trochę
+        czasu. Bądź cierpliwy.
+      </Typography>
       <RCKiKCard />
-      <p> 
-      </p>
+      <p></p>
       <Typography variant="body1" gutterBottom>
         Jeżeli do Krakowa masz za daleko, sprawdź jak oddać osocze w cenrum
         krwiodawstwa bliżej Ciebie. Lista centrów krwiodawstwa jest dostępna na
