@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import { Language } from "@material-ui/icons";
 import Mailto from "./Mailto";
 import Button from "@material-ui/core/Button";
+import CopyResult from "./CopyResult";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,20 +36,26 @@ interface ISuccessResultProps {
 }
 
 export default function SuccessResult({
-  resultWarningAndErrorMessages: resultMessages,
+  resultWarningAndErrorMessages,
   resultSuccessMessages,
 }: ISuccessResultProps) {
   const classes = useStyles();
+
   return (
     <div className={classes.successResult}>
-      <Alert severity="success">
+      <Alert severity="success" action={
+          <CopyResult
+            resultSuccessMessages={resultSuccessMessages}
+            resultWarningAndErrorMessages={resultWarningAndErrorMessages}
+          />
+        }>
         <AlertTitle>Wspaniale!</AlertTitle>
         <p>
           Możliwe, że Twoje osocze uratuje komuś życie! Prosimy o wysłanie maila
           na adres <strong>osocze@rckik.pl</strong>. Oddzwonimy najwcześniej jak
           to tylko możliwe.
         </p>
-        {resultMessages.map((m) => (
+        {resultWarningAndErrorMessages.map((m) => (
           <p>
             <strong>{m}</strong>
           </p>
@@ -56,7 +63,7 @@ export default function SuccessResult({
       </Alert>
       <Mailto
         subject="WSPANIALE - Zgłoszenie z osocze-info"
-        resultMessages={resultMessages}
+        resultWarningAndErrorMessages={resultWarningAndErrorMessages}
         resultSuccessMessages={resultSuccessMessages}
       />
       <Typography variant="body1" gutterBottom>

@@ -4,6 +4,7 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 import CenterCard from "./CenterCard";
 import { Typography } from "@material-ui/core";
 import Mailto from "./Mailto";
+import CopyResult from "./CopyResult";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,21 +21,28 @@ interface IWarningResultProps {
   resultSuccessMessages: string[];
 }
 export default function WarningResult({
-  resultWarningAndErrorMessages: resultMessages,
+  resultWarningAndErrorMessages,
   resultSuccessMessages,
 }: IWarningResultProps) {
   const classes = useStyles();
-
   return (
     <div className={classes.successResult}>
-      <Alert severity="warning">
+      <Alert
+        severity="warning"
+        action={
+          <CopyResult
+            resultSuccessMessages={resultSuccessMessages}
+            resultWarningAndErrorMessages={resultWarningAndErrorMessages}
+          />
+        }
+      >
         <AlertTitle>Może się udać.</AlertTitle>
         <Typography variant="body1" gutterBottom>
           <p>
             Jest duża szansa, że Twoje osocze może uratować komuś życie! Kilka
             odpowiedzi na pytania wymaga jednak konsultacji ze specjalistą.
           </p>
-          {resultMessages.map((m) => (
+          {resultWarningAndErrorMessages.map((m) => (
             <p>
               <strong>{m}</strong>
             </p>
@@ -43,7 +51,7 @@ export default function WarningResult({
       </Alert>
       <Mailto
         subject="Może, może... - Zgłoszenie z osocze-info"
-        resultMessages={resultMessages}
+        resultWarningAndErrorMessages={resultWarningAndErrorMessages}
         resultSuccessMessages={resultSuccessMessages}
       />
       <Typography variant="body1" gutterBottom>

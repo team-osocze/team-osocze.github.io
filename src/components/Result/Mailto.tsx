@@ -3,19 +3,12 @@ import Typography from "@material-ui/core/Typography";
 import DraftsIcon from "@material-ui/icons/Drafts";
 import Button from "@material-ui/core/Button";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { format } from "react-string-format";
-
+import { getMailContent } from "./mailing";
 const applicationEmail: string = "gutosia@gmail.com";
-let applicationEmailText: string = "";
-let applicationEmailBody: string = `Zgłoszenie Ozdrowieńca, \n
-Imię i Nazwisko: \n
-Numer telefonu: \n
-Kontakt z COVID-19: {0} \n
-Dodatkowe uwagi: {1} \n`;
 
 interface IResultProps {
   subject: string;
-  resultMessages: string[];
+  resultWarningAndErrorMessages: string[];
   resultSuccessMessages: string[];
 }
 
@@ -35,22 +28,19 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Mailto({
   subject,
-  resultMessages,
+  resultWarningAndErrorMessages,
   resultSuccessMessages,
 }: IResultProps) {
   const classes = useStyles();
 
-  let params = subject || applicationEmailText ? "?" : "";
-  if (subject) params += `subject=${encodeURIComponent(subject)}`;
-  applicationEmailText = format(
-    applicationEmailBody,
-    resultSuccessMessages.join(" \n"),
-    resultMessages.join(" \n")
+  const applicationEmailText = getMailContent(
+    resultWarningAndErrorMessages,
+    resultSuccessMessages
   );
-  if (applicationEmailText)
-    params += `${subject ? "&" : ""}body=${encodeURIComponent(
-      applicationEmailText
-    )}`;
+
+  const params = `?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(applicationEmailText)}`;
 
   return (
     <>
