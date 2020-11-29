@@ -4,7 +4,7 @@ import DraftsIcon from "@material-ui/icons/Drafts";
 import Button from "@material-ui/core/Button";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { getMailContent } from "./mailing";
-const applicationEmail: string = "gutosia@gmail.com";
+const applicationEmail: string = "osocze@rckik.pl";
 
 interface IResultProps {
   subject: string;
