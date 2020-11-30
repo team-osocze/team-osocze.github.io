@@ -4,7 +4,7 @@ export function getMailContent(
   resultWarningAndErrorMessages: string[],
   resultSuccessMessages: string[]
 ) {
-  const applicationEmailBody: string = `Zgłoszenie Ozdrowieńca, \n
+  const applicationEmailBody: string = `Zgłoszenie Ozdrowieńca do centrum w Krakowie, \n
 Imię i Nazwisko: \n
 Numer telefonu: \n
 Kontakt z COVID-19: {0} \n

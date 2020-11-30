@@ -52,7 +52,7 @@ export default function SuccessResult({
         <AlertTitle>Wspaniale!</AlertTitle>
         <p>
           Możliwe, że Twoje osocze uratuje komuś życie! Prosimy o wysłanie maila
-          na adres <strong>osocze@rckik.pl</strong>. Oddzwonimy najwcześniej jak
+          na adres dedykowany dla dawców w <strong>Krakowie: osocze@rckik.pl</strong>. Oddzwonimy najwcześniej jak
           to tylko możliwe.
         </p>
         {resultWarningAndErrorMessages.map((m) => (
@@ -62,7 +62,7 @@ export default function SuccessResult({
         ))}
       </Alert>
       <Mailto
-        subject="WSPANIALE - Zgłoszenie z osocze-info"
+        subject="WSPANIALE - Zgłoszenie z osocze-info, Kraków"
         resultWarningAndErrorMessages={resultWarningAndErrorMessages}
         resultSuccessMessages={resultSuccessMessages}
       />
@@ -73,7 +73,7 @@ export default function SuccessResult({
       <RCKiKCard />
       <p></p>
       <Typography variant="body1" gutterBottom>
-        Jeżeli do Krakowa masz za daleko, sprawdź jak oddać osocze w cenrum
+        <strong>Jeżeli do Krakowa masz za daleko,</strong> sprawdź jak oddać osocze w cenrum
         krwiodawstwa bliżej Ciebie. Lista centrów krwiodawstwa jest dostępna na
         stronie:
       </Typography>

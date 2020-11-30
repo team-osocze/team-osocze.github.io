@@ -50,7 +50,7 @@ export default function WarningResult({
         </Typography>
       </Alert>
       <Mailto
-        subject="Może, może... - Zgłoszenie z osocze-info"
+        subject="Może się udać - Zgłoszenie z osocze-info, Kraków"
         resultWarningAndErrorMessages={resultWarningAndErrorMessages}
         resultSuccessMessages={resultSuccessMessages}
       />

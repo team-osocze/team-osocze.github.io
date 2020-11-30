@@ -16,6 +16,11 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingTop: 0,
       paddingBottom: 0,
     },
+    listItemSubText:{
+      fontSize: '1.0em',
+      color: 'black',
+      fontWeight: 800
+    }
   })
 );
 
@@ -63,9 +68,9 @@ export default function ContactList() {
         <ListItemIcon>
           <Email />
         </ListItemIcon>
-        <ListItemText
+        <ListItemText classes={{secondary:classes.listItemSubText}}
           primary="dzial.dawcow@rckik.krakow.pl"
-          secondary="w e-mailu podaj numer telefonu do kontaktu i wynik testu"
+          secondary="w e-mailu podaj numer telefonu do kontaktu oraz wynik testu"
         />
       </ListItem>
     </List>
