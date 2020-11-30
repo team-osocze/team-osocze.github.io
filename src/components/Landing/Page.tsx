@@ -60,7 +60,7 @@ export function LandingPage() {
                     </Typography>
                     <Typography component="article" variant="body2">
                         Pytania w ankiecie odpowiadają tym, które zadałaby Ci przez telefon osoba z Centrum krwiodawstwa i krwiolecznictwa. Odpowiedzi nie są zbierane na tym etapie
-                        i są całkowicie anonimowe. To narzędzie ma służyć wyłacznie sprawdzeniu czy nie ma przeciwskazań, abyś został dawcą osocza.
+                        i są całkowicie anonimowe. To narzędzie ma służyć wyłącznie sprawdzeniu czy nie ma przeciwskazań, abyś został dawcą osocza.
                     </Typography>
                 </section>
                 <section className={classes.testStartSection}>
