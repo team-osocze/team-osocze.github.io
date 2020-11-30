@@ -34,12 +34,7 @@ export default function ErrorResult({
         <AlertTitle>Przykro nam.</AlertTitle>
         <Typography variant="body1" gutterBottom>
           Dziękujemy za wypełnienie ankiety. Niestety, wygląda na to, że w tym
-          momencie nie możesz zostać dawcą osocza dla chorych na COVID-19.
-          {resultMessages.map((m) => (
-            <p>
-              <strong>{m}</strong>
-            </p>
-          ))}
+          momencie nie możesz zostać dawcą osocza dla chorych na COVID-19.         
         </Typography>
       </Alert>
       <Typography variant="body1" gutterBottom>
