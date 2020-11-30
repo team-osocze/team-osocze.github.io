@@ -102,7 +102,7 @@ export function createTestState(): Test {
           onYes: {
             result: "Warning",
             additionalMessage:
-              "Z powodu transfuzji konieczne będą badania p/c antyHLA. Zapraszamy do RCKiK w Krakowie bądź Oddziału Terenowego w Małopolsce, wykonujemy je za darmo.",
+              "Z powodu transfuzji konieczne będą badania p/c antyHLA.",
           },
           onNo: { result: "Success" },
 
@@ -115,10 +115,9 @@ export function createTestState(): Test {
           onYes: {
             result: "Warning",
             additionalMessage:
-              "Z powodu przebytej ciąży konieczne będą badania p/c antyHLA. Zapraszamy do RCKiK w Krakowie bądź Oddziału Terenowego w Małopolsce, wykonujemy je za darmo.",
+              "Z powodu przebytej ciąży konieczne będą badania p/c antyHLA.",
           },
           onNo: { result: "Success" },
-
           info: "Jeśli tak, konieczne będą badania p/c antyHLA. Zapraszamy do RCKiK w Krakowie bądź Oddziału Terenowego w Małopolsce, wykonujemy je za darmo.",
         },
       ],
