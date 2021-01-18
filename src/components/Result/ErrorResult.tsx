@@ -33,8 +33,7 @@ export default function ErrorResult({
       <Alert severity="error">
         <AlertTitle>Przykro nam.</AlertTitle>
         <Typography variant="body1" gutterBottom>
-          Dziękujemy za wypełnienie ankiety. Niestety, wygląda na to, że w tym
-          momencie nie możesz zostać dawcą osocza dla chorych na COVID-19.         
+        Dziękujemy za wypełnienie ankiety. W tym momencie nie może Pan/Pani zostać dawcą osocza.         
         </Typography>
       </Alert>
       <Typography variant="body1" gutterBottom>
