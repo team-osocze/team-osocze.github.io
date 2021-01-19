@@ -160,108 +160,115 @@ export function createTestState(): Test {
       questions: [
         {
           type: "YesNo",
-          text: "Czy masz potwierdzone zakażenie COVID-19 wymazem?",
+          text: "Czy chorował Pan/Pani na Covid-19 w ciągu ostatnich 3 miesięcy?",
           onYes: {
             result: "AnotherQuestion",
           },
           onYesQuestion: {
             type: "YesNo",
-            text: "Czy minęło 28 dni od ustąpienia u Ciebie objawów COVID-19?",
+            text: "Czy zachorowanie na Covid-19 potwierdzono u Pana/Pani wymazem?",
             onYes: {
-              result: "Success",
-              additionalMessage: "Zakażenie COVID-19 potwierdzone wymazem.",
+              result: "AnotherQuestion",
             },
-            onNo: {
-              result: "Error",
-              additionalMessage:
-                "Uprzejmie prosimy o ponowne wypełnienie ankiety po 28 dniach od ustąpienia u Ciebie objawów COVID-19.",
-            },
-          },
-          onNo: { result: "AnotherQuestion" },
-          onNoQuestion: {
-            type: "YesNo",
-            text:
-              "Czy masz wykonane badanie na przeciwciała przeciwko wirusowi SARS-CoV-2?",
-            onYes: { result: "AnotherQuestion" },
             onYesQuestion: {
               type: "YesNo",
-              text: "Czy wynik testu na przeciwciała był dodatni?",
+              text: "Czy minęło 28 dni od ustąpienia u Ciebie objawów COVID-19?",
               onYes: {
-                result: "AnotherQuestion",
+                result: "Success",
+                additionalMessage: "Zakażenie COVID-19 potwierdzone wymazem.",
               },
-              onYesQuestion: {
-                type: "YesNo",
-                text:
-                  "Czy wystąpiły u Ciebie objawy typowe dla COVID-19 np. gorączka, kaszel, utrata węchu i smaku, ból pleców, biegunka?",
-                onYes: { result: "AnotherQuestion" },
-                onYesQuestion: {
-                  type: "YesNo",
-                  text:
-                    "Czy minęło 28 dni od ustąpienia u Ciebie objawów COVID-19?",
-                  onYes: {
-                    result: "Success",
-                    additionalMessage:
-                      "Obecność przeciwciał CoV-2 potwierdzona testem.",
-                  },
-                  onNo: {
-                    result: "Warning",
-                    additionalMessage:
-                      "Uprzejmie prosimy o ponowne wypełnienie ankiety  po 28 dniach od ustąpienia u Ciebie objawów COVID-19.",
-                  },
-                },
-                onNo: { result: "AnotherQuestion" },
-                onNoQuestion: {
-                  type: "YesNo",
-                  text:
-                    "Czy minęło 14 dni od uzyskania dodatniego wyniku testu na przeciwciała?",
-                  onYes: {
-                    result: "Success",
-                    additionalMessage:
-                      "Obecność przeciwciał CoV-2 potwierdzona testem.",
-                  },
-                  onNo: {
-                    result: "Error",
-                    additionalMessage:
-                      "Uprzejmie prosimy o ponowne wypełnienie ankiety po 14 dniach od uzyskaina dodatniego wyniku testu na przeciwciała.",
-                  },
-                },
+              onNo: {
+                result: "Error",
+                additionalMessage:
+                  "Uprzejmie prosimy o ponowne wypełnienie ankiety po 28 dniach od ustąpienia u Ciebie objawów COVID-19.",
               },
-              onNo: { result: "Error" },
             },
             onNo: { result: "AnotherQuestion" },
             onNoQuestion: {
               type: "YesNo",
-              text:
-                "Czy wystąpiły u Ciebie objawy typowe dla COVID-19 np. gorączka, kaszel, utrata węchu i smaku, ból głowy?",
+              text: "Czy miał/a Pan/Pani wykonane badanie na obecność przeciwciał anty-SARS-CoV-2?",
               onYes: { result: "AnotherQuestion" },
               onYesQuestion: {
                 type: "YesNo",
-                text:
-                  "Czy miałeś kontakt z osobą z potwierdzonym zakażaniem COVID-19?",
+                text: "Czy wynik testu na przeciwciała był dodatni?",
                 onYes: {
                   result: "AnotherQuestion",
                 },
                 onYesQuestion: {
                   type: "YesNo",
                   text:
-                    "Czy minęło 28 dni od ustąpienia u Ciebie objawów COVID-19?",
-                  onYes: {
-                    result: "Success",
-                    additionalMessage:
-                      "Objawy typowe dla COVID-19 i kontakt z osobą zakażoną.",
+                    "Czy wystąpiły u Ciebie objawy typowe dla COVID-19 np. gorączka, kaszel, utrata węchu i smaku, ból pleców, biegunka?",
+                  onYes: { result: "AnotherQuestion" },
+                  onYesQuestion: {
+                    type: "YesNo",
+                    text:
+                      "Czy minęło 28 dni od ustąpienia u Ciebie objawów COVID-19?",
+                    onYes: {
+                      result: "Success",
+                      additionalMessage:
+                        "Obecność przeciwciał CoV-2 potwierdzona testem.",
+                    },
+                    onNo: {
+                      result: "Warning",
+                      additionalMessage:
+                        "Uprzejmie prosimy o ponowne wypełnienie ankiety  po 28 dniach od ustąpienia u Ciebie objawów COVID-19.",
+                    },
                   },
-                  onNo: {
-                    result: "Error",
-                    additionalMessage:
-                      "Uprzejmie prosimy o ponowne wypełnienie ankiety  po 28 dniach od ustąpienia u Ciebie objawów COVID-19.",
+                  onNo: { result: "AnotherQuestion" },
+                  onNoQuestion: {
+                    type: "YesNo",
+                    text:
+                      "Czy minęło 14 dni od uzyskania dodatniego wyniku testu na przeciwciała?",
+                    onYes: {
+                      result: "Success",
+                      additionalMessage:
+                        "Obecność przeciwciał CoV-2 potwierdzona testem.",
+                    },
+                    onNo: {
+                      result: "Error",
+                      additionalMessage:
+                        "Uprzejmie prosimy o ponowne wypełnienie ankiety po 14 dniach od uzyskaina dodatniego wyniku testu na przeciwciała.",
+                    },
                   },
                 },
                 onNo: { result: "Error" },
               },
-              onNo: { result: "Error" },
+              onNo: { result: "AnotherQuestion" },
+              onNoQuestion: {
+                type: "YesNo",
+                text:
+                  "Czy wystąpiły u Ciebie objawy typowe dla COVID-19 np. gorączka, kaszel, utrata węchu i smaku, ból głowy?",
+                onYes: { result: "AnotherQuestion" },
+                onYesQuestion: {
+                  type: "YesNo",
+                  text:
+                    "Czy miałeś kontakt z osobą z potwierdzonym zakażaniem COVID-19?",
+                  onYes: {
+                    result: "AnotherQuestion",
+                  },
+                  onYesQuestion: {
+                    type: "YesNo",
+                    text:
+                      "Czy minęło 28 dni od ustąpienia u Ciebie objawów COVID-19?",
+                    onYes: {
+                      result: "Success",
+                      additionalMessage:
+                        "Objawy typowe dla COVID-19 i kontakt z osobą zakażoną.",
+                    },
+                    onNo: {
+                      result: "Error",
+                      additionalMessage:
+                        "Uprzejmie prosimy o ponowne wypełnienie ankiety  po 28 dniach od ustąpienia u Ciebie objawów COVID-19.",
+                    },
+                  },
+                  onNo: { result: "Error" },
+                },
+                onNo: { result: "Error" },
+              },
             },
           },
-        },
+          onNo: { result: "Error" },
+        }
       ],
     },
   ];
