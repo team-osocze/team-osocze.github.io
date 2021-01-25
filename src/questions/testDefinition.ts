@@ -58,14 +58,14 @@ export function createTestState(): Test {
         {
           type: "YesNo",
           text:
-            "Czy chorujsz na choroby układu krążenia, dolegliwości ze strony serca: zawał serca, duszności lub udar mózgu?",
+            "Czy chorujesz lub chorowałeś na choroby układu krążenia, dolegliwości ze strony serca: zawał serca, duszności lub udar mózgu?",
           onYes: { result: "Error" },
           onNo: { result: "Success" },
         },
         {
           type: "YesNo",
           text:
-            "Czy chorujesz na choroby skóry, wypryski/wysypkę, uczulenia, katar sienny lub astmę?",
+            "Czy chorujesz na choroby skóry, wypryski/wysypkę, łuszczycę, uczulenia, katar sienny lub astmę?",
           onYes: { result: "Error" },
           onNo: { result: "Success" },
         },
@@ -85,20 +85,20 @@ export function createTestState(): Test {
         },
         {
           type: "YesNo",
-          text: "Czy zażywasz regularnie jakiekolwiek leki?",
+          text: "Czy zażywasz regularnie jakiekolwiek leki (poza witaminami, antykoncepcją hormonalną i lekami na nadciśnienie)?",
           onYes: { result: "Error" },
           onNo: { result: "Success" },
         },
         {
           type: "YesNo",
           text:
-            "Czy w ciągu ostatnich 12 miesięcy byłeś za granicą? Szczególnie w krajach egzotycznych np. Zanzibar lub Tajlandia?",
+            "Czy w ciągu ostatnich 12 miesięcy byłeś/aś za granicą? Szczególnie w krajach egzotycznych np. Zanzibar lub Tajlandia?",
           onYes: { result: "Error" },
           onNo: { result: "Success" },
         },
         {
           type: "YesNo",
-          text: "Czy kiedykolwiek miałeś transfuzję krwi?",
+          text: "Czy kiedykolwiek miałeś/aś transfuzję krwi?",
           onYes: {
             result: "Warning",
             additionalMessage:
@@ -128,28 +128,35 @@ export function createTestState(): Test {
         {
           type: "YesNo",
           text:
-            "Czy w ciągu ostatnich 6 miesięcy miałeś jakikolwiek zabieg operacyjny, gastroskopię, kolonoskopię, biopsję, tatuaż, piercing lub mały zabieg u stomatologa? ",
+            "Czy w ciągu ostatnich 6 miesięcy miałeś/aś jakikolwiek zabieg operacyjny, gastroskopię, kolonoskopię, biopsję, tatuaż, piercing lub mały zabieg u stomatologa? ",
           onYes: { result: "Error" },
           onNo: { result: "Success" },
         },
         {
           type: "YesNo",
           text:
-            "Czy w ciągu ostatnich 6 miesięcy prowadziłeś diagnostykę z powodu choroby, tomografię komputerową lub rezonans magnetyczny? ",
+            "Czy w ciągu ostatnich 6 miesięcy prowadziłeś/aś diagnostykę z powodu choroby, tomografię komputerową lub rezonans magnetyczny? ",
           onYes: { result: "Error" },
           onNo: { result: "Success" },
         },
         {
           type: "YesNo",
           text:
-            "Czy w ciągu ostatnich 6 miesięcy zmieniałeś partnera seksualnego?",
+            "Czy w ciągu ostatnich 6 miesięcy zmieniałeś/aś partnera seksualnego?",
           onYes: { result: "Error" },
           onNo: { result: "Success" },
         },
         {
           type: "YesNo",
           text:
-            "Czy w ciągu ostatnich 6 miesięcy wykonywałeś zabiegi kosmetyczne z przebijaniem naskórka, makijaż permanentny, manicure lub pedicure?",
+            "Czy w ciągu ostatnich 6 miesięcy wykonywałeś/aś zabiegi kosmetyczne z przebijaniem naskórka, makijaż permanentny, manicure lub pedicure?",
+          onYes: { result: "Error" },
+          onNo: { result: "Success" },
+        },
+        {
+          type: "YesNo",
+          text:
+            "Czy w ciągu ostatnich 6 miesięcy byłeś/aś biorcą przeszczepu?",
           onYes: { result: "Error" },
           onNo: { result: "Success" },
         },
@@ -160,19 +167,19 @@ export function createTestState(): Test {
       questions: [
         {
           type: "YesNo",
-          text: "Czy chorował Pan/Pani na Covid-19 w ciągu ostatnich 3 miesięcy?",
+          text: "Czy zachorowałeś/aś na Covid-19 w ciągu ostatnich 3 miesięcy?",
           onYes: {
             result: "AnotherQuestion",
           },
           onYesQuestion: {
             type: "YesNo",
-            text: "Czy zachorowanie na Covid-19 potwierdzono u Pana/Pani wymazem?",
+            text: "Czy zachorowanie na Covid-19 masz potwierdzone wymazem?",
             onYes: {
               result: "AnotherQuestion",
             },
             onYesQuestion: {
               type: "YesNo",
-              text: "Czy minęło 28 dni od ustąpienia u Ciebie objawów COVID-19?",
+              text: "Czy minęło 14 dni od ustąpienia u Ciebie objawów COVID-19?",
               onYes: {
                 result: "Success",
                 additionalMessage: "Zakażenie COVID-19 potwierdzone wymazem.",
@@ -180,13 +187,13 @@ export function createTestState(): Test {
               onNo: {
                 result: "Error",
                 additionalMessage:
-                  "Uprzejmie prosimy o ponowne wypełnienie ankiety po 28 dniach od ustąpienia u Ciebie objawów COVID-19.",
+                  "Uprzejmie prosimy o ponowne wypełnienie ankiety po 14 dniach od ustąpienia u Ciebie objawów COVID-19.",
               },
             },
             onNo: { result: "AnotherQuestion" },
             onNoQuestion: {
               type: "YesNo",
-              text: "Czy miał/a Pan/Pani wykonane badanie na obecność przeciwciał anty-SARS-CoV-2?",
+              text: "Czy miałeś/aś wykonane badanie na obecność przeciwciał anty-SARS-CoV-2?",
               onYes: { result: "AnotherQuestion" },
               onYesQuestion: {
                 type: "YesNo",
@@ -202,7 +209,7 @@ export function createTestState(): Test {
                   onYesQuestion: {
                     type: "YesNo",
                     text:
-                      "Czy minęło 28 dni od ustąpienia u Ciebie objawów COVID-19?",
+                      "Czy minęło 14 dni od ustąpienia u Ciebie objawów COVID-19?",
                     onYes: {
                       result: "Success",
                       additionalMessage:
@@ -211,7 +218,7 @@ export function createTestState(): Test {
                     onNo: {
                       result: "Warning",
                       additionalMessage:
-                        "Uprzejmie prosimy o ponowne wypełnienie ankiety  po 28 dniach od ustąpienia u Ciebie objawów COVID-19.",
+                        "Uprzejmie prosimy o ponowne wypełnienie ankiety po 14 dniach od ustąpienia u Ciebie objawów COVID-19.",
                     },
                   },
                   onNo: { result: "AnotherQuestion" },
@@ -227,7 +234,7 @@ export function createTestState(): Test {
                     onNo: {
                       result: "Error",
                       additionalMessage:
-                        "Uprzejmie prosimy o ponowne wypełnienie ankiety po 14 dniach od uzyskaina dodatniego wyniku testu na przeciwciała.",
+                        "Uprzejmie prosimy po 14 dniach od ustąpienia objawów o ponowne uzupełnienie ankiety lub o kontakt telefoniczny z RCKiK.",
                     },
                   },
                 },
@@ -242,14 +249,14 @@ export function createTestState(): Test {
                 onYesQuestion: {
                   type: "YesNo",
                   text:
-                    "Czy miałeś kontakt z osobą z potwierdzonym zakażaniem COVID-19?",
+                    "Czy miałeś/aś kontakt z osobą z potwierdzonym zakażaniem COVID-19?",
                   onYes: {
                     result: "AnotherQuestion",
                   },
                   onYesQuestion: {
                     type: "YesNo",
                     text:
-                      "Czy minęło 28 dni od ustąpienia u Ciebie objawów COVID-19?",
+                      "Czy minęło 14 dni od ustąpienia u Ciebie objawów COVID-19?",
                     onYes: {
                       result: "Success",
                       additionalMessage:
@@ -258,7 +265,7 @@ export function createTestState(): Test {
                     onNo: {
                       result: "Error",
                       additionalMessage:
-                        "Uprzejmie prosimy o ponowne wypełnienie ankiety  po 28 dniach od ustąpienia u Ciebie objawów COVID-19.",
+                        "Uprzejmie prosimy po 14 dniach od ustąpienia objawów o ponowne uzupełnienie ankiety lub o kontakt telefoniczny z RCKiK.",
                     },
                   },
                   onNo: { result: "Error" },
