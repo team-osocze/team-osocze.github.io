@@ -58,7 +58,7 @@ export function createTestState(): Test {
         {
           type: "YesNo",
           text:
-            "Czy chorujesz lub chorowałeś na choroby układu krążenia, dolegliwości ze strony serca: zawał serca, duszności lub udar mózgu?",
+            "Czy chorujesz lub chorowałeś/aś na choroby układu krążenia, dolegliwości ze strony serca: zawał serca, duszności lub udar mózgu?",
           onYes: { result: "Error" },
           onNo: { result: "Success" },
         },
