@@ -249,7 +249,7 @@ export function createTestState(): Test {
                 onYesQuestion: {
                   type: "YesNo",
                   text:
-                    "Czy miałeś/aś kontakt z osobą z potwierdzonym zakażaniem COVID-19?",
+                    "Czy miałeś/aś kontakt z osobą z potwierdzonym zakażeniem COVID-19?",
                   onYes: {
                     result: "AnotherQuestion",
                   },
