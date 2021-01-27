@@ -202,7 +202,7 @@ export function createTestState(): Test {
                     },
                     onNo: {
                       result: "Error",
-                      additionalMessage: "Uprzejmie prosimy po 14 dniach od ustąpienia objawów o ponowne uzupełnienie ankiety lub o kontakt telefoniczny z RCKiK.",
+                      additionalMessage: "Uprzejmie prosimy o ponowne wypełnienie ankiety po 14 dniach od ustąpienia objawów COVID-19.",
                     },
                   },
                 },
@@ -228,7 +228,7 @@ export function createTestState(): Test {
                     },
                     onNo: {
                       result: "Error",
-                      additionalMessage: "Uprzejmie prosimy o ponowne wypełnienie ankiety po 14 dniach od ustąpienia objawów.",
+                      additionalMessage: "Uprzejmie prosimy o ponowne wypełnienie ankiety po 14 dniach od ustąpienia objawów COVID-19.",
                     },
                   },
                   onNo: { result: "Error" },
