@@ -34,7 +34,7 @@ export default function ErrorResult({
       <Alert severity="error">
         <AlertTitle>Przykro nam.</AlertTitle>
         <Typography variant="body1" gutterBottom>
-        Dziękujemy za wypełnienie ankiety. Niestety, w tym momencie nie może Pan/Pani zostać dawcą osocza.         
+        Dziękujemy za wypełnienie ankiety. Niestety, w tym momencie nie możesz zostać dawcą osocza.         
         {resultWarningAndErrorMessages.map((m) => (
             <p>
               <strong>{m}</strong>
