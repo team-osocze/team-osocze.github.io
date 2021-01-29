@@ -73,7 +73,7 @@ export default function SuccessResult({
       <RCKiKCard />
       <p></p>
       <Typography variant="body1" gutterBottom>
-        <strong>Jeżeli do Krakowa masz za daleko,</strong> sprawdź jak oddać osocze w cenrum
+        <strong>Jeżeli do Krakowa masz za daleko,</strong> sprawdź jak oddać osocze w centrum
         krwiodawstwa bliżej Ciebie. Lista centrów krwiodawstwa jest dostępna na
         stronie:
       </Typography>

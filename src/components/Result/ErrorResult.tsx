@@ -23,17 +23,23 @@ const useStyles = makeStyles((theme: Theme) =>
 interface IErrorResultProps {
   resultWarningAndErrorMessages: string[];
 }
+
 export default function ErrorResult({
-  resultWarningAndErrorMessages: resultMessages,
+  resultWarningAndErrorMessages
 }: IErrorResultProps) {
   const classes = useStyles();
-  
+ 
   return (
     <div className={classes.successResult}>
       <Alert severity="error">
         <AlertTitle>Przykro nam.</AlertTitle>
         <Typography variant="body1" gutterBottom>
-        Dziękujemy za wypełnienie ankiety. W tym momencie nie może Pan/Pani zostać dawcą osocza.         
+        Dziękujemy za wypełnienie ankiety. Niestety, w tym momencie nie możesz zostać dawcą osocza.         
+        {resultWarningAndErrorMessages.map((m, i) => (
+            <p key={i}>
+              <strong>{m}</strong>
+            </p>
+          ))}
         </Typography>
       </Alert>
       <Typography variant="body1" gutterBottom>
