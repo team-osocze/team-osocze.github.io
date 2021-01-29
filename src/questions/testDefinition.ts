@@ -124,7 +124,7 @@ export function createTestState(): Test {
         },
         {
           type: "YesNo",
-          text: "Czy w ciągu ostatnich 6 miesięcy wykonano u Ciebie:  zabiegi kosmetyczne z  przerwaniem ciągłości skóry, makijaż permanentny, tatuaż, manicure lub pedicure, piercing?",
+          text: "Czy w ciągu ostatnich 6 miesięcy wykonano u Ciebie: zabiegi kosmetyczne z  przerwaniem ciągłości skóry, makijaż permanentny, tatuaż, manicure lub pedicure, piercing?",
           onYes: { result: "Error" },
           onNo: { result: "Success" },
         },
