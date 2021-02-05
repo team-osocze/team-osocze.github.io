@@ -59,7 +59,7 @@ export function LandingPage() {
                         na etapie wstępnych wywiadów, stworzyliśmy projekt osocze.info. W ciągu kilku minut dowiesz się, czy możesz być dawcą osocza, które wspomaga leczenie chorych na COVID-19.
                     </Typography>
                     <Typography component="article" variant="body2">
-                        Pytania w ankiecie odpowiadają tym, które zadałaby Ci przez telefon osoba z Centrum krwiodawstwa i krwiolecznictwa. Odpowiedzi nie są zbierane na tym etapie
+                        Pytania w ankiecie odpowiadają tym, które zadałaby Ci przez telefon osoba z RCKiK. Odpowiedzi nie są zbierane na tym etapie
                         i są całkowicie anonimowe. To narzędzie ma służyć wyłącznie sprawdzeniu czy nie ma przeciwskazań, abyś został dawcą osocza.
                     </Typography>
                 </section>

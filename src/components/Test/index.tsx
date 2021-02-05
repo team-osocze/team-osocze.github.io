@@ -169,7 +169,7 @@ const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRes
               onClick={onResult}
             >
               WYNIK
-            </Button>
+            </Button>            
           </div>
         </div>
       </div>
