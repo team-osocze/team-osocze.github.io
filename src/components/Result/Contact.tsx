@@ -56,9 +56,14 @@ export default function Contact() {
               alt="RCKiK w Krakowie logo"
             />
           </a>
-          <Typography variant="h6" className={classes.logoTitle}>
-            Regionalne Centrum Krwiodawstwa i Krwiolecznictwa w Krakowie
-          </Typography>
+          <p>
+            <Typography variant="body1" gutterBottom>
+            W przypadku pytań lub wątpliwości prosimy o kontakt z    
+            </Typography>         
+            <Typography variant="h6" className={classes.logoTitle}>
+            Regionalnym Centrum Krwiodawstwa i Krwiolecznictwa w Krakowie
+            </Typography>
+          </p>
         </section>
       </div>
       <CardContent className={classes.centerCardContent}>

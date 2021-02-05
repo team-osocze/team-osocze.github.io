@@ -4,7 +4,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import { Room, Email, Language } from "@material-ui/icons";
+import { Room, Email, Language, Phone } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,12 +41,18 @@ export default function ContactList() {
         </ListItemIcon>
         <ListItemText primary="ul. Rzeźnicza 11" secondary="31-540 Kraków" />
       </ListItem>
-      {/*<ListItem button component="a" href="tel:+48 661 926 116" className={classes.constactListElement}>         
+      <ListItem button component="a" href="tel:+48 663 560 300" className={classes.constactListElement}>         
       <ListItemIcon>
           <Phone />
         </ListItemIcon>  
-      <ListItemText primary="+48 661 926 116" secondary="w godz. 8:00-15:00" />
-      </ListItem> */}
+      <ListItemText primary="+48 663 560 300" secondary="w godz. 7:30-15:00" />
+      </ListItem>
+      <ListItem button component="a" href="tel:+48 661 926 116" className={classes.constactListElement}>         
+      <ListItemIcon>
+          <Phone />
+        </ListItemIcon>  
+      <ListItemText primary="+48 661 926 116" secondary="w godz. 7:30-15:00" />
+      </ListItem>
       <ListItem
         button
         component="a"
@@ -62,7 +68,7 @@ export default function ContactList() {
       <ListItem
         button
         component="a"
-        href="mailto:osocze@rckik.pl"
+        href="mailto:dzial.dawcow@rckik.krakow.pl"
         className={classes.constactListElement}
       >
         <ListItemIcon>

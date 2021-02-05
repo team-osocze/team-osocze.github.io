@@ -4,7 +4,7 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 import RCKiKCard from "./CenterCard";
 import Typography from "@material-ui/core/Typography";
 import { Language } from "@material-ui/icons";
-import Mailto from "./Mailto";
+import InfoBlock from "./InfoBlock";
 import Button from "@material-ui/core/Button";
 import CopyResult from "./CopyResult";
 
@@ -43,17 +43,19 @@ export default function SuccessResult({
 
   return (
     <div className={classes.successResult}>
-      <Alert severity="success" action={
-          <CopyResult
-            resultSuccessMessages={resultSuccessMessages}
-            resultWarningAndErrorMessages={resultWarningAndErrorMessages}
-          />
-        }>
+      <Alert severity="success"
+        // action={
+          // <CopyResult
+          //   resultSuccessMessages={resultSuccessMessages}
+          //   resultWarningAndErrorMessages={resultWarningAndErrorMessages}
+          // />}        
+          >
         <AlertTitle>Wspaniale!</AlertTitle>
         <p>
-          Możliwe, że Twoje osocze uratuje komuś życie! Prosimy o wysłanie maila
-          na adres dedykowany dla dawców w <strong>Krakowie: osocze@rckik.pl</strong>. Oddzwonimy najwcześniej jak
-          to tylko możliwe.
+          Możliwe, że Twoje osocze uratuje komuś życie!
+          <br /> Zapraszamy do oddania krwi pełnej, z której pozyskamy osocze do leczenia chorych na COVID-19 oraz krwinki czerwone do leczenia innych chorych potrzebujących transfuzji krwi.
+          <br /> <strong>Nie trzeba się umawiać!</strong>
+          <br /> Zapraszamy w dogodnym dla Ciebie terminie.        
         </p>
         {resultWarningAndErrorMessages.map((m) => (
           <p>
@@ -61,7 +63,8 @@ export default function SuccessResult({
           </p>
         ))}
       </Alert>
-      <Mailto
+      <InfoBlock></InfoBlock>
+      {/* <Mailto
         subject="WSPANIALE - Zgłoszenie z osocze-info, Kraków"
         resultWarningAndErrorMessages={resultWarningAndErrorMessages}
         resultSuccessMessages={resultSuccessMessages}
@@ -69,7 +72,7 @@ export default function SuccessResult({
       <Typography variant="body1" gutterBottom>
         Pamiętaj! Pracujemy na pełnych obrotach, odpowiedź może nam zająć trochę
         czasu. Bądź cierpliwy.
-      </Typography>
+      </Typography> */}
       <RCKiKCard />
       <p></p>
       <Typography variant="body1" gutterBottom>
