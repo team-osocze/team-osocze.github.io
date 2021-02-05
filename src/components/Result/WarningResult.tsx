@@ -27,7 +27,15 @@ export default function WarningResult({
   const classes = useStyles();
   return (
     <div className={classes.successResult}>
-      <Alert severity="warning">
+      <Alert
+        severity="warning"
+        // action={
+        //   <CopyResult
+        //     resultSuccessMessages={resultSuccessMessages}
+        //     resultWarningAndErrorMessages={resultWarningAndErrorMessages}
+        //   />
+        // }
+      >
         <AlertTitle>Może się udać.</AlertTitle>
         <Typography variant="body1" gutterBottom>
           <p>
@@ -40,7 +48,16 @@ export default function WarningResult({
             </p>
           ))}
         </Typography>
-      </Alert>     
+      </Alert>
+      {/* <Mailto
+        subject="Może się udać - Zgłoszenie z osocze-info, Kraków"
+        resultWarningAndErrorMessages={resultWarningAndErrorMessages}
+        resultSuccessMessages={resultSuccessMessages}
+      /> */}
+      {/* <Typography variant="body1" gutterBottom>
+        Pamiętaj! Pracujemy na pełnych obrotach, odpowiedź może nam zająć trochę
+        czasu. Bądź cierpliwy.
+      </Typography> */}
       <CenterCard />
       <Typography variant="body1" gutterBottom>
         <strong>Udostępnij</strong> link do tej strony jak największej liczbie

@@ -43,7 +43,13 @@ export default function SuccessResult({
 
   return (
     <div className={classes.successResult}>
-      <Alert severity="success">
+      <Alert severity="success"
+        // action={
+          // <CopyResult
+          //   resultSuccessMessages={resultSuccessMessages}
+          //   resultWarningAndErrorMessages={resultWarningAndErrorMessages}
+          // />}        
+          >
         <AlertTitle>Wspaniale!</AlertTitle>
         <p>
           Możliwe, że Twoje osocze uratuje komuś życie!
@@ -57,7 +63,16 @@ export default function SuccessResult({
           </p>
         ))}
       </Alert>
-      <InfoBlock></InfoBlock>     
+      <InfoBlock></InfoBlock>
+      {/* <Mailto
+        subject="WSPANIALE - Zgłoszenie z osocze-info, Kraków"
+        resultWarningAndErrorMessages={resultWarningAndErrorMessages}
+        resultSuccessMessages={resultSuccessMessages}
+      />
+      <Typography variant="body1" gutterBottom>
+        Pamiętaj! Pracujemy na pełnych obrotach, odpowiedź może nam zająć trochę
+        czasu. Bądź cierpliwy.
+      </Typography> */}
       <RCKiKCard />
       <p></p>
       <Typography variant="body1" gutterBottom>
