@@ -6,7 +6,6 @@ import Typography from "@material-ui/core/Typography";
 import { Language } from "@material-ui/icons";
 import InfoBlock from "./InfoBlock";
 import Button from "@material-ui/core/Button";
-import CopyResult from "./CopyResult";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

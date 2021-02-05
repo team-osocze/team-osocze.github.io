@@ -1,17 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    hrefLink: {
-      "text-decoration": "none",
-    },
-  })
-);
 
 export default function InfoBlock(){
-  const classes = useStyles();
 
    return (
     <>    

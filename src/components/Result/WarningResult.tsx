@@ -3,8 +3,6 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Alert, AlertTitle } from "@material-ui/lab";
 import CenterCard from "./CenterCard";
 import { Typography } from "@material-ui/core";
-import Mailto from "./Mailto";
-import CopyResult from "./CopyResult";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
