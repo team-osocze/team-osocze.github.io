@@ -70,8 +70,8 @@ export function LandingPage() {
                     <a href="https://rckik.krakow.pl" target="blank">
                         <img src={logo} className={classes.logoImg} alt="RCKiK w Krakowie logo" />
                     </a>
-                    <Typography variant="body2">
-                        Ankieta pod patronatem <strong>RCKiK</strong>. Dane są w pełni anonimowe, widzisz je tylko Ty na Swoim ekranie, nikt ich nie zbiera i nie przetwarza
+                    <Typography variant="body2" style={{ width: "100%" }}>
+                        Ankieta pod patronatem <strong>RCKiK</strong>.
                     </Typography>                                        
                 </section>              
             </div>
