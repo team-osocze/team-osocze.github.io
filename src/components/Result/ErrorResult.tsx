@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Alert, AlertTitle } from "@material-ui/lab";
 import { Typography } from "@material-ui/core";
 import { ShareActions } from "../shareActions";
+import {appInsights} from "../../AppInsights";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,7 +29,7 @@ export default function ErrorResult({
   resultWarningAndErrorMessages
 }: IErrorResultProps) {
   const classes = useStyles();
- 
+  appInsights.trackEvent({name: "ErrorResult"});
   return (
     <div className={classes.successResult}>
       <Alert severity="error">

@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import { Language } from "@material-ui/icons";
 import InfoBlock from "./InfoBlock";
 import Button from "@material-ui/core/Button";
+import {appInsights} from "../../AppInsights";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -39,7 +40,7 @@ export default function SuccessResult({
   resultSuccessMessages,
 }: ISuccessResultProps) {
   const classes = useStyles();
-
+  appInsights.trackEvent({name: "SuccessResult"});
   return (
     <div className={classes.successResult}>
       <Alert severity="success"

@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Alert, AlertTitle } from "@material-ui/lab";
 import CenterCard from "./CenterCard";
 import { Typography } from "@material-ui/core";
+import {appInsights} from "../../AppInsights";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,6 +24,7 @@ export default function WarningResult({
   resultSuccessMessages,
 }: IWarningResultProps) {
   const classes = useStyles();
+  appInsights.trackEvent({name: "WarningResult"});
   return (
     <div className={classes.successResult}>
       <Alert

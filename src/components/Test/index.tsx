@@ -18,6 +18,7 @@ import { Link, useHistory } from "react-router-dom";
 import ProgressBar from "../progressBar";
 import { useAppContext } from "../../appContext";
 import { questionError } from "../../questions/testLogic";
+import {appInsights} from "../../AppInsights";
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -103,7 +104,7 @@ const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRes
   function onResult() {
     setScroll((prev) => ({ ...prev, persistedPosition: 0 }));
   }
-
+  appInsights.trackEvent({name: "QuestionnaireStarted"});
   return (
     <>
       <div className={classes.content}>

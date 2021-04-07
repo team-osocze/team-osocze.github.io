@@ -2,6 +2,7 @@ import * as React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from "@material-ui/core";
 import logo from "../../medius.jpg";
+import {appInsights} from "../../AppInsights";
 
 const useStyles = makeStyles({
     header: {
@@ -41,7 +42,7 @@ const useStyles = makeStyles({
 
 export function CreatorsPage() {
     const classes = useStyles();
-
+    appInsights.trackEvent({name: "AuthorsEvent"});
     return (
         <>
             <div className={classes.content}>
