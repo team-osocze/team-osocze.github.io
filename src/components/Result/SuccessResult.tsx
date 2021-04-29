@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Alert, AlertTitle } from "@material-ui/lab";
 import RCKiKCard from "./CenterCard";
@@ -40,7 +40,9 @@ export default function SuccessResult({
   resultSuccessMessages,
 }: ISuccessResultProps) {
   const classes = useStyles();
-  appInsights.trackEvent({name: "SuccessResult"});
+  useEffect(() => {
+    appInsights.trackEvent({name: "SuccessResult"});
+  }, []);
   return (
     <div className={classes.successResult}>
       <Alert severity="success"

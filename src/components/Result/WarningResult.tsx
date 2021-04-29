@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Alert, AlertTitle } from "@material-ui/lab";
 import CenterCard from "./CenterCard";
@@ -24,7 +24,10 @@ export default function WarningResult({
   resultSuccessMessages,
 }: IWarningResultProps) {
   const classes = useStyles();
-  appInsights.trackEvent({name: "WarningResult"});
+  useEffect(() => {
+    appInsights.trackEvent({name: "WarningResult"});
+  }, []);
+  
   return (
     <div className={classes.successResult}>
       <Alert

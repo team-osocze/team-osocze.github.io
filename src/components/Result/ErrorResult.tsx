@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Alert, AlertTitle } from "@material-ui/lab";
 import { Typography } from "@material-ui/core";
@@ -29,7 +29,9 @@ export default function ErrorResult({
   resultWarningAndErrorMessages
 }: IErrorResultProps) {
   const classes = useStyles();
-  appInsights.trackEvent({name: "ErrorResult"});
+  useEffect(() => {
+    appInsights.trackEvent({name: "ErrorResult"});
+  }, []);
   return (
     <div className={classes.successResult}>
       <Alert severity="error">

@@ -1,6 +1,6 @@
 import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React from "react";
+import React, { useEffect } from "react";
 import ReplayIcon from "@material-ui/icons/Replay";
 import Alert from "@material-ui/lab/Alert";
 import Collapse from "@material-ui/core/Collapse";
@@ -104,7 +104,9 @@ const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRes
   function onResult() {
     setScroll((prev) => ({ ...prev, persistedPosition: 0 }));
   }
-  appInsights.trackEvent({name: "QuestionnaireStarted"});
+  useEffect(() => {
+    appInsights.trackEvent({name: "QuestionnaireStarted"});
+  }, []);
   return (
     <>
       <div className={classes.content}>
