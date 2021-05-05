@@ -141,7 +141,7 @@ const TestComponent: React.FC<TestComponentProps> = ({testState, onAnswer, onRes
             }
           >
             <Typography variant="body2">
-              Informacje nie są zbierane ani przekazywane. Tylko Ty je widzisz i
+              Odpowiedzi nie są zbierane ani przekazywane. Tylko Ty je widzisz i
               masz do nich dostęp.
             </Typography>
           </Alert>
