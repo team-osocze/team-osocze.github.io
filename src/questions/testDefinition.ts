@@ -161,7 +161,7 @@ export function createTestState(): Test {
             },
             onYesQuestion: {
               type: "YesNo",
-              text: "Czy minęło 14 dni od ustąpienia u Ciebie objawów COVID-19?",
+              text: "Czy minęło 14 dni od zakończenia izolacji?",
               onYes: {
                 result: "Success",
                 additionalMessage: "Zakażenie COVID-19 potwierdzone wymazem.",
